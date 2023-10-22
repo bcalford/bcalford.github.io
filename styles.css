@@ -9,7 +9,8 @@ text-align: center;
 .assign {
 display: flex;
 padding: 10px;
-margin: 10px; background: white;
+margin: 10px;
+background: white;
 }
 .assign img {
 width: 200px;
