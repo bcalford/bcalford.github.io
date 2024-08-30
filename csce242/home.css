@@ -1,0 +1,30 @@
+p, h1, h2 {
+    font-family: "Helvetica", sans-serif;
+}
+h1, h2, h3 {
+    color: #8697C4;
+}
+p {
+    color: #3D52A0;
+    font-size: 24px;
+}
+body {
+    background-color: #EDE8F5;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+    margin-left: -40px;
+}
+a:hover {
+    color: #3D52A0;
+    text-decoration: underline;
+}
+#assignments {
+    margin: auto;
+    text-align: center;
+}
