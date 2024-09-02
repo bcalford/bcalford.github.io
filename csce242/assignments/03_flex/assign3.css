@@ -1,0 +1,143 @@
+/* Structure */
+
+body, main, header, footer {
+    margin: 0;
+    padding: 0;
+}
+
+#main-header {
+    background-color: #FBE9D0;
+    padding-top: 10px;
+}
+
+#main-section {
+    background-color: #E64833;
+    padding: 10px 0;
+}
+
+.main-section-article {
+    padding: 5px;
+    margin: 5px;
+}
+
+.main-section-article img {
+    display: block;
+    margin: auto;
+}
+
+#links-aside {
+    background-color: #90AEAD;
+    padding: 10px 0;
+}
+
+#ideas-section {
+    background-color: #FBE9D0;
+    padding: 10px 0;
+}
+
+#ideas-section h1 {
+    padding-left: 10px;
+}
+
+.ideas-section-article {
+    padding-left: 10px;
+}
+
+#footer {
+    background-color: #FBE9D0;
+    padding: 10px 0;
+}
+
+/* Navigation */
+
+#main-header-nav {
+    padding: 5px;
+}
+
+#main-header-nav ul {
+    padding-left: 0;
+}
+
+#main-header-nav li {
+    list-style-type: none;
+    padding: 5px;
+    background-color: #90AEAD;
+    text-align: center;
+}
+
+#main-header-nav a {
+    text-decoration: none;
+    color: white;
+}
+
+#main-header-nav a:hover {
+    color: grey;
+}
+
+
+/* Typography */
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+#main-header h1 {
+    text-align: center;
+    color: #E64833;
+}
+
+.main-section-article h2 {
+    text-align: center;
+}
+
+.main-section-article p {
+    text-align: center;
+    font-size: 10px;
+}
+
+#links-aside h2 {
+    color: white;
+    margin-left: 10px;
+}
+
+#links-aside-list li {
+    list-style-type: none;
+    margin-left: -20px;
+}
+
+#links-aside-list a {
+    text-decoration: none;
+    color: white;
+}
+
+#links-aside-list a:hover {
+    color: grey;
+}
+
+#footer p {
+    text-align: center;
+}
+
+
+/* Larger Resolution */
+
+@media (min-width: 900px) {
+    #main-header-nav ul, #main-section, #main-content, .ideas-section-article {
+        display: flex; 
+        flex-wrap: wrap;
+    }
+
+    #main-header-nav li, .main-section-article, #links-aside, .ideas-section-article img {
+        flex: 1;
+    }
+
+    #main-section {
+        flex: 3;
+    }
+
+    .ideas-section-article-content {
+        flex: 5;
+        margin: 10px;
+    }
+
+}
