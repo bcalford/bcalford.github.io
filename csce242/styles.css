@@ -1,0 +1,84 @@
+/* Structure */
+
+body {
+    background-color: #AC8968;
+}
+
+#main-header {
+    margin: auto;
+    width: 80%;
+}
+
+#assignments-list {
+    margin: auto;
+    width: 80%;
+}
+
+.assignment {
+    padding: 10px;
+    margin: 5px;
+    background-color: #93785B;
+    border-radius: 10px;
+}
+
+.assignment img {
+    margin: auto;
+    display: block;
+}
+
+#footer {
+    margin: auto;
+    width: 80%;
+}
+
+
+/* Typography */
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    color: #FFFFFF;
+}
+
+#main-header {
+    text-align: center;
+}
+
+#assignment-section h2 {
+    text-align: center;
+}
+
+#assignment-section a {
+    text-decoration: none;
+}
+
+.assignment h3, .assignment p {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.assignment:hover {
+    text-decoration: underline;
+
+}
+
+#footer {
+    text-align: center;
+}
+
+
+
+/* Larger Resolution */
+
+@media (min-width: 900px) {
+
+    #assignments-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .assignment {
+        flex: 1;
+    }
+
+}
