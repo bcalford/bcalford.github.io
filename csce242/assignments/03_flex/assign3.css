@@ -15,12 +15,12 @@ body, main, header, footer {
     padding: 10px 0;
 }
 
-.main-section-article {
+.main-section-article, .ideas-section-article {
     padding: 5px;
     margin: 5px;
 }
 
-.main-section-article img {
+.main-section-article img, .ideas-section-article img {
     display: block;
     margin: auto;
 }
@@ -33,6 +33,11 @@ body, main, header, footer {
 #ideas-section {
     background-color: #FBE9D0;
     padding: 10px 0;
+}
+
+#ideas-section-width {
+    width: 80%;
+    margin: auto;
 }
 
 #ideas-section h1 {
@@ -86,11 +91,11 @@ body {
     color: #E64833;
 }
 
-.main-section-article h2 {
+.main-section-article h2, #ideas-section-title, .ideas-section-article h2 {
     text-align: center;
 }
 
-.main-section-article p {
+.main-section-article p, .ideas-section-article p {
     text-align: center;
     font-size: 10px;
 }
