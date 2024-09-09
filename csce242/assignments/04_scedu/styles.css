@@ -17,22 +17,33 @@ html {
     z-index: 1;
 }
 
+#gateways, #main-nav {
+    display: none;
+}
+
 #main-header img {
     height: 100%;
+}
+
+.header-button-1 {
+    width: 40px;
+    height: 40px;
+}
+
+.header-button-2 {
+    display: none;
 }
 
 #header-buttons {
     position: relative;
     float: right;
-    margin: 5px 20px 0 0;
+    margin: 5px 20px auto 0;
     right: 0;
 }
 
 #header-buttons img {
     background-color: var(--page-color-2);
     border: 1px var(--page-color-1) solid;
-    width: 40px;
-    height: 40px;
     margin: 0;
 }
 
@@ -46,7 +57,7 @@ html {
 
 #main-footer img {
     display: block;
-    width: 55%;
+    width: 350px;
     margin: auto;
 }
 
@@ -58,7 +69,7 @@ html {
 
 #socials-list img {
     margin: auto;
-    width: 35px;
+    width: 40px;
 }
 
 #main-footer h2 {
@@ -73,6 +84,12 @@ html {
     flex-direction: column;
     flex-wrap: wrap;
     margin-bottom: 50px;
+}
+
+.footer-list ul {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .footer-list a {
@@ -93,14 +110,6 @@ html {
     background-color: var(--page-color-5);
 }
 
-#colleges-list {
-    height: 300px;
-}
-
-#offices-list, #tools-list {
-    height: 200px;
-}
-
 #main-footer hr {
     width: 93%;
 }
@@ -116,6 +125,7 @@ html {
     font-size: 12px;
     width: 80%;
     margin: 12px auto 12px auto;
+    text-align: center;
 }
 
 #bottom-footer a {
@@ -289,7 +299,7 @@ body {
 #apply-section img {
     position: relative;
     display: block;
-    width: 68%;
+    width: 450px;
     margin: auto;
     top: -40px;
     overflow: visible;
@@ -418,3 +428,202 @@ body {
     font-size: 18px;
     font-family: "Berlingske Sans Extracondensed", "Impact", sans-serif;
 }
+
+/* Larger Resolutions */
+
+@media (min-width: 750px) {
+    
+    .colof2 {
+        flex: 1;
+    }
+
+    /* Explore Section */
+    
+    #explore-section {
+        display: flex;
+    }
+
+    #explore-section img {
+        width: 100%;
+        height: 100%;
+        padding-top: 0;
+        object-fit: cover;
+    }
+
+    #explore-content {
+        margin: 80px auto;
+    }
+
+    /* Paying Section */
+
+    .row {
+        display: flex;
+    }
+
+    .link {
+        flex: 1 1 0px;
+        margin: 20px;
+        width: 0;
+    }
+    
+    /* Apply Section */
+
+    #apply-section {
+        display: flex;
+    }
+
+    #apply-section img {
+        flex: 2;
+        top: 0;
+        margin: 30px auto 30px 15px;
+    }
+
+    #apply-content {
+        flex: 4;
+    }
+
+    /* Footer */
+
+    #footer-lists {
+        display: flex;
+        width: 98%;
+    }
+
+    .footer-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .footer-list li {
+        flex: 1;
+    }
+
+    #colleges-list {
+        flex: 3;
+    }
+
+    #offices-list {
+        flex: 2;
+    }
+
+    #tools-list {
+        flex: 1;
+    }
+
+    #footer-top {
+        display: flex;
+        margin: 20px 10px 40px 10px;
+    }
+
+
+}
+
+    @media (min-width: 950px) {
+
+        /* Header */
+
+        .header-button-1 {
+            display: none;
+        }
+
+        .header-button-2 {
+            display: block;
+            width: 250px;
+        }
+
+        #main-header {
+            height: 70px;
+        }
+
+        #header-buttons {
+            margin-top: 20px;
+        }
+
+        #gateways, #main-nav {
+            display: block;
+        }
+
+        #gateways {
+            position: absolute;
+            color: var(--page-color-1);
+            font-size: 8px;
+            right: 15px;
+        }
+
+        #main-nav {
+            width: 100%;
+            background-color: var(--page-color-3);
+            height: 50px;
+            margin-top: -20px;
+        }
+
+        #main-nav ul {
+            padding: 0;
+            white-space: nowrap;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #main-nav a {
+            display: inline-block;
+            text-decoration: none;
+            color: var(--page-color-1);
+            font-family: "Berlingske Sans Extracondensed", "Impact", sans-serif;
+            margin: auto;
+        }
+
+        #gateways a {
+            text-decoration: none;
+            color: var(--page-color-1);
+        }
+
+        #main-nav li {
+            list-style-type:none;
+            display: inline-block;
+            margin: 15px 3%;
+        }
+
+        #main-nav a:hover, #gateways a:hover {
+            background: var(--page-color-5);
+        }
+
+        /* Welcome Section */
+
+        #welcome-section h1 {
+            background-color: var(--page-color-3);
+            color: var(--page-color-1);
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 10px;
+        }
+
+        /* Paying Section */
+
+        #links-list {
+            display: flex;
+            width: 100%;
+            flex-wrap: nowrap;
+        }
+
+        .row {
+            display: flex;
+            flex: 1;
+        }
+
+        .link {
+            width: auto;
+            flex: 1;
+        }
+
+        /* Applying Section */
+
+        #apply-section img {
+            margin: 0 auto -20px 15px;
+            top: -20px;
+        }
+
+
+    }
