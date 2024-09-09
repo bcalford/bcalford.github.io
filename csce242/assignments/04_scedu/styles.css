@@ -1,0 +1,420 @@
+/* Variables */
+html {
+    --page-color-1: #FFFFFF;
+    --page-color-2: #000000;
+    --page-color-3: #73000A;
+    --page-color-4: #ECECEC;
+    --page-color-5: #FC475B;
+}
+
+/* Header */
+
+#main-header {
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    background-color: var(--page-color-2);
+    z-index: 1;
+}
+
+#main-header img {
+    height: 100%;
+}
+
+#header-buttons {
+    position: relative;
+    float: right;
+    margin: 5px 20px 0 0;
+    right: 0;
+}
+
+#header-buttons img {
+    background-color: var(--page-color-2);
+    border: 1px var(--page-color-1) solid;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+}
+
+/* Footer */
+
+#main-footer {
+    background-color: var(--page-color-3);
+    padding-top: 20px;
+    height: 100%;
+}
+
+#main-footer img {
+    display: block;
+    width: 55%;
+    margin: auto;
+}
+
+#socials-list {
+    display: flex;
+    margin: 10px auto auto auto;
+    justify-content: center;
+}
+
+#socials-list img {
+    margin: auto;
+    width: 35px;
+}
+
+#main-footer h2 {
+    color: var(--page-color-1);
+    font-family: "Berlingske Sans Extracondensed", "Impact", sans-serif;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.footer-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.footer-list a {
+    text-decoration: none;
+}
+
+.footer-list li {
+    display: inline;
+    list-style-type: none;
+    color: var(--page-color-1);
+    font-family: "Berlingske Sans Extracondensed", "Arial", sans-serif;
+    font-size: 12px;
+    margin-left: -20px;
+    flex: 1;
+}
+
+.footer-list li:hover {
+    background-color: var(--page-color-5);
+}
+
+#colleges-list {
+    height: 300px;
+}
+
+#offices-list, #tools-list {
+    height: 200px;
+}
+
+#main-footer hr {
+    width: 93%;
+}
+
+#bottom-footer {
+    border-top: 1px solid var(--page-color-1);
+    background-color: var(--page-color-2);
+    padding-bottom: 10px;
+}
+
+#bottom-footer p {
+    color: var(--page-color-1);
+    font-size: 12px;
+    width: 80%;
+    margin: 12px auto 12px auto;
+}
+
+#bottom-footer a {
+    text-decoration: none;
+    color: var(--page-color-1);
+}
+
+#bottom-footer a:hover {
+    background-color: var(--page-color-5);
+}
+
+/* Structure */
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#main-section {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#welcome-section {
+    padding-top: 50px;
+}
+
+#welcome-section img {
+    width: 100%;
+}
+
+#welcome-section h1, #welcome-section h2, #welcome-section p {
+    margin-left: 12px;
+    margin-right: 6px;
+}
+
+#welcome-section h2 {
+    margin-top: -20px;
+    margin-bottom: 30px;
+}
+
+#welcome-section p {
+    margin-bottom: 40px;
+}
+
+#explore-section {
+    position: relative;
+    background-color: var(--page-color-3);
+    width: 100%;
+    margin: 0;
+}
+
+#explore-section img {
+    display: block;
+    width: 95%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+#explore-section h2, #explore-section p {
+    width: 87%;
+    margin: 14px auto;
+}
+
+#explore-section p {
+    margin-bottom: 25px;
+    line-height: 30px;
+}
+
+#explore-section button {
+    background-color: var(--page-color-2);
+    border: 2px var(--page-color-1) solid;
+    margin: 0 auto 30px 40px;
+    padding: 15px;
+    width: 270px;
+}
+
+#explore-section button:hover {
+    background-color: var(--page-color-1);
+    border: 2px var(--page-color-3) solid;
+    color: var(--page-color-3);
+    cursor: pointer;
+}
+
+#tuition-section {
+    position: relative;
+    background-color: var(--page-color-4);
+    width: 100%;
+    margin: 0;
+    padding: 60px 0 60px 0;
+}
+
+#tuition-section h2 {
+    width: 80%;
+    margin: 0 auto 0 auto;
+}
+
+#tuition-section p {
+    margin: 20px auto 35px auto;
+    line-height: 30px;
+    width: 80%;
+}
+
+#tuition-section button {
+    position: relative;
+    background-color: var(--page-color-3);
+    border: 2px var(--page-color-3) solid;
+    margin: auto;
+    padding: 15px;
+    width: 190px;
+    left: 50%;
+    margin-left: -90px;
+}
+
+#tuition-section button:hover {
+    background-color: var(--page-color-1);
+    border: 2px var(--page-color-3) solid;
+    color: var(--page-color-3);
+    cursor: pointer;
+}
+
+#payment-section h2 {
+    margin: 100px auto 15px auto;
+}
+
+#payment-section-p {
+    margin: 0 auto 60px auto;
+    line-height: 30px;
+    width: 80%;
+}
+
+#links-list {
+    width: 95%;
+    margin: auto;
+}
+
+
+.link {
+    margin: auto auto 10px auto;
+    border: 2px transparent black;
+}
+
+.link:hover {
+    box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
+}
+
+.link img {
+    width: 100%;
+}
+
+.link h3 {
+    margin: 10px auto 10px 25px;
+}
+
+.link p {
+    margin: 0 auto 60px 25px;
+    padding-bottom: 40px;
+}
+
+.link:hover {
+    cursor: pointer;
+}
+
+#apply-section {
+    background-color: var(--page-color-2);
+    overflow: visible;
+}
+
+#apply-section img {
+    position: relative;
+    display: block;
+    width: 68%;
+    margin: auto;
+    top: -40px;
+    overflow: visible;
+}
+
+#apply-section h2 {
+    margin: 20px auto 15px auto;
+    width: 85%;
+}
+
+#apply-section p {
+    margin: 0 auto 30px auto;
+    line-height: 30px;
+    width: 85%;
+}
+
+#apply-section button {
+    position: relative;
+    background-color: var(--page-color-3);
+    border: 2px var(--page-color-1) solid;
+    margin: 0 auto 30px 40px;
+    padding: 15px;
+    width: 190px;
+    cursor: pointer;
+}
+
+#apply-section button:hover {
+    background-color: var(--page-color-1);
+    border: 2px var(--page-color-3) solid;
+    color: var(--page-color-3);
+}
+
+/* Typography */
+
+#welcome-section h1 {
+    color: var(--page-color-3);
+    font-family: "Berlingske Sans Extracondensed", "Impact", sans-serif;
+    font-size: 55px;
+    letter-spacing: 1.6px;
+}
+
+#welcome-section h2 {
+    font-family: "Berlingske Sans", "Arial", sans-serif;
+    font-size: 21px;
+    line-height: 30px;
+}
+
+#welcome-section p {
+    font-family: "Berlingske Sans", "Arial", sans-serif;
+    line-height: 25px;
+}
+
+#explore-section h2 {
+    font-family: 'Berlingske Sans', 'Arial', sans-serif;
+    color: var(--page-color-1);
+    font-size: 27px;
+}
+
+#explore-section p {
+    font-family: 'Berlingske Sans', 'Arial', sans-serif;
+    color: var(--page-color-1);
+}
+
+#explore-section button {
+    color: var(--page-color-1);
+    font-size: 18px;
+    font-family: "Berlingske Sans Extracondensed", "Impact", sans-serif;
+}
+
+#tuition-section h2 {
+    font-family: "Berlingske Sans Extracondensed", "Impact", sans-serif;
+    color: var(--page-color-3);
+    text-align: center;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+#tuition-section p {
+    font-family: 'Berlingske Sans', 'Arial', sans-serif;
+    text-align: center;
+}
+
+#tuition-section button {
+    color: var(--page-color-1);
+    font-size: 18px;
+    font-family: "Berlingske Sans Extracondensed", "Impact", sans-serif;
+}
+
+#payment-section h2 {
+    font-family: 'Berlingske Serif', 'Georgia', serif;
+    color: var(--page-color-3);
+    text-align: center;
+    font-size: 40px;
+    line-height: 60px;
+}
+
+#payment-section-p {
+    font-family: 'Berlingske Sans', 'Arial', sans-serif;
+    text-align: center;
+}
+
+.link h3 {
+    color: var(--page-color-3);
+    font-family: 'Berlingske Sans', 'Arial', sans-serif;
+}
+
+.link p {
+    font-family: 'Berlingske Sans', 'Arial', sans-serif;
+    line-height: 25px;
+}
+
+#apply-section h2 {
+    font-family: 'Berlingske Sans', 'Arial', sans-serif;
+    color: var(--page-color-1);
+    font-size: 27px;
+}
+
+#apply-section p {
+    font-family: 'Berlingske Sans', 'Arial', sans-serif;
+    color: var(--page-color-1);
+    line-height: 30px;
+}
+
+#apply-section button {
+    color: var(--page-color-1);
+    font-size: 18px;
+    font-family: "Berlingske Sans Extracondensed", "Impact", sans-serif;
+}
