@@ -6,22 +6,29 @@ body {
 
 #main-header {
     margin: auto;
+    margin-bottom: 40px;
     width: 80%;
 }
 
-#assignments-list {
+#main-header p {
+    width: 60%;
     margin: auto;
+}
+
+#assignments-list, #projects-list {
+    margin: auto;
+    margin-bottom: 60px;
     width: 80%;
 }
 
-.assignment {
+.assignment, .project {
     padding: 10px;
     margin: 5px;
     background-color: #93785B;
     border-radius: 10px;
 }
 
-.assignment img {
+.assignment img, .project img {
     margin: auto;
     display: block;
     width: 300px;
@@ -47,20 +54,20 @@ body {
     text-align: center;
 }
 
-#assignment-section h2 {
+#assignment-section h2, #project-section h2 {
     text-align: center;
 }
 
-#assignment-section a {
+#assignment-section a, #project-section a {
     text-decoration: none;
 }
 
-.assignment h3, .assignment p {
+.assignment h3, .assignment p, .project h3, .project p {
     text-align: center;
     color: #FFFFFF;
 }
 
-.assignment:hover {
+.assignment:hover, .project:hover {
     text-decoration: underline;
 
 }
@@ -75,13 +82,13 @@ body {
 
 @media (min-width: 900px) {
 
-    #assignments-list {
+    #assignments-list, #projects-list {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .assignment {
+    .assignment, .project {
         flex: 1;
     }
 
