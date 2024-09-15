@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Assignment 5</title>
+        <link rel="stylesheet" href="styles.css">
+        <script>
+            function countOne() {
+                let x = document.getElementById("count").innerHTML;
+                x++;
+                document.getElementById("count").innerHTML = x;
+            }
+            function moveSlider() {
+                let y = Number(document.getElementById("slider").value);
+                let change = y;
+                document.getElementById("slider-img").style.left = change+"%";
+            }
+        </script>
+    </head>
+    <body>
+        <h1 id="title">Assignment 5</h1>
+        <h2 id="subtitle">Introduction to JavaScript</h2>
+        <section id="columns">
+            <div id="count-column" class="column" onclick="countOne()">
+                <h2>Count</h2>
+                <h1 id="count">0</h1>
+            </div>
+            <div id="random-column" class="column">
+                <h2>Random Image</h2>
+                <img id="random-img" src="https://picsum.photos/300" onclick="location.reload()">
+            </div>
+            <div id="slider-column" class="column">
+                <h2>Slider Move</h2>
+                <input id="slider" oninput="moveSlider()" type="range" min="-20" max="20" value="0">
+                <img id="slider-img" src="https://place-hold.it/200/EAD7C3">
+            </div>
+        </section>
+        <p id="footer">&copy; bcalford 2024</p>
+    </body>
+</html>
