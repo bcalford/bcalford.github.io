@@ -1,19 +1,6 @@
-// Copyright bcalford
-#include <iostream>
-using std::cout;
-using std::cin;
+// Copyright bcalford 2024
+#include"program2functions.h"
 
-int main() {
-    int month1;
-    int month2;
-    int day1;
-    int day2;
-    int year1;
-    int year2;
-    char delim;
-    cin >> month1 >> delim >> day1 >> delim >> year1 >> month2 >> delim >> day2 >> delim >> year2;
-    cout << month1 << delim << day1 << delim << year1 << month2 << delim << day2 << delim << year2;
-}
 
 bool LeapYear(int year) {
     if(year%400 == 0) {
@@ -56,7 +43,7 @@ bool ValidDate(int month, int day, int year) {
     }
 }
 
-void NextDate(int month, int day, int year) {
+void NextDate(int& month, int& day, int& year) {
     if(!ValidDate(month, day, year)) {
         return;
     }
@@ -75,7 +62,7 @@ void NextDate(int month, int day, int year) {
     }
 }
 
-void PreviousDate(int month, int day, int year) {
+void PreviousDate(int& month, int& day, int& year) {
     if(!ValidDate(month, day, year)) {
         return;
     }
@@ -84,7 +71,7 @@ void PreviousDate(int month, int day, int year) {
         return;
     } else {
         month--;
-        LastDayOfMonth(month, year);
+        day = LastDayOfMonth(month, year);
     }
     if(ValidDate(month, day, year)) {
         return;
