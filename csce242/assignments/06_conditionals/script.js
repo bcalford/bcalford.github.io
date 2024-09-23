@@ -30,15 +30,13 @@ const moveSlider = () => {
 
 /* Chooser Section */
 
+let x = 0;
 const changeImg = () => {
-    $("button").on('click', function(x) {
-        let buttonClicked = x.target.value;
-      });
-    if(buttonClicked == 1) {
+    if(x == 1) {
         document.getElementById("chooser-img").src = "https://picsum.photos/50";
-    } else if(buttonClicked == 2) {
+    } else if(x == 2) {
         document.getElementById("chooser-img").src = "https://picsum.photos/150";
-    } else if(buttonClicked == 3) {
+    } else if(x == 3) {
         document.getElementById("chooser-img").src = "https://picsum.photos/300";
     } 
 }
@@ -50,6 +48,15 @@ window.onload = () => {
     document.getElementById("exercise1").onclick = clickExerciseOne;
     document.getElementById("exercise2").onclick = clickExerciseTwo;
     document.getElementById("slider").oninput = moveSlider;
+    document.getElementById("button1").addEventListener("click", function() {
+        x = 1;
+    });
+    document.getElementById("button2").addEventListener("click", function() {
+        x = 2;
+    });
+    document.getElementById("button3").addEventListener("click", function() {
+        x = 3;
+    });
     document.getElementById("button1").onclick = changeImg;
     document.getElementById("button2").onclick = changeImg;
     document.getElementById("button3").onclick = changeImg;
