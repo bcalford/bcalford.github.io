@@ -1,0 +1,72 @@
+/* Color Variables */
+
+
+
+/* Structure */
+
+#main-header {
+    margin: auto;
+    width: 400px;
+}
+
+#title-div {
+    margin: auto;
+    width: fit-content;
+    display: flex;
+}
+
+#title {
+    margin-left: 10px;
+}
+
+#main-section img {
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+#home-list {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.main-list-article h2 {
+    border-bottom: 1px solid black;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* I will use JavaScript to make these appear when clicked */
+.main-list-article p {
+    border-bottom: 1px solid black;
+    padding: 10px;
+    padding-top: 0;
+    padding-bottom: 15px;
+    text-align: center;
+    display: none;
+}
+
+/* Typography */
+
+body {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+#title {
+    font-size: 30px;
+}
+
+#nav-list a {
+    text-decoration: none;
+}
+
+#nav-list li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 5px 10px;
+}
