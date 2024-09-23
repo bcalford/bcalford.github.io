@@ -31,13 +31,16 @@ const moveSlider = () => {
 /* Chooser Section */
 
 const changeImg = () => {
-    if(document.getElementById("button1").onclick) {
+    $("button").on('click', function(x) {
+        let buttonClicked = x.target.value;
+      });
+    if(buttonClicked == 1) {
         document.getElementById("chooser-img").src = "https://picsum.photos/50";
-    } else if(document.getElementById("button2").onclick) {
+    } else if(buttonClicked == 2) {
         document.getElementById("chooser-img").src = "https://picsum.photos/150";
-    } else if(document.getElementById("button3").onclick) {
+    } else if(buttonClicked == 3) {
         document.getElementById("chooser-img").src = "https://picsum.photos/300";
-    }
+    } 
 }
 
 /* OnClicks */
