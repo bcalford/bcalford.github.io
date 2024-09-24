@@ -1,0 +1,38 @@
+/* Color Variables */
+
+/* Structure */
+
+#notice {
+    text-align: center;
+    width: 70%;
+    margin: auto;
+}
+
+#plans-form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+    column-gap: 20px;
+}
+
+.question {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    flex: 1
+}
+
+
+input, select {
+    height: 15px;
+    width: 150px;
+}
+
+textarea {
+    height: 150px;
+    width: 150px;
+}
