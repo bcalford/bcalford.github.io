@@ -1,0 +1,62 @@
+/* Color Variables */
+
+
+/* Structure */
+
+#main-section img {
+    display: block;
+    width: 80%;
+    margin: auto;
+}
+
+#home-list {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+}
+
+.main-list-article h2 {
+    border-bottom: 1px solid black;
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* I will use JavaScript to make these appear when clicked */
+.main-list-article p {
+    border-bottom: 1px solid black;
+    padding: 10px;
+    padding-top: 0;
+    padding-bottom: 15px;
+    text-align: center;
+    display: none;
+}
+
+#article1 p {
+    display: block;
+}
+
+/* Larger Resolutions */
+
+@media (min-width: 750px) {
+    #main-section {
+        display: flex;
+        width: 90%;
+        margin: auto;
+        max-width: 1050px;
+        gap: 40px;
+    }
+
+    #main-section img {
+        flex: 4;
+        max-height: 450px;
+        max-width: 450px;
+    }
+
+    #home-list {
+        flex: 3;
+        min-height: 450px;
+    }
+}

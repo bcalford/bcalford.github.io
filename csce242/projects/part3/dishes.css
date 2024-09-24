@@ -1,0 +1,71 @@
+/* Color Variables */
+
+/* Sidebar */
+
+#disclaimer {
+    text-align: center;
+}
+
+#meals-sidebar {
+    width: 500px;
+    margin: auto;
+}
+
+#meals-quicklinks {
+    width: 500px;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+#meals-quicklinks a {
+    text-decoration: none;
+}
+
+#meals-quicklinks li {
+    flex: 1;
+}
+
+#meals-quicklinks-div h2 {
+    text-align: center;
+}
+
+#plans-button {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/* Meals */
+
+#meals-list {
+    width: 500px;
+    margin: auto;
+}
+
+.dish {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-radius: 5%;
+    margin-bottom: 20px;
+}
+
+.dish:last-of-type {
+    margin-bottom: 0;
+}
+
+.dish h2 {
+    text-align: center;
+}
+
+.dish-content img {
+    display: block;
+    margin: auto;
+}
+
+.dish-content p {
+    text-align: center;
+    padding: 10px;
+}
