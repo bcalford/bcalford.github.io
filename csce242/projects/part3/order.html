@@ -17,8 +17,8 @@
                     <a href="index.html"><li>Home</li></a>
                     <a href="dishes.html"><li>Dishes</li></a>
                     <a href="plans.html"><li>Plans</li></a>
-                    <a href="order.html"><li>Order</li></a>
-                    <a href="#"><li>Gallery</li></a>
+                    <a href="order.html"><li id="order-link">Order</li></a>
+                    <a href="about.html"><li>About</li></a>
                 </ul>
             </nav>
         </header>
@@ -27,22 +27,23 @@
             <form id="plans-form">
                 <div class="question">
                     <label for="name">Name:</label>
-                    <input id="name" name="name" type="text">
+                    <input id="name" name="name" type="text" placeholder="Firstname Lastname">
                 </div>
                 <div class="question">
                     <label for="phone">Phone:</label>
-                    <input id="phone" name="phone" type="text">
+                    <input id="phone" name="phone" type="text" placeholder="(XXX) XXX-XXXX">
                 </div>
                 <div class="question">
                     <label for="email">Email:</label>
-                    <input id="email" name="email" type="email">
+                    <input id="email" name="email" type="email" placeholder="firstlast@company.com">
                 </div>
                 <div class="question">
                     <label for="plan">Plan:</label>
                     <select id="plan" name="plan">
-                        <option value="basic">Basic</option>
-                        <option value="plus">Plus</option>
-                        <option value="premium">Premium</option>
+                        <option value="0"></option>
+                        <option value="1">Basic</option>
+                        <option value="2">Plus</option>
+                        <option value="3">Premium</option>
                     </select>
                 </div>
                 <div class="question">
@@ -53,7 +54,9 @@
                     <label for="referral">How Did You Hear About Us?:</label>
                     <textarea id="referral" name="referall"></textarea>
                 </div>
-                <button type="submit">Submit</button>
+                <div id="submit">
+                    <button type="submit">Submit</button>
+                </div>
             </form>
         </main>
     </body>

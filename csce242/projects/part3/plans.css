@@ -2,6 +2,10 @@
 
 /* Plan Options */
 
+#plans-link {
+    text-decoration: underline;
+}
+
 .plan {
     border: 1px solid black;
     border-radius: 5%;

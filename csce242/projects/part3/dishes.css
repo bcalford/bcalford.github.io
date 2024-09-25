@@ -2,6 +2,10 @@
 
 /* Sidebar */
 
+#dishes-link {
+    text-decoration: underline;
+}
+
 #disclaimer {
     text-align: center;
 }

@@ -3,6 +3,10 @@
 
 /* Structure */
 
+#home-link {
+    text-decoration: underline;
+}
+
 #main-section {
     margin-top: 40px;
 }
