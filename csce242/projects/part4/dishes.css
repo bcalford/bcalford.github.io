@@ -1,0 +1,129 @@
+/* Sidebar */
+
+#disclaimer {
+    text-align: center;
+}
+
+#meals-sidebar {
+    width: 500px;
+    margin: auto;
+}
+
+#meals-quicklinks {
+    width: 500px;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    padding-left: 0;
+    gap: 10px;
+}
+
+#meals-quicklinks a {
+    text-decoration: none;
+}
+
+#meals-quicklinks li {
+    flex: 1;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5%;
+}
+
+#meals-quicklinks-div h2 {
+    text-align: center;
+    display: none;
+}
+
+#plans-button {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Meals */
+
+#meals-list {
+    width: 500px;
+    margin: auto;
+}
+
+.dish {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-radius: 5%;
+    margin-bottom: 20px;
+}
+
+.dish:last-of-type {
+    margin-bottom: 0;
+}
+
+.dish h2 {
+    text-align: center;
+}
+
+.dish-content img {
+    display: block;
+    margin: auto;
+}
+
+.dish-content p {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Larger Resolutions */
+
+@media (min-width: 900px) {
+    #meals-quicklinks-div h2 {
+        display: block;
+    }
+
+    #dishes-content {
+        flex-direction: row-reverse;
+        margin: auto 25px;
+        gap: 20px;
+    }
+
+    #meals-sidebar {
+        width: auto;
+        position: fixed;
+        right: 33px;
+    }
+
+    #meals-list {
+        flex: 1;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #meals-quicklinks {
+        width: auto;
+    }
+
+    #meals-quicklinks-div {
+        border: 1px solid black;
+        border-radius: 10%;
+        padding: 15px 30px;
+    }
+
+    .dish {
+        max-width: 500px;
+    }
+
+    .dish-content img {
+        max-width: 90%;
+    }
+
+    #meals-quicklinks {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #meals-quicklinks li {
+        max-width: 50px;
+    }
+}
