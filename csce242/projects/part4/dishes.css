@@ -26,9 +26,20 @@
 
 #meals-quicklinks li {
     flex: 1;
-    border: 1px solid black;
-    padding: 10px;
+    background-color: var(--color-1);
+    border: 2px solid var(--color-2);
     border-radius: 5%;
+    font-size: 16px;
+    padding: 10px;
+    font-family: "Berkshire Swash";
+    color: var(--color-3);
+    text-shadow: 2px 2px var(--color-2);
+}
+
+#meals-quicklinks li:hover {
+    text-decoration: underline;
+    background-color: var(--color-4);
+    cursor: pointer;
 }
 
 #meals-quicklinks-div h2 {
