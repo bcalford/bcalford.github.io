@@ -26,6 +26,7 @@ body {
     margin: 5px;
     background-color: #93785B;
     border-radius: 10px;
+    width: 400px;
 }
 
 .assignment img, .project img {
@@ -65,6 +66,7 @@ body {
 .assignment h3, .assignment p, .project h3, .project p {
     text-align: center;
     color: #FFFFFF;
+    width: 100%;
 }
 
 .assignment:hover, .project:hover {
