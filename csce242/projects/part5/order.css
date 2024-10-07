@@ -1,5 +1,9 @@
 /* Structure */
 
+#plans-section {
+    margin-bottom: 30px;
+}
+
 #notice {
     text-align: center;
     width: 500px;
