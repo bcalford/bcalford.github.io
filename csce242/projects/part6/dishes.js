@@ -30,7 +30,7 @@ const showDishes = async() => {
         article.append(innerDiv);
 
         const image = document.createElement("img");
-        image.src = dish.image1;
+        image.src = "./images/" + dish.image1;
         innerDiv.append(image);
 
         const p1 = document.createElement("p");
@@ -38,7 +38,7 @@ const showDishes = async() => {
         innerDiv.append(p1);
 
         const p2 = document.createElement("p");
-        p1.innerHTML = dish.description2;
+        p2.innerHTML = dish.description2;
         innerDiv.append(p2);
     });
 }
