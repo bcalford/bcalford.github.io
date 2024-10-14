@@ -1,0 +1,65 @@
+/* Plan Options */
+
+#plans-section {
+    margin: 30px auto;
+}
+
+.plan {
+    border: 2px solid var(--color-2);
+    border-radius: 5%;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 500px;
+    height: 625px;
+}
+
+.plan h2 {
+    text-decoration: underline;
+    font-family: "Berkshire Swash";
+    color: var(--color-2);
+}
+
+.plan h3 {
+    color: var(--color-2);
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.plan h3:last-of-type {
+    margin-bottom: 20px;
+}
+
+.plan p {
+    width: 90%;
+    margin: auto auto 10px auto;
+}
+
+
+/* Buttons */
+
+#plans-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+#plans-buttons button {
+    flex: 1;
+    max-width: 100px;
+}
+
+/* Larger Resolutions */
+
+@media (min-width: 900px) {
+    #plan-options {
+        display: flex;
+        max-width: 80%;
+        margin: auto;
+        gap: 20px;
+    }
+
+    .plan {
+        flex: 1;
+    }
+}
