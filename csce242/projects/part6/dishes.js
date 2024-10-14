@@ -15,11 +15,11 @@ const showDishes = async() => {
         document.getElementById("meals-list").append(article);
 
         const link = document.createElement("a");
-        link.href = dishes.link;
+        link.href = dish.link;
         article.append(link);
 
         const title = document.createElement("h2");
-        title.innerHTML = dishes.name;
+        title.innerHTML = dish.name;
         link.append(title);
 
         const line = document.createElement("hr");
@@ -30,15 +30,15 @@ const showDishes = async() => {
         article.append(innerDiv);
 
         const image = document.createElement("img");
-        image.src = dishes.image1;
+        image.src = dish.image1;
         innerDiv.append(image);
 
         const p1 = document.createElement("p");
-        p1.innerHTML = dishes.description1;
+        p1.innerHTML = dish.description1;
         innerDiv.append(p1);
 
         const p2 = document.createElement("p");
-        p1.innerHTML = dishes.description2;
+        p1.innerHTML = dish.description2;
         innerDiv.append(p2);
     });
 }
