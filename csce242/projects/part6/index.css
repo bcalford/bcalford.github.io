@@ -75,7 +75,7 @@
 
 /* Larger Resolutions */
 
-@media (min-width: 750px) {
+@media (min-width: 900px) {
     #main-section {
         display: flex;
         width: 90%;

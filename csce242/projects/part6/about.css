@@ -14,7 +14,7 @@ body {
 
 #who-section {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 }
 
 #who-img-1 {
@@ -44,7 +44,7 @@ body {
 
 #why-section {
     width: 100%;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     height: 100%;
 }
 
@@ -85,7 +85,7 @@ body {
         display: flex;
         width: 90%;
         margin: auto;
-        margin-bottom: 100px;
+        margin-bottom: 25px;
         height:fit-content;
     }
 
