@@ -78,6 +78,13 @@ body {
     text-align: center;
 }
 
+.link-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
 
 
 /* Larger Resolution */
