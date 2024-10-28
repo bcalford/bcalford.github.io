@@ -1,0 +1,104 @@
+/* Structure */
+
+#main-section {
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 20px;
+}
+
+#main-section img {
+    display: block;
+    width: 100%;
+    margin: auto;
+
+}
+
+#button-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#home-list {
+    border: 2px solid var(--color-2);
+    border-collapse: collapse;
+    border-radius: 5%;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.main-list-article h2 {
+    border-bottom: 1px solid var(--color-2);
+    margin: 0;
+    text-align: center;
+    padding: 10px;
+    font-family: "Berkshire Swash";
+    background-color: var(--color-1);
+    color: var(--color-3);
+    text-shadow: 2px 2px var(--color-2);
+}
+
+.main-list-article h2:hover {
+    background-color: var(--color-4);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.main-list-article:last-of-type h2 {
+    border-bottom: none;
+}
+
+.main-list-article p {
+    border-bottom: 1px solid var(--color-2);
+    padding: 10px;
+    text-align: center;
+    display: none;
+    margin: 0 auto;
+}
+
+.main-list-article a {
+    color: var(--color-2);
+    text-decoration: none;
+}
+
+.main-list-article a:hover {
+    color: var(--color-1);
+    text-decoration: underline;
+}
+
+#article1 p {
+    display: block;
+}
+
+/* Larger Resolutions */
+
+@media (min-width: 900px) {
+    #main-section {
+        display: flex;
+        width: 90%;
+        margin: auto;
+        margin-top: 40px;
+        max-width: 1050px;
+        gap: 40px;
+    }
+
+    #img-list {
+        flex: 4;
+        max-height: 450px;
+        max-width: 450px;
+    }
+
+    #img-list img {
+        border: 2px solid var(--color-2);
+        border-radius: 5%;
+        overflow: hidden;
+    }
+
+    #home-list {
+        flex: 3;
+        margin-top: 0;
+    }
+}

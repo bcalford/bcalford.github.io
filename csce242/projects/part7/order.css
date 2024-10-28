@@ -1,0 +1,44 @@
+/* Structure */
+
+#plans-section {
+    margin-bottom: 30px;
+}
+
+#notice {
+    text-align: center;
+    width: 500px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#plans-form {
+    width: 400px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    text-align: right;
+    width: 100px;
+}
+
+input[type=text], input[type=email] {
+    border: 1px solid black;
+    border-radius: 3%;
+    padding: 4px 8px;
+    width: 200px;
+}
+
+#submit {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+
+}

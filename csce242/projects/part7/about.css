@@ -1,0 +1,129 @@
+/* Structure */
+
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#about-section {
+    margin-top: 30px;
+    height: 100%;
+}
+
+/* Who Section */
+
+#who-section {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+#who-img-1 {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    margin: auto;
+    border: 2px solid var(--color-2);
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+#who-section h1 {
+    margin-left: 20px;
+    color: var(--color-2);
+    font-family: "Berkshire Swash";
+}
+
+#who-section p {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+
+/* Why Section */
+
+#why-section {
+    width: 100%;
+    margin-bottom: 50px;
+    height: 100%;
+}
+
+.img-div {
+    height: 100%;
+    margin-top: 50px;
+}
+
+#why-img-1 {
+    display: block;
+    width: 600px;
+    max-width: 100%;
+    margin: auto;
+    border: 2px solid var(--color-2);
+    border-radius: 5%;
+    overflow: hidden;
+}
+
+#why-section h1 {
+    margin-right: 20px;
+    text-align: right;
+    color: var(--color-2);
+    font-family: "Berkshire Swash";
+}
+
+#why-section p {
+    width: 95%;
+    margin: auto;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+/* Larger Resolutions */
+
+@media (min-width: 900px) {
+
+    #about-section section {
+        display: flex;
+        width: 90%;
+        margin: auto;
+        margin-bottom: 25px;
+        height:fit-content;
+    }
+
+    .img-div, .content-div {
+        width: 48%;
+        height: 100%;
+    }
+
+
+
+    /* Who Section */
+
+    #who-section h1 {
+        width: 300px;
+        margin: 30px auto 20px auto;
+    }
+
+    #who-section p {
+        width: 320px;
+    }
+
+    #who-img-1, #why-img-1 {
+        width: 500px;
+    }
+
+    /* Why Section */
+
+    #why-section {
+        flex-direction: row-reverse;
+    }
+
+    #why-section h1 {
+        width: 300px;
+        margin: 30px auto 20px auto;
+    }
+
+    #why-section p {
+        width: 320px;
+    }
+
+}
