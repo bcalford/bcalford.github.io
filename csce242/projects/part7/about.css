@@ -77,6 +77,43 @@ body {
     margin-bottom: 10px;
 }
 
+/* iFrame Section */
+
+#iframe-section {
+    flex-direction: column;
+}
+
+#iframe-section h1 {
+    margin-right: 20px;
+    text-align: right;
+    color: var(--color-2);
+    font-family: "Berkshire Swash";
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Contact Section */
+
+#form-section {
+    flex-direction: column;
+    text-align: center;
+}
+
+#form-section h1 {
+    margin-right: 20px;
+    text-align: right;
+    color: var(--color-2);
+    font-family: "Berkshire Swash";
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+#contact-form {
+    display: inline-block
+}
+
 /* Larger Resolutions */
 
 @media (min-width: 900px) {
@@ -125,5 +162,6 @@ body {
     #why-section p {
         width: 320px;
     }
+
 
 }
