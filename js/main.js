@@ -1,291 +1,317 @@
-/** 
- * ===================================================================
- * main js
+/* ===================================================================
+ * Ceevee 2.0.0 - Main JS
  *
- * ------------------------------------------------------------------- 
- */ 
+ * ------------------------------------------------------------------- */
 
-(function($) {
+(function(html) {
 
-	"use strict";
-
-	/*---------------------------------------------------- */
-	/* Preloader
-	------------------------------------------------------ */ 
-   $(window).load(function() {
-
-      // will first fade out the loading animation 
-    	$("#loader").fadeOut("slow", function(){
-
-        // will fade out the whole DIV that covers the website.
-        $("#preloader").delay(300).fadeOut("slow");
-
-      });       
-
-  	})
+    "use strict";
+    
+    html.className = html.className.replace(/\bno-js\b/g, '') + ' js ';
 
 
-  	/*---------------------------------------------------- */
-  	/* FitText Settings
-  	------------------------------------------------------ */
-  	setTimeout(function() {
+   /* Preloader
+    * -------------------------------------------------- */
+    const ssPreloader = function() {
 
-   	$('#intro h1').fitText(1, { minFontSize: '42px', maxFontSize: '84px' });
+        const preloader = document.querySelector('#preloader');
+        if (!preloader) return;
 
-  	}, 100);
+        window.addEventListener('load', function() {
+            
+            document.querySelector('body').classList.remove('ss-preload');
+            document.querySelector('body').classList.add('ss-loaded');
 
+            preloader.addEventListener('transitionend', function(e) {
+                if (e.target.matches("#preloader")) {
+                    this.style.display = 'none';
+                }
+            });
 
-	/*---------------------------------------------------- */
-	/* FitVids
-	------------------------------------------------------ */ 
-  	$(".fluid-video-wrapper").fitVids();
+        });
 
+        // force page scroll position to top at page refresh
+        // window.addEventListener('beforeunload' , function () {
+        //     window.scrollTo(0, 0);
+        // });
 
-	/*---------------------------------------------------- */
-	/* Owl Carousel
-	------------------------------------------------------ */ 
-	$("#owl-slider").owlCarousel({
-        navigation: false,
-        pagination: true,
-        itemsCustom : [
-	        [0, 1],
-	        [700, 2],
-	        [960, 3]
-	     ],
-        navigationText: false
-    });
+    }; // end ssPreloader
 
 
-	/*----------------------------------------------------- */
-	/* Alert Boxes
-  	------------------------------------------------------- */
-	$('.alert-box').on('click', '.close', function() {
-	  $(this).parent().fadeOut(500);
-	});	
+   /* Parallax
+    * -------------------------------------------------- */
+    const ssParallax = function() { 
+
+        const rellax = new Rellax('.rellax');
+
+    }; // end ssParallax
 
 
-	/*----------------------------------------------------- */
-	/* Stat Counter
-  	------------------------------------------------------- */
-   var statSection = $("#stats"),
-       stats = $(".stat-count");
+   /* Move header menu
+    * -------------------------------------------------- */
+    const ssMoveHeader = function () {
 
-   statSection.waypoint({
+        const hdr = document.querySelector('.s-header');
+        const hero = document.querySelector('#hero');
+        let triggerHeight;
 
-   	handler: function(direction) {
+        if (!(hdr && hero)) return;
 
-      	if (direction === "down") {       		
+        setTimeout(function(){
+            triggerHeight = hero.offsetHeight - 170;
+        }, 300);
 
-			   stats.each(function () {
-				   var $this = $(this);
+        window.addEventListener('scroll', function () {
 
-				   $({ Counter: 0 }).animate({ Counter: $this.text() }, {
-				   	duration: 4000,
-				   	easing: 'swing',
-				   	step: function (curValue) {
-				      	$this.text(Math.ceil(curValue));
-				    	}
-				  	});
-				});
+            let loc = window.scrollY;
+           
 
-       	} 
+            if (loc > triggerHeight) {
+                hdr.classList.add('sticky');
+            } else {
+                hdr.classList.remove('sticky');
+            }
 
-       	// trigger once only
-       	this.destroy();      	
+            if (loc > triggerHeight + 20) {
+                hdr.classList.add('offset');
+            } else {
+                hdr.classList.remove('offset');
+            }
 
-		},
-			
-		offset: "90%"
-	
-	});	
+            if (loc > triggerHeight + 150) {
+                hdr.classList.add('scrolling');
+            } else {
+                hdr.classList.remove('scrolling');
+            }
 
+        });
 
-	/*---------------------------------------------------- */
-	/*	Masonry
-	------------------------------------------------------ */
-	var containerProjects = $('#folio-wrapper');
-
-	containerProjects.imagesLoaded( function() {
-
-		containerProjects.masonry( {		  
-		  	itemSelector: '.folio-item',
-		  	resize: true 
-		});
-
-	});
+    }; // end ssMoveHeader
 
 
-	/*----------------------------------------------------*/
-	/*	Modal Popup
-	------------------------------------------------------*/
-   $('.item-wrap a').magnificPopup({
+   /* Mobile Menu
+    * ---------------------------------------------------- */ 
+    const ssMobileMenu = function() {
 
-      type:'inline',
-      fixedContentPos: false,
-      removalDelay: 300,
-      showCloseBtn: false,
-      mainClass: 'mfp-fade'
+        const toggleButton = document.querySelector('.s-header__menu-toggle');
+        const headerNavWrap = document.querySelector('.s-header__nav-wrap');
+        const siteBody = document.querySelector("body");
 
-   });
+        if (!(toggleButton && headerNavWrap)) return;
 
-   $(document).on('click', '.popup-modal-dismiss', function (e) {
-   	e.preventDefault();
-   	$.magnificPopup.close();
-   });
+        toggleButton.addEventListener('click', function(event){
+            event.preventDefault();
+            toggleButton.classList.toggle('is-clicked');
+            siteBody.classList.toggle('menu-is-open');
+        });
 
-	
-	/*-----------------------------------------------------*/
-  	/* Navigation Menu
-   ------------------------------------------------------ */  
-   var toggleButton = $('.menu-toggle'),
-       nav = $('.main-navigation');
+        headerNavWrap.querySelectorAll('.s-header__nav a').forEach(function(link) {
+            link.addEventListener("click", function(evt) {
 
-   // toggle button
-   toggleButton.on('click', function(e) {
+                // at 800px and below
+                if (window.matchMedia('(max-width: 800px)').matches) {
+                    toggleButton.classList.toggle('is-clicked');
+                    siteBody.classList.toggle('menu-is-open');
+                }
+            });
+        });
 
-		e.preventDefault();
-		toggleButton.toggleClass('is-clicked');
-		nav.slideToggle();
+        window.addEventListener('resize', function() {
 
-	});
+            // above 800px
+            if (window.matchMedia('(min-width: 801px)').matches) {
+                if (siteBody.classList.contains('menu-is-open')) siteBody.classList.remove('menu-is-open');
+                if (toggleButton.classList.contains("is-clicked")) toggleButton.classList.remove("is-clicked");
+            }
+        });
 
-   // nav items
-  	nav.find('li a').on("click", function() {   
-
-   	// update the toggle button 		
-   	toggleButton.toggleClass('is-clicked'); 
-   	// fadeout the navigation panel
-   	nav.fadeOut();   		
-   	     
-  	});
+    }; // end ssMobileMenu
 
 
-   /*---------------------------------------------------- */
-  	/* Highlight the current section in the navigation bar
-  	------------------------------------------------------ */
-	var sections = $("section"),
-	navigation_links = $("#main-nav-wrap li a");	
+   /* Highlight active menu link on pagescroll
+    * ------------------------------------------------------ */
+    const ssScrollSpy = function() {
 
-	sections.waypoint( {
+        const sections = document.querySelectorAll(".target-section");
 
-       handler: function(direction) {
+        // Add an event listener listening for scroll
+        window.addEventListener("scroll", navHighlight);
 
-		   var active_section;
+        function navHighlight() {
+        
+            // Get current scroll position
+            let scrollY = window.pageYOffset;
+        
+            // Loop through sections to get height(including padding and border), 
+            // top and ID values for each
+            sections.forEach(function(current) {
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 50;
+                const sectionId = current.getAttribute("id");
+            
+               /* If our current scroll position enters the space where current section 
+                * on screen is, add .current class to parent element(li) of the thecorresponding 
+                * navigation link, else remove it. To know which link is active, we use 
+                * sectionId variable we are getting while looping through sections as 
+                * an selector
+                */
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    document.querySelector(".s-header__nav a[href*=" + sectionId + "]").parentNode.classList.add("current");
+                } else {
+                    document.querySelector(".s-header__nav a[href*=" + sectionId + "]").parentNode.classList.remove("current");
+                }
+            });
+        }
 
-			active_section = $('section#' + this.element.id);
-
-			if (direction === "up") active_section = active_section.prev();
-
-			var active_link = $('#main-nav-wrap a[href="#' + active_section.attr("id") + '"]');			
-
-         navigation_links.parent().removeClass("current");
-			active_link.parent().addClass("current");
-
-		}, 
-
-		offset: '25%'
-	});
+    }; // end ssScrollSpy
 
 
-	/*---------------------------------------------------- */
-  	/* Smooth Scrolling
-  	------------------------------------------------------ */
-  	$('.smoothscroll').on('click', function (e) {
-	 	
-	 	e.preventDefault();
+   /* Swiper
+    * ------------------------------------------------------ */ 
+    const ssSwiper = function() {
 
-   	var target = this.hash,
-    	$target = $(target);
+        const mySwiper = new Swiper('.swiper-container', {
 
-    	$('html, body').stop().animate({
-       	'scrollTop': $target.offset().top
-      }, 800, 'swing', function () {
-      	window.location.hash = target;
-      });
+            slidesPerView: 1,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },          
+            breakpoints: {
+                // when window width is >= 401px
+                401: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // when window width is >= 801px
+                801: {
+                    slidesPerView: 2,
+                    spaceBetween: 48
+                }
+            }
+         });
 
-  	});  
+    }; // end ssSwiper
+
+
+   /* Lightbox
+    * ------------------------------------------------------ */
+    const ssLightbox = function() {
+
+        const folioLinks = document.querySelectorAll('.folio-item a');
+        const modals = [];
+
+        folioLinks.forEach(function(link) {
+            let modalbox = link.getAttribute('href');
+            let instance = basicLightbox.create(
+                document.querySelector(modalbox),
+                {
+                    onShow: function(instance) {
+                        //detect Escape key press
+                        document.addEventListener("keydown", function(evt) {
+                            evt = evt || window.event;
+                            if(evt.keyCode === 27){
+                            instance.close();
+                            }
+                        });
+                    }
+                }
+            )
+            modals.push(instance);
+        });
+
+        folioLinks.forEach(function(link, index) {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                modals[index].show();
+            });
+        });
+
+    };  // end ssLightbox
+
+
+   /* Alert boxes
+    * ------------------------------------------------------ */
+    const ssAlertBoxes = function() {
+
+        const boxes = document.querySelectorAll('.alert-box');
   
+        boxes.forEach(function(box) {
 
-   /*---------------------------------------------------- */
-	/*  Placeholder Plugin Settings
-	------------------------------------------------------ */ 
-	$('input, textarea, select').placeholder()  
+            box.addEventListener('click', function(e){
+                if (e.target.matches(".alert-box__close")) {
+                    e.stopPropagation();
+                    e.target.parentElement.classList.add("hideit");
 
+                    setTimeout(function() {
+                        box.style.display = "none";
+                    }, 500)
+                }    
+            });
 
-  	/*---------------------------------------------------- */
-	/*	contact form
-	------------------------------------------------------ */
+        })
 
-	/* local validation */
-	$('#contactForm').validate({
-
-		/* submit via ajax */
-		submitHandler: function(form) {
-
-			var sLoader = $('#submit-loader');
-
-			$.ajax({      	
-
-		      type: "POST",
-		      url: "inc/sendEmail.php",
-		      data: $(form).serialize(),
-		      beforeSend: function() { 
-
-		      	sLoader.fadeIn(); 
-
-		      },
-		      success: function(msg) {
-
-	            // Message was sent
-	            if (msg == 'OK') {
-	            	sLoader.fadeOut(); 
-	               $('#message-warning').hide();
-	               $('#contactForm').fadeOut();
-	               $('#message-success').fadeIn();   
-	            }
-	            // There was an error
-	            else {
-	            	sLoader.fadeOut(); 
-	               $('#message-warning').html(msg);
-		            $('#message-warning').fadeIn();
-	            }
-
-		      },
-		      error: function() {
-
-		      	sLoader.fadeOut(); 
-		      	$('#message-warning').html("Something went wrong. Please try again.");
-		         $('#message-warning').fadeIn();
-
-		      }
-
-	      });     		
-  		}
-
-	});
+    }; // end ssAlertBoxes
 
 
- 	/*----------------------------------------------------- */
-  	/* Back to top
-   ------------------------------------------------------- */ 
-	var pxShow = 300; // height on which the button will show
-	var fadeInTime = 400; // how slow/fast you want the button to show
-	var fadeOutTime = 400; // how slow/fast you want the button to hide
-	var scrollSpeed = 300; // how slow/fast you want the button to scroll to top. can be a value, 'slow', 'normal' or 'fast'
+   /* Smoothscroll
+    * ------------------------------------------------------ */
+    const ssSmoothScroll = function () {
+        
+        const triggers = document.querySelectorAll(".smoothscroll");
 
-   // Show or hide the sticky footer button
-	jQuery(window).scroll(function() {
+        triggers.forEach(function(trigger) {
+            trigger.addEventListener("click", function() {
+                const target = trigger.getAttribute("href");
 
-		if (!( $("#header-search").hasClass('is-visible'))) {
+                Jump(target, {
+                    duration: 1200,
+                });
+            });
+        });
 
-			if (jQuery(window).scrollTop() >= pxShow) {
-				jQuery("#go-top").fadeIn(fadeInTime);
-			} else {
-				jQuery("#go-top").fadeOut(fadeOutTime);
-			}
+    }; // end ssSmoothScroll
 
-		}		
 
-	});		
+   /* back to top
+    * ------------------------------------------------------ */
+    const ssBackToTop = function() {
 
-})(jQuery);
+        const pxShow = 900;
+        const goTopButton = document.querySelector(".ss-go-top");
+
+        if (!goTopButton) return;
+
+        // Show or hide the button
+        if (window.scrollY >= pxShow) goTopButton.classList.add("link-is-visible");
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY >= pxShow) {
+                if(!goTopButton.classList.contains('link-is-visible')) goTopButton.classList.add("link-is-visible")
+            } else {
+                goTopButton.classList.remove("link-is-visible")
+            }
+        });
+
+    }; // end ssBackToTop
+
+
+
+   /* initialize
+    * ------------------------------------------------------ */
+    (function ssInit() {
+
+        ssPreloader();
+        ssParallax();
+        ssMoveHeader();
+        ssMobileMenu();
+        ssScrollSpy();
+        ssSwiper();
+        ssLightbox();
+        ssAlertBoxes();
+        ssSmoothScroll();
+        ssBackToTop();
+
+    })();
+
+})(document.documentElement);

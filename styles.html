@@ -1,620 +1,800 @@
 <!DOCTYPE html>
-<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
-<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
 
-   <!--- basic page needs
-   ================================================== -->
-   <meta charset="utf-8">
-	<title>Style Demo - Kards</title>
-	<meta name="description" content="">  
-	<meta name="author" content="">
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Styles - Ceevee 2.0</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-   <!-- mobile specific metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
- 	<!-- CSS
-   ================================================== -->
-   <link rel="stylesheet" href="css/base.css">  
-   <link rel="stylesheet" href="css/main.css">
-   <link rel="stylesheet" href="css/vendor.css">
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/vendor.css">
 
-   <style type="text/css" media="screen">
+    <style type="text/css" media="screen">
+        .s-styles { 
+            background-color: white;
+            padding-top: calc(4.5 * var(--space));
+            padding-bottom: calc(4.5 * var(--space));
+            position: relative;
+        }
+        .s-styles .intro h1 {
+            margin-top: 0;
+        }
+    </style>
 
-   	#styles { 
-   		background: white;
-   		padding-top: 12rem;
-   		padding-bottom: 12rem;
-   	}
-   	#styles .row {
-   		max-width: 1024px;
-     	}
-     	#styles .section-intro {
-   		max-width: 800px;
-     	}
-      	
-   </style>       
+    <!-- script
+    ================================================== -->
+    <script defer src="js/vendor/fontawesome/all.min.js"></script>
 
-   <!-- script
-   ================================================== -->
-	<script src="js/modernizr.js"></script>
-	<script src="js/pace.min.js"></script>
-
-   <!-- favicons
-	================================================== -->
-	<link rel="icon" type="image/png" href="favicon.png">
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
 
 </head>
 
-<body id="top">
-
-	<!-- header 
-   ================================================== -->
-   <header>   	
-   	<div class="row">
-
-   		<div class="top-bar">
-   			<a class="menu-toggle" href="#"><span>Menu</span></a>
-
-	   		<div class="logo">
-		         <a href="index.html">KARDS</a>
-		      </div>		      
-
-		   	<nav id="main-nav-wrap">
-					<ul class="main-navigation">
-						<li><a href="index.html#intro" title="">Home</a></li>
-						<li><a href="index.html#about" title="">About</a></li>
-						<li><a href="index.html#resume" title="">Resume</a></li>
-						<li><a href="index.html#portfolio" title="">Portfolio</a></li>
-						<li><a href="index.html#services" title="">Services</a></li>					
-						<li><a class="smoothscroll"  href="#contact" title="">Contact</a></li>	
-						<li><a href="styles.html" title="">Style Demo</a></li>				
-					</ul>
-				</nav>    		
-   		</div> <!-- /top-bar --> 
-   		
-   	</div> <!-- /row --> 		
-   </header> <!-- /header -->
-
-	<!-- intro section
-   ================================================== -->
-   <section id="intro">   
-
-   	<div class="intro-overlay"></div>	
-
-   	<div class="intro-content">
-   		<div class="row">
-
-   			<div class="col-twelve">
-
-	   			<h5>Hello, World.</h5>
-	   			<h1>I'm Juan Dela Cruz.</h1>
-
-	   			<p class="intro-position">
-	   				<span>Front-end Developer</span>
-	   				<span>UI/UX Designer</span> 
-	   			</p>
-
-	   			<a class="button stroke smoothscroll" href="#about" title="">More About Me</a>
-
-	   		</div>  
-   			
-   		</div>   		 		
-   	</div> <!-- /intro-content --> 
-
-   	<ul class="intro-social">        
-         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-         <li><a href="#"><i class="fa fa-behance"></i></a></li>
-         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-         <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-      </ul> <!-- /intro-social -->      	
-
-   </section> <!-- /intro -->
-
-
-   <!-- Style Demo
-   ================================================== -->
-   <section id="styles">
-
-   	<div class="row section-intro">
-
-   		<div class="col-twelve">
-
-   			<h1>Style Guide.</h1>
-
-   			<p class="lead">Lorem ipsum Officia elit ad tempor dolore est ex incididunt incididunt occaecat culpa deserunt sunt labore in cillum ullamco magna in Excepteur consequat in reprehenderit proident mollit incididunt officia commodo.
-   			Duis ea officia sed dolor pariatur enim dolore dolore quis incididunt nulla exercitation commodo veniam et ea incididunt.</p>   			
-
-   		</div>
-
-     	</div> <!-- /row -->
-
-     	<div class="row">
-
-     		<div class="col-six tab-full">
-
-		      <h3>Paragraph and Image</h3>
-
-		      <p><a href="#"><img width="120" height="120" class="pull-left" alt="sample-image" src="images/sample-image.jpg"></a>
-		  		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
-		  		Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-		  		posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum
-		  		odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra
-		  		condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque.
-		  		posuere nunc justo tempus leo. </p>
-
-		  		<p>
-		  		Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.
-		  		Cras id urna. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu
-		  		posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum
-		  		odio, ac blandit ante orci ut diam.	
- 			   </p>
-
-            <p>A <a href="#">link</a>,
-  			   <abbr title="this really isn't a very good description">abbreviation</abbr>,
-  			   <strong>strong text</strong>,
-            <em>em text</em>,
-  			   <del>deleted text</del>, and
-            <mark>this is a mark text.</mark>
-            <code>.code</code>
-          	</p>
-
-         </div>
-
-         <div class="col-six tab-full">
-
-            <h3>Drop Caps</h3>
-
-	         <p class="drop-cap">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-	         there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-	         Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu	posuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum, lorem tellus eleifend magna, eget fringilla velit magna id neque.
-		  		</p>
-
-		      <h3>Small Print</h3>
-
-		      <p>Buy one widget, get one free!
-		  		<small>(While supplies last. Offer expires on the vernal equinox. Not valid in Ohio.)</small>
-		  		</p>
-
-		   </div>	         
-
-		</div> <!-- /row -->
-
-		<div class="row">
-
-		  	<div class="col-six tab-full">
-
-		      <h3>Pull Quotes</h3>
-
-		      <aside class="pull-quote">
-				   <blockquote>
-					   <p>It is a paradisematic country, in which roasted parts of
-		            sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind
-		            texts it is an almost unorthographic life One day however a small line of blind text by the name
-		            of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-					</blockquote>
-				</aside>
-
-		   </div>
-
-		   <div class="col-six tab-full">
-
-		      <h3>Block Quotes</h3>
-
-		      <blockquote cite="http://where-i-got-my-info-from.com">
-				   <p>Your work is going to fill a large part of your life, and the only way to be truly satisfied is
-		         to do what you believe is great work. And the only way to do great work is to love what you do.
-		         If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.
-		         </p>
-		
-					<cite>
-					   <a href="#">Steve Jobs</a>
-					</cite>
-			   </blockquote>
-
-		      <blockquote>
-		         <p>Good design is as little design as possible.</p>
-		         <cite>Dieter Rams</cite>
-		      </blockquote>
-
-		   </div>
-
-		</div> <!-- /row -->
-
-		<div class="row half-bottom">
-
-		 	<div class="col-six tab-full">
-
-		      <h3>Example Lists</h3>
-
-		      <ol>
-				   <li>Here is an example</li>
-				   <li>of an ordered list.</li>
-				   <li>A parent list item.
-				   	<ul>
-				   		<li>one</li>
-				   		<li>two</li>
-				   		<li>three</li>
-				   	</ul>
-				   </li>
-				   <li>A list item.</li>
-			   </ol>
-
-		      <ul class="disc">
-				   <li>Here is an example</li>
-				   <li>of an unordered list.</li>
-			   </ul>	
-
-			   <h3>Definition Lists</h3>	            
-
-		      <h5>a) Multi-line Definitions (default)</h5>
-
-		      <dl>
-				   <dt><strong>This is a term</strong></dt>
-				      <dd>this is the definition of that term, which both live in a <code>dl</code>.</dd>
-				   <dt><strong>Another Term</strong></dt>
-				      <dd>And it gets a definition too, which is this line</dd>
-				      <dd>This is a 2<sup>nd</sup> definition for a single term. A <code>dt</code> may be followed by multiple <code>dd</code>s.</dd>
-			   </dl>
-
-		   </div>
-
-		   <div class="col-six tab-full">		                  
-
-		      <h3>Headers</h3>
-
-		      <h1>H1 Heading</h1>
-		      <h2>H2 Heading</h2>
-		      <h3>H3 Heading</h3>
-		      <h4>H4 Heading</h4>
-		      <h5>H5 Heading</h5>
-		      <h6>H6 Heading</h6>
-
-		      <h3>Buttons</h3>
-
-		    	<p>
-		     		<a class="button button-primary full-width" href="#">Primary Button</a>
-		     		<a class="button full-width" href="#">Default Button</a>
-		     		<a class="button stroke full-width" href="#">Stroke Button</a>
-		     	</p>
-
-		   </div>
-
-		</div> <!-- /row -->
-
-		<div class="row">
-
-		   <div class="col-twelve">
-
-		    	<h3>Stats Tabs</h3>
-
-		      <ul class="stats-tabs">
-				   <li><a href="#">1,234 <em>Sasuke</em></a></li>
-				   <li><a href="#">567 <em>Hinata</em></a></li>
-				   <li><a href="#">23,456 <em>Naruto</em></a></li>
-				   <li><a href="#">3,456 <em>Kiba</em></a></li>
-				   <li><a href="#">456 <em>Shikamaru</em></a></li>
-				   <li><a href="#">26 <em>Sakura</em></a></li>
-				</ul>	      		
-
-		   </div>	      	
-
-		</div> <!-- /row -->
-
-		<div class="row half-bottom">
-
-      	<div class="col-six tab-full">
-
-      		<h3>Responsive Image</h3>
-
-      		<p><img src="images/portfolio/modals/m-lighthouse.jpg"></p>
-
-      	</div>
-
-      	<div class="col-six tab-full">
-
-      		<h3>Responsive video</h3>
-
-      		<div class="fluid-video-wrapper">
-                  <iframe src="http://player.vimeo.com/video/14592941?title=0&amp;byline=0&amp;portrait=0&amp;color=F64B39" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+<body id="top" class="ss-preload">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
+
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+        <div class="row s-header__nav-wrap">
+            <nav class="s-header__nav">
+                <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#resume">Resume</a></li>
+                    <li><a href="index.html#portfolio">Works</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#contact">Say Hello</a></li>
+                </ul>
+            </nav>
+        </div> <!-- end row -->
+        
+        <a class="s-header__menu-toggle" href="#0" title="Menu">
+            <span class="s-header__menu-icon"></span>
+        </a>
+    </header> <!-- end s-header -->
+
+
+    <!-- hero
+    ================================================== -->
+    <section id="hero" class="s-hero target-section">
+
+        <div class="s-hero__bg rellax" data-rellax-speed="-7"></div>
+
+        <div class="row s-hero__content">
+            <div class="column">
+
+                <div class="s-hero__content-about">
+
+                    <h1>I'm Jonathan Doe.</h1>
+
+                    <h3>
+                    I'm a Manila based <span>graphic designer</span>, <span>illustrator</span> and <span>webdesigner</span> creating awesome and
+                    effective visual identities for companies of all sizes around the globe. Let's <a href="#about">start scrolling</a>
+                    and learn more <a href="#about">about me</a>.
+                    </h3>
+
+                    <div class="s-hero__content-social">
+                        <a href="#0"><i class="fab fa-facebook-square" aria-hidden="true"></i></a>
+                        <a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#0"><i class="fab fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#0"><i class="fab fa-behance" aria-hidden="true"></i></a>
+                        <a href="#0"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+
+                </div> <!-- end s-hero__content-about -->
+
+            </div>
+        </div> <!-- s-hero__content -->
+
+        <div class="s-hero__scroll">
+            <a href="#styles" class="s-hero__scroll-link smoothscroll">
+                <span class="scroll-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(0, 0, 0, 1);transform:;-ms-filter:"><path d="M18.707 12.707L17.293 11.293 13 15.586 13 6 11 6 11 15.586 6.707 11.293 5.293 12.707 12 19.414z"></path></svg>
+                </span>
+                <span class="scroll-text">Scroll Down</span>
+            </a>
+        </div> <!-- s-hero__scroll -->
+
+    </section> <!-- end s-hero -->
+
+
+    <!-- s-styles
+    ================================================== -->
+    <section id="styles" class="s-styles">
+
+        <div class="row">
+
+            <div class="column large-12 intro">
+
+                <h1>Style Guide.</h1>
+
+                <p class="lead">Lorem ipsum Officia elit ad tempor dolore est ex incididunt incididunt occaecat culpa deserunt 
+                sunt labore in cillum ullamco magna in Excepteur consequat in reprehenderit proident mollit incididunt officia commodo.
+                Duis ea officia sed dolor pariatur enim dolore dolore quis incididunt nulla exercitation commodo veniam et ea incididunt.
+                </p>
+
+                <hr class="fancy">
             </div>
 
-      	</div>
-      	
-      </div> <!-- /row -->
+        </div> <!-- end row -->
 
-      <div class="row add-bottom">
+        <div class="row">
 
-      	<div class="col-twelve">
+            <div class="column large-6 tab-12">
 
-      		<h3>Tables</h3>
-      		<p>Be sure to use properly formed table markup with <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> when building a <code>table</code>.</p>
+                <h3>Paragraph and Image</h3>
 
-      		<div class="table-responsive">
+                <p><a href="#"><img width="120" height="120" class="h-pull-left" alt="sample-image" src="images/sample-image.jpg"></a>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum.Cras id urna. Morbi 
+                tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. Donec mattis, 
+                purus nec placerat bibendum, dui pede condimentum odio, ac blandit ante orci ut diam. Cras fringilla magna. 
+                Phasellus suscipit, leo a pharetra condimentum, lorem tellus eleifend magna, eget fringilla velit magna id 
+                neque posuere nunc justo tempus leo. </p>
 
-      			<table>
-					  <thead>
-					    <tr>
-					      <th>Name</th>
-					      <th>Age</th>
-					      <th>Sex</th>
-					      <th>Location</th>					    
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr>
-					      <td>Naruto Uzumaki</td>
-					      <td>16</td>
-					      <td>Male</td>
-					      <td>Konoha</td>					    
-					    </tr>
-					    <tr>
-					      <td>Sakura Haruno</td>
-					      <td>16</td>
-					      <td>Female</td>
-					      <td>Konoha</td>			    
-					    </tr>
-					  </tbody>
-					</table>
+                <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero. Suspendisse bibendum. Cras id urna. 
+                Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, eu posuere nunc justo tempus leo. 
+                Donec mattis, purus nec placerat bibendum, dui pede condimentumodio, ac blandit ante orci ut diam.	
+                </p>
 
-      		</div>     		
+                <p>A <a href="#">link</a>,
+                <abbr title="this really isn't a very good description">abbrebation</abbr>,
+                <strong>strong text</strong>,
+                <em>em text</em>,
+                <del>deleted text</del>, and
+                <mark>this is a mark text.</mark>
+                <code>.code</code>
+                </p>
 
-      	</div>
-      	
-      </div> <!--row -->
+            </div>
 
-      <div class="row">
+            <div class="column large-6 tab-12">
 
-		   <div class="col-six tab-full">
+                <h3>Drop Caps</h3>
 
-		      <h3>Form Styles</h3>
+                <p class="drop-cap">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
+                Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the 
+                necessary regelialia. Morbi tincidunt, orci ac convallis aliquam, lectus turpis varius lorem, 
+                euposuere nunc justo tempus leo. Donec mattis, purus nec placerat bibendum, dui pede condimentum odio, 
+                ac blandit ante orci ut diam. Cras fringilla magna. Phasellus suscipit, leo a pharetra condimentum, 
+                lorem tellus eleifend magna, eget fringilla velit magna id neque.
+                </p>
 
-		         <form>
-			        	<div>
-			         	<label for="sampleInput">Your email</label>
-			         	<input class="full-width" type="email" placeholder="test@mailbox.com" id="sampleInput">
-			         </div>
-			         <div>
-			         	<label for="sampleRecipientInput">Reason for contacting</label>
-			         	<div class="ss-custom-select">
-			         		<select class="full-width" id="sampleRecipientInput">
-				           		<option value="Option 1">Questions</option>
-				           		<option value="Option 2">Report</option>
-				           		<option value="Option 3">Others</option>
-				         	</select>
-			         	</div>			         	
-			         </div>
-			       
-			       	<label for="exampleMessage">Message</label>
-			       	<textarea class="full-width" placeholder="Your message" id="exampleMessage"></textarea>
+                <h3>Small Print</h3>
 
-			        	<label class="add-bottom">
-			           	<input type="checkbox">			            
-			           	<span class="label-text">Send a copy to yourself</span>
-			        	</label>
-			       
-			        	<input class="button-primary" type="submit" value="Submit">
+                <p><small>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec libero.</small></p>
 
-			      </form>	            
+            </div>
 
-		      </div>
+        </div> <!-- end row -->
 
-		      <div class="col-six tab-full">
+        <div class="row">
 
-		      		<h3>Skill Bars</h3>
+            <div class="column large-6 tab-12">
 
-		      		<ul class="skill-bars">
-						   <li>
-						   	<div class="progress percent90"><span>90%</span></div>
-						   	<strong>HTML5</strong>
-						   </li>
-						   <li>
-						   	<div class="progress percent85"><span>85%</span></div>
-						   	<strong>CSS3</strong>
-						   </li>
-						   <li>
-						   	<div class="progress percent70"><span>70%</span></div>
-						   	<strong>JQuery</strong>
-						   </li>
-						   <li>
-						   	<div class="progress percent95"><span>95%</span></div>
-						   	<strong>PHP</strong>
-						   </li>
-						   <li>
+                <h3 class="h-add-bottom">Pull Quotes</h3>
 
-						   	<div class="progress percent75"><span>75%</span></div>
-						   	<strong>Wordpress</strong>
-						   </li>
-		      
-						</ul> <!-- /skill-bars -->
+                <p>
+                Perspiciatis nemo unde et nobis modi consequatur officia amet. Ut enim 
+                tenetur provident maiores. Perspiciatis asperiores incidunt sequi 
+                quisquam. Enim aut. 
+                </p>
 
-			        
-			        <h3>Alert Boxes</h3> 
-			        
-			        <div class="alert-box ss-error hideit">
-				        <p>Error Message. Your Message Goes Here.</p>
-				        <i class="fa fa-times close"></i>
-			        </div><!-- /error -->
-			        
-			        <div class="alert-box ss-success hideit">
-				        <p>Success Message. Your Message Goes Here.</p>
-				        <i class="fa fa-times close"></i>
-			        </div><!-- /success -->
-			        
-			        <div class="alert-box ss-info hideit">
-				         <p>Info Message. Your Message Goes Here.</p>
-				        <i class="fa fa-times close"></i>
-			        </div><!-- /info -->
-			        
-			        <div class="alert-box ss-notice hideit">
-				        <p>Notice Message. Your Message Goes Here.</p>
-				        <i class="fa fa-times close"></i>
-			        </div><!-- /notice -->
-			        
-			  </div>	         
+                <figure class="pull-quote">
+                    <blockquote>
+                        <p>
+                        When you look in the eyes of grace, when you meet grace, 
+                        when you embrace grace, when you see the nail prints in 
+                        grace’s hands and the fire in his eyes, when you feel his 
+                        relentless love for you - it will not motivate you to sin. 
+                        It will motivate you to righteousness.
+                        </p>
 
-		</div> <!-- /row -->
-		   	
-   </section> <!--styles -->	
+                        <footer>
+                            <cite>Judah Smith</cite>
+                        </footer>
+                    </blockquote>
+                </figure>
 
-	
-   <!-- contact
-   ================================================== -->
-	<section id="contact">
+            </div>
 
-		<div class="row section-intro">
-   		<div class="col-twelve">
+            <div class="column large-6 tab-12">
 
-   			<h5>Contact</h5>
-   			<h1>I'd Love To Hear From You.</h1>
+                <h3 class="h-add-bottom">Block Quotes</h3>
 
-   			<p class="lead">Lorem ipsum Do commodo in proident enim in dolor cupidatat adipisicing dolore officia nisi aliqua incididunt Ut veniam lorem ipsum Consectetur ut in in eu do.</p>
+                <blockquote cite="http://where-i-got-my-info-from.com">
+                    <p>
+                    For God so loved the world, that he gave his only Son, that whoever believes in 
+                    him should not perish but have eternal life. For God did not send his Son into 
+                    the world to condemn the world, but in order that the world might be 
+                    saved through him.
+                    </p>
 
-   		</div> 
-   	</div> <!-- /section-intro -->
+                    <footer>
+                        <cite>
+                            <a href="#0">John 3:16-17 ESV</a>
+                        </cite>
+                    </footer>
 
-   	<div class="row contact-form">
+                </blockquote>
 
-   		<div class="col-twelve">
+                <blockquote>
+                    <p>There is a God-shaped vacuum in the heart of each man which cannot be satisfied 
+                    by any created thing but only by God the Creator.</p>
 
-            <!-- form -->
-            <form name="contactForm" id="contactForm" method="post" action="">
-      			<fieldset>
+                    <footer>
+                        <cite>Blaise Pascal</cite>
+                    </footer>
 
-                  <div class="form-field">
- 						   <input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="">
-                  </div>
-                  <div class="form-field">
-	      			   <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="">
-	               </div>
-                  <div class="form-field">
-	     				   <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="">
-	               </div>                       
-                  <div class="form-field">
-	                 	<textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10" cols="50" required=""></textarea>
-	               </div>                      
-                 <div class="form-field">
-                     <button class="submitform">Submit</button>
-                     <div id="submit-loader">
-                        <div class="text-loader">Sending...</div>                             
-       				      <div class="s-loader">
-								  	<div class="bounce1"></div>
-								  	<div class="bounce2"></div>
-								  	<div class="bounce3"></div>
-								</div>
-							</div>
-                  </div>
+                </blockquote>
 
-      			</fieldset>
-      		</form> <!-- Form End -->
+            </div>
 
-            <!-- contact-warning -->
-            <div id="message-warning"></div>            
-            <!-- contact-success -->
-      		<div id="message-success">
-               <i class="fa fa-check"></i>Your message was sent, thank you!<br>
-      		</div>
+        </div> <!-- end row -->
 
-         </div> <!-- /col-twelve -->
-   		
-   	</div> <!-- /contact-form -->
+        <div class="row h-add-half-bottom">
 
-   	<div class="row contact-info">
+            <div class="column large-6 tab-12">
 
-   		<div class="col-four tab-full">
+                <h3>Example Lists</h3>
 
-   			<div class="icon">
-   				<i class="icon-pin"></i>
-   			</div>
+                <ol>
+                    <li>Here is an example</li>
+                    <li>of an ordered list.</li>
+                    <li>A parent list item.
+                        <ul>
+                            <li>one</li>
+                            <li>two</li>
+                            <li>three</li>
+                        </ul>
+                        </li>
+                        <li>A list item.</li>
+                    </ol>
 
-   			<h5>Where to find me</h5>
+                <ul class="disc">
+                    <li>Here is an example</li>
+                    <li>of an unordered list.</li>
+                </ul>
 
-   			<p>
-            1600 Amphitheatre Parkway<br>
-            Mountain View, CA<br>
-            94043 US
-            </p>
+                <h3>Definition Lists</h3>
 
-   		</div>
+                <h5>a) Multi-line Definitions (default) </h5>
 
-   		<div class="col-four tab-full collapse">
+                <dl class="dictionary-style">
+                    <dt><strong>This is a term</strong></dt>
+                        <dd>this is the definition of that term, which both live in a <code>dl</code>.</dd>
+                    <dt><strong>Another Term</strong></dt>
+                        <dd>And it gets a definition too, which is this line</dd>
+                        <dd>This is a 2<sup>nd</sup> definition for a single term. A <code>dt</code> may be followed by multiple <code>dd</code>s.</dd>
+                </dl>
 
-   			<div class="icon">
-   				<i class="icon-mail"></i>
-   			</div>
+                <h3 class="h-add-bottom">Skill Bars</h3>
 
-   			<h5>Email Me At</h5>
+                <ul class="skill-bars-fat">
+                    <li>
+                    <div class="progress percent85"></div>
+                    <strong>HTML</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent85"></div>
+                    <strong>CSS</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent65"></div>
+                    <strong>Javascript</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent90"></div>
+                    <strong>Figma</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent75"></div>
+                    <strong>Illustrator</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent60"></div>
+                    <strong>Photoshop</strong>
+                    </li>
+                </ul>
 
-   			<p>someone@kardswebsite.com<br>
-			   	info@kardswebsite.com			     
-			   </p>
+            </div>
 
-   		</div>
+            <div class="column large-6 tab-12">
 
-   		<div class="col-four tab-full">
+                <h3 class="h-add-bottom">Buttons</h3>
 
-   			<div class="icon">
-   				<i class="icon-phone"></i>
-   			</div>
+                <p>
+                    <a class="btn btn--primary h-full-width" href="#0">Primary Button</a>
+                    <a class="btn h-full-width" href="#0">Default Button</a>
+                    <a class="btn btn--stroke h-full-width" href="#0">Stroke Button</a>
+                </p>
 
-   			<h5>Call Me At</h5>
+                <h3>Stats Tabs</h3>
 
-   			<p>Phone: (+63) 555 1212<br>
-			   	Mobile: (+63) 555 0100<br>
-			     	Fax: (+63) 555 0101
-			   </p>
+                <ul class="stats-tabs">
+                    <li><a href="#0">1,234 <em>Peter</em></a></li>
+                    <li><a href="#0">567 <em>James</em></a></li>
+                    <li><a href="#0">23,456 <em>John</em></a></li>
+                    <li><a href="#0">3,456 <em>Andrew</em></a></li>
+                    <li><a href="#0">456 <em>Philip</em></a></li>
+                    <li><a href="#0">26 <em>Matthew</em></a></li>
+                </ul>
 
-   		</div>
-   		
-   	</div> <!-- /contact-info -->
-		
-	</section> <!-- /contact -->
+                <h3 class="h-add-bottom">Code</h3>
+
+<pre><code class="language-css">
+    code {
+    font-size: 1.4rem;
+    margin: 0 .2rem;
+    padding: .2rem .6rem;
+    white-space: nowrap;
+    background: #F1F1F1;
+    border: 1px solid #E1E1E1;	
+    border-radius: 3px;
+    }
+</code></pre>
+
+            </div>
+
+        </div> <!-- end row -->
+
+        <div class="row h-add-half-bottom">
+
+            <div class="column large-6 tab-12">
+                    
+                <h1>H1 Heading</h1>
+                <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                <h2>H2 Heading</h2>
+                <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                <h3>H3 Heading</h3>
+                <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                
+            </div>
+
+            <div class="column large-6 tab-12">
+                <h4>H4 Heading</h4>
+                <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                <h5>H5 Heading</h5>
+                <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+
+                <h6>H6 Heading</h6>
+                <p>Doloremque dolor voluptas est sequi omnis. Pariatur ut aut. Sed enim tempora qui veniam qui cum vel. 
+                Voluptas odit at vitae minima. In assumenda ut. Voluptatem totam impedit accusantium reiciendis excepturi aut qui accusamus praesentium.</p>
+    
+                
+            </div>
+
+        </div> <!-- end row -->
+
+        <div class="row h-add-half-bottom">
+
+            <div class="column large-6 tab-12">
+
+                <h3 class="h-add-bottom">Responsive Image</h3>
+
+                <figure>
+                    <img src="images/wheel-500.jpg" 
+                    srcset="images/wheel-1000.jpg 1000w, 
+                    images/wheel-500.jpg 500w" 
+                    sizes="(max-width: 1000px) 100vw, 1000px" alt="">
+
+                    <figcaption>
+                        Here is some random picture.
+                    </figcaption>
+                </figure>
+
+            </div>
+
+            <div class="column large-6 tab-12">
+
+                <h3 class="h-add-bottom">Responsive video</h3>
+
+                <div class="video-container">
+                <iframe title="vimeo-player" src="https://player.vimeo.com/video/14592941" width="640" height="360" frameborder="0" allowfullscreen></iframe>                
+                </div>
+
+            </div>
+            
+        </div> <!-- end row -->
+
+        <div class="row h-add-bottom">
+
+            <div class="column large-12">
+
+                <h3>Tables</h3>
+                <p>Be sure to use properly formed table markup with <code>&lt;thead&gt;</code> and <code>&lt;tbody&gt;</code> when building a <code>table</code>.</p>
+
+                <div class="table-responsive">
+
+                    <table>
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Sex</th>
+                                <th>Location</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>William J. Seymour</td>
+                                <td>34</td>
+                                <td>Male</td>
+                                <td>Azusa Street</td>
+                            </tr>
+                            <tr>
+                                <td>Jennie Evans Moore</td>
+                                <td>30</td>
+                                <td>Female</td>
+                                <td>Azusa Street</td>
+                            </tr>
+                            </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+            
+        </div> <!-- end row -->
+
+        <div class="row">
+
+            <div class="column large-12">
+                <h3>Pagination</h3>
+
+                <nav class="pgn">
+                    <ul>
+                        <li>
+                            <a class="pgn__prev" href="#0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12.707 17.293L8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z"/></svg>
+                            </a>
+                        </li>
+                        <li><a class="pgn__num" href="#0">1</a></li>
+                        <li><span class="pgn__num current">2</span></li>
+                        <li><a class="pgn__num" href="#0">3</a></li>
+                        <li><a class="pgn__num" href="#0">4</a></li>
+                        <li><a class="pgn__num" href="#0">5</a></li>
+                        <li><span class="pgn__num dots">…</span></li>
+                        <li><a class="pgn__num" href="#0">8</a></li>
+                        <li>
+                            <a class="pgn__next" href="#0">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M11.293 17.293l1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </div> <!-- end row -->
 
 
-   <!-- footer
-   ================================================== -->
+        <div class="row">
 
-   <footer>
-     	<div class="row">
+            <div class="column large-6 tab-12">
 
-     		<div class="col-six tab-full pull-right social">
+                <h3 class="h-add-bottom">Form Styles</h3>
 
-     			<ul class="footer-social">        
-			      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-			      <li><a href="#"><i class="fa fa-behance"></i></a></li>
-			      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-			      <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-			      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-			   </ul> 
-	      		
-	      </div>
+                <form>
+                    <div>
+                        <label for="sampleInput">Your email</label>
+                        <input class="h-full-width" type="email" placeholder="test@mailbox.com" id="sampleInput">
+                    </div>
+                    <div>
+                        <label for="sampleRecipientInput">Reason for contacting</label>
+                        <div class="ss-custom-select">
+                            <select class="h-full-width" id="sampleRecipientInput">
+                                <option value="Option 1">Questions</option>
+                                <option value="Option 2">Report</option>
+                                <option value="Option 3">Others</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <label for="exampleMessage">Message</label>
+                    <textarea class="h-full-width" placeholder="Your message" id="exampleMessage"></textarea>
 
-      	<div class="col-six tab-full">
-	      	<div class="copyright">
-		        	<span>© Copyright Kards 2016.</span> 
-		        	<span>Design by <a href="http://www.styleshout.com/">styleshout</a></span>	         	
-		         </div>		                  
-	      	</div>
+                    <label class="h-add-bottom">
+                        <input type="checkbox">
+                        <span class="label-text">Send a copy to yourself</span>
+                    </label>
+                
+                    <input class="btn--primary h-full-width" type="submit" value="Submit">
+                </form>
 
-	      	<div id="go-top">
-		         <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-long-arrow-up"></i></a>
-		      </div>
+            </div>
 
-      	</div> <!-- /row -->     	
-   </footer>    
+            <div class="column large-6 tab-12">
 
-   <div id="preloader"> 
-    	<div id="loader"></div>
-   </div> 
+                <h3>Alert Boxes</h3>
 
-   <!-- Java Script
-   ================================================== --> 
-   <script src="js/jquery-2.1.3.min.js"></script>
-   <script src="js/plugins.js"></script>
-   <script src="js/main.js"></script>
+                <br>
+                
+                <div class="alert-box alert-box--error">
+                    <p>Error Message. Your Message Goes Here.</p>
+                    <span class="alert-box__close"></span>
+                </div><!-- end error -->
+                        
+                <div class="alert-box alert-box--success">
+                    <p>Success Message. Your Message Goes Here.</p>
+                    <span class="alert-box__close"></span>
+                </div><!-- end success -->
+                        
+                <div class="alert-box alert-box--info">
+                    <p>Info Message. Your Message Goes Here.</p>
+                    <span class="alert-box__close"></span>
+                </div><!-- end info -->
+                        
+                <div class="alert-box alert-box--notice">
+                    <p>Notice Message. Your Message Goes Here.</p>
+                    <span class="alert-box__close"></span>
+                </div><!-- end notice -->
+            
+            </div>
+
+        </div> <!-- end row -->
+
+        <div class="row">
+
+            <div class="large-12 column">
+               <h3 class="h-add-bottom">Grid Columns Samples</h3>
+            </div>
+   
+        </div> <!-- Row End-->
+
+
+        <div class="row">
+   
+            <div class="large-4 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+             </div>
+   
+            <div class="large-4 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+            <div class="large-4 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+        </div>
+   
+        <div class="row">
+   
+            <div class="large-3 tab-6 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+            <div class="large-3 tab-6 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+            <div class="large-3 tab-6 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+            <div class="large-3 tab-6 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+        </div>
+   
+        <div class="row">
+   
+            <div class="large-6 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+            <div class="large-6 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+        </div>
+   
+        <div class="row">
+   
+            <div class="large-8 tab-7 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor.
+                </p>
+            </div>
+   
+            <div class="large-4 tab-5 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. 
+                </p>
+            </div>
+   
+         </div>
+   
+         <div class="row">
+   
+            <div class="large-3 tab-5 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at. 
+                </p>
+             </div>
+   
+            <div class="large-9 tab-7 mob-12 column">
+                <p>
+                Cras aliquet. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor.Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor. Integer faucibus, eros ac molestie placerat, enim tellus varius lacus,
+                nec dictum nunc tortor id urna. Suspendisse dapibus ullamcorper pede. Vivamus ligula ipsum,
+                faucibus at, tincidunt eget, porttitor non, dolor.
+                </p>
+             </div>
+   
+         </div> 
+
+    </section> <!-- end s-styles -->
+
+
+    <!-- contact
+    ================================================== -->
+    <section id="contact" class="s-contact target-section">
+
+        <div class="row s-contact__header">
+            <div class="column large-12">
+                <h3 class="section-header-allcaps">Say Hello</h3>
+            </div>
+        </div>
+
+        <div class="row s-contact__content">
+
+            <div class="column large-7 medium-12">
+
+                <h4 class="huge-text">
+                Have a new project in mind? Let's collaborate and build something awesome. 
+                Let's turn that idea to an even greater product :)
+                </h4>
+
+            </div>
+
+            <div class="column large-4 medium-12">
+
+                <div class="row contact-infos">
+                    <div class="column large-12 medium-6 tab-12">
+                        <div class="contact-block">
+                            <h5 class="contact-block__header">
+                                Email
+                            </h5>
+                            <p class="contact-block__content">
+                                <a class="mailtoui" href="mailto:sayhello@ceevee.com">sayhello@ceevee.com</a>
+                            </p>
+                        </div> <!-- end contact-block -->
+                    </div>
+                    <div class="column large-12 medium-6 tab-12">
+                        <div class="contact-block">
+                            <h5 class="contact-block__header">
+                                Phone
+                            </h5>
+                            <p class="contact-block__content">
+                                <a href="tel:+1975432345">+197 543 2345</a>
+                            </p>
+                        </div> <!-- end contact-block -->
+                    </div>
+
+                    <div class="column large-12">
+                        <a href="mailto:sayhello@ceevee.com" class="mailtoui btn btn--primary h-full-width">Let's Talk</a>
+                    </div>
+                </div> <!-- end contact-infos -->
+
+            </div>
+        </div> <!-- s-contact__content -->
+
+    </section> <!-- end s-contact -->
+    
+
+    <!-- footer
+    ================================================== -->
+    <footer class="s-footer">
+        <div class="row">
+            <div class="column large-4 medium-6 w-1000-stack s-footer__social-block">
+                <ul class="s-footer__social">
+                    <li><a href="#0"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                    <li><a href="#0"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="#0"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#0"><i class="fab fa-dribbble" aria-hidden="true"></i></a></li>
+                    <li><a href="#0"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="column large-7 medium-6 w-1000-stack ss-copyright">
+                <span>© Copyright Ceevee 2021</span> 
+                <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+            </div>
+        </div>
+
+        <div class="ss-go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 4h12v2H6zm5 10v6h2v-6h5l-6-6-6 6z"/></svg>
+             </a>
+        </div> <!-- end ss-go-top -->
+    </footer>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
