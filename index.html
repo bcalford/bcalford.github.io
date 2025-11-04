@@ -5,139 +5,188 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bradley Alford — Web Design & Development</title>
   <meta name="description" content="Student web designer & developer helping Columbia small businesses get online." />
+  <link rel="icon" href="favicon.ico" />
+  <meta property="og:title" content="Bradley Alford — Web Design & Development" />
+  <meta property="og:description" content="Student web designer & developer helping Columbia small businesses get online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bcalford.github.io/" />
   <style>
     :root{
-      --garnet:#73000a; --garnet-dark:#5a0008;
-      --bg:#f9f8f6; --text:#2c2c2c; --muted:#5a5a5a;
-      --accent-bg:#f1eaea; --card:#ffffff; --soft:#e6dede;
+      --garnet:#73000a; --garnet-600:#5a0008; --garnet-700:#3f0006;
+      --bg:#f9f8f6; --text:#222; --muted:#5a5a5a;
+      --card:#ffffff; --soft:#ece7e7; --ring:#d9c9c9;
+      --max: 1000px;
     }
-    *{box-sizing:border-box}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    .wrap{max-width:960px;margin:0 auto;padding:48px 16px}
-    h1{font-size:2.25rem;margin:0 0 8px;color:#4b0d0d}
-    h2{font-size:1.5rem;margin:0 0 12px;color:#4b0d0d}
-    p{line-height:1.6;margin:0 0 12px}
-    .center{text-align:center}
-    .muted{color:var(--muted)}
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--garnet);color:var(--garnet);text-decoration:none}
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .container{max-width:var(--max);margin-inline:auto;padding:24px 16px}
+    .section{padding:48px 0}
+    h1,h2,h3{line-height:1.2;margin:0 0 10px}
+    h1{font-size:2.5rem;color:var(--garnet-700)}
+    h2{font-size:1.6rem;color:var(--garnet-700)}
+    p{line-height:1.7;margin:0 0 12px}
+
+    .nav{position:sticky;top:0;z-index:10;background:rgba(249,248,246,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--garnet-700)}
+    .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--garnet)}
+    .nav-actions{display:flex;gap:10px}
+
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--garnet);background:transparent;color:var(--garnet);text-decoration:none;font-weight:600}
     .btn:hover{background:#f3eaea}
+    .btn.primary{background:var(--garnet);color:#fff;border-color:var(--garnet)}
+    .btn.primary:hover{background:var(--garnet-600)}
+
     .grid{display:grid;gap:20px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-2{grid-template-columns:repeat(2,1fr)}
-    .card{background:var(--card);border:1px solid #e7e7e7;border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
-    .hero{margin-bottom:40px}
-    .ph{background:var(--soft);height:220px;border-radius:14px}
-    .cta{background:var(--accent-bg);border-radius:14px;padding:16px;text-align:center;font-weight:600;color:#4b0d0d}
-    .callbtn{display:inline-flex;align-items:center;gap:8px;background:var(--garnet);color:#fff;padding:10px 14px;border-radius:12px;text-decoration:none}
-    .callbtn:hover{background:var(--garnet-dark)}
-    a.inline{color:var(--text);text-decoration:none;border-bottom:1px solid #bbb}
-    a.inline:hover{border-color:#000}
-    footer{margin-top:56px;color:#999;text-align:center;font-size:.9rem}
-    /* Responsive */
+
+    .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:transform .16s ease, box-shadow .16s ease}
+    .card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
+
+    .center{text-align:center}
+    .hero-eyebrow{display:inline-block;padding:4px 10px;border-radius:999px;background:#f3eaea;color:var(--garnet);font-weight:600;margin-bottom:10px}
+    .lede{color:var(--muted)}
+
+    .rule{height:1px;background:linear-gradient(90deg,transparent, #e7e1e1, transparent);margin:36px 0}
+
+    .ph{background:var(--soft);height:240px;border-radius:14px}
+    .headshot{width:100%;height:240px;object-fit:cover;border-radius:14px}
+
+    .cta{background:#f3eaea;border:1px solid var(--ring);border-radius:14px;padding:16px;text-align:center;font-weight:600;color:var(--garnet-700)}
+
+    footer{margin-top:56px;color:#888;text-align:center;font-size:.95rem;padding-bottom:24px}
+
     @media (max-width: 900px){ .grid-3{grid-template-columns:1fr} }
-    @media (max-width: 700px){ .grid-2{grid-template-columns:1fr} }
+    @media (max-width: 720px){ .grid-2{grid-template-columns:1fr} h1{font-size:2rem} }
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .card{transition:none}}
   </style>
 </head>
 <body>
-  <main class="wrap">
+  <header class="nav" role="navigation" aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Bradley Alford home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Bradley Alford</span>
+      </a>
+      <div class="nav-actions" role="group" aria-label="Quick contact">
+        <a class="btn" href="#work">See Work</a>
+        <a class="btn" href="mailto:alford@sc.edu" aria-label="Email Bradley">Email</a>
+        <a class="btn primary" href="tel:+18435161213" aria-label="Call Bradley">Call</a>
+      </div>
+    </div>
+  </header>
 
-    <!-- Hero -->
-    <section class="hero center">
-      <h1>Bradley Alford</h1>
-      <p class="muted">Student web designer & developer helping local businesses stand out online.</p>
-      <p style="margin-top:16px;">
-        <a class="btn" href="#work">See My Work</a>
-      </p>
+  <main id="top">
+    <section class="section center">
+      <div class="container">
+        <span class="hero-eyebrow">Columbia, South Carolina</span>
+        <h1>Websites for local businesses — fast, clean, and effective</h1>
+        <p class="lede">I'm Bradley, a junior Computer Science major at USC and a freelance web designer & developer. I help small businesses look professional online and get more calls.</p>
+        <p style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a class="btn primary" href="tel:+18435161213">Call (843) 516-1213</a>
+          <a class="btn" href="mailto:alford@sc.edu">Email alford@sc.edu</a>
+          <a class="btn" href="#contact">Get a Quote</a>
+        </p>
+      </div>
     </section>
 
-    <!-- About -->
-    <section>
-      <h2>About Me</h2>
-      <div class="grid grid-2" style="align-items:start;">
-        <div>
-          <img src="profile.jpg" alt="Bradley Alford headshot" style="width:100%;height:220px;object-fit:cover;border-radius:14px;" />
-        </div> 
-        <div>
-          <p>
-            I'm Bradley, a junior <strong>Computer Science</strong> major at the University of South Carolina and a freelance web designer based in Columbia, SC.
-            I started building websites because I love creating things that are useful, clear, and simple.
-          </p>
-          <p>
-            My goal is to use what I’m learning in school to serve my community and gain real-world experience by helping small local businesses
-            improve their online presence. My style is clean and focused — no fluff, just what works.
-          </p>
+    <div class="rule" aria-hidden="true"></div>
+
+    <section class="section">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="grid grid-2" style="align-items:start">
+          <div>
+            <img src="profile.jpg" alt="Bradley Alford headshot" class="headshot" loading="lazy" />
+          </div>
+          <div>
+            <p>I'm Bradley, a junior <strong>Computer Science</strong> major at the University of South Carolina and a freelance web designer based in Columbia, SC. I love creating websites that are useful, clear, and simple.</p>
+            <p>My goal is to use what I’m learning in school to serve my community and gain real-world experience by helping small local businesses improve their online presence. My style is clean and focused — no fluff, just what works.</p>
+            <p class="cta">Interested? Contact me for a custom quote — I’ll make it easy, affordable, and personal.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Services -->
-    <section style="margin-top:32px;">
-      <h2>Services</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <p><strong>Website Design</strong></p>
-          <p class="muted">Simple, mobile-friendly layouts made for small businesses.</p>
-        </div>
-        <div class="card">
-          <p><strong>Website Development</strong></p>
-          <p class="muted">Clean code, quick load times, easy to manage.</p>
-        </div>
-        <div class="card">
-          <p><strong>Ongoing Maintenance</strong></p>
-          <p class="muted">Monthly support for edits, updates, and performance.</p>
+    <div class="rule" aria-hidden="true"></div>
+
+    <section class="section">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="grid grid-3">
+          <div class="card"><h3>Website Design</h3><p class="muted">Simple, mobile-friendly layouts made for small businesses.</p></div>
+          <div class="card"><h3>Website Development</h3><p class="muted">Clean code, quick load times, easy to manage.</p></div>
+          <div class="card"><h3>Ongoing Maintenance</h3><p class="muted">Monthly support for edits, updates, and performance.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio -->
-    <section id="work" style="margin-top:32px;">
-      <h2>Portfolio</h2>
-      <p class="muted">Projects will be added soon. Here’s a preview of the style and layout I build for clients.</p>
-      <div class="grid grid-3" style="margin-top:12px;">
-        <div class="card">
-          <div class="ph" style="margin-bottom:12px;"></div>
-          <p><strong>Sample Business Site #1</strong></p>
-          <p class="muted">Clean layout, mobile-friendly, quick load.</p>
-        </div>
-        <div class="card">
-          <div class="ph" style="margin-bottom:12px;"></div>
-          <p><strong>Sample Business Site #2</strong></p>
-          <p class="muted">Focused on conversions (call, map, quote).</p>
-        </div>
-        <div class="card">
-          <div class="ph" style="margin-bottom:12px;"></div>
-          <p><strong>Sample Business Site #3</strong></p>
-          <p class="muted">Before/after gallery ready.</p>
+    <div class="rule" aria-hidden="true"></div>
+
+    <section class="section">
+      <div class="container">
+        <h2>How It Works</h2>
+        <div class="grid grid-3">
+          <div class="card"><strong>1. Quick chat</strong><p class="muted">Tell me your goals. I’ll suggest a simple plan and quote.</p></div>
+          <div class="card"><strong>2. Draft & feedback</strong><p class="muted">I share a first version; you give feedback. Fast iterations.</p></div>
+          <div class="card"><strong>3. Launch & support</strong><p class="muted">I handle launch, basic SEO, and updates if you need them.</p></div>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section style="margin-top:32px;">
-      <h2>Let’s Work Together</h2>
-      <p>Reach out and let’s talk about your website goals. No pressure, just a conversation.</p>
+    <div class="rule" aria-hidden="true"></div>
 
-      <div class="grid grid-2" style="margin-top:12px;">
-        <div class="card" style="display:flex;align-items:center;gap:12px;">
-          <span>📧</span>
-          <a class="inline" href="mailto:alford@sc.edu">alford@sc.edu</a>
-        </div>
-        <div class="card" style="display:flex;align-items:center;gap:12px;">
-          <span>📞</span>
-          <a class="inline" href="tel:+18435161213">(843) 516-1213</a>
+    <section id="work" class="section">
+      <div class="container">
+        <h2>Portfolio</h2>
+        <p class="muted">Projects will be added soon. Here’s a preview of the style and layout I build for clients.</p>
+        <div class="grid grid-3" style="margin-top:12px">
+          <div class="card">
+            <div class="ph" style="margin-bottom:12px"></div>
+            <p><strong>Sample Business Site #1</strong></p>
+            <p class="muted">Clean layout, mobile-friendly, quick load.</p>
+          </div>
+          <div class="card">
+            <div class="ph" style="margin-bottom:12px"></div>
+            <p><strong>Sample Business Site #2</strong></p>
+            <p class="muted">Focused on conversions (call, map, quote).</p>
+          </div>
+          <div class="card">
+            <div class="ph" style="margin-bottom:12px"></div>
+            <p><strong>Sample Business Site #3</strong></p>
+            <p class="muted">Before/after gallery ready.</p>
+          </div>
         </div>
       </div>
+    </section>
 
-      <p style="margin-top:12px;">
-        <a class="callbtn" href="#"
-           onclick="alert('Use Calendly or a calendar link here when ready.');return false;">
-          Book a Call (optional)
-        </a>
-      </p>
+    <div class="rule" aria-hidden="true"></div>
 
-      <p class="cta" style="margin-top:12px;">
-        Interested? Contact me for a custom quote — I’ll make it easy, affordable, and personal.
-      </p>
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Let’s Work Together</h2>
+        <p>Reach out and let’s talk about your website goals. No pressure, just a conversation.</p>
+
+        <div class="grid grid-2" style="margin-top:12px">
+          <a class="card" href="mailto:alford@sc.edu" style="display:flex;align-items:center;gap:12px" aria-label="Email Bradley">
+            <span>📧</span>
+            <span class="muted">alford@sc.edu</span>
+          </a>
+          <a class="card" href="tel:+18435161213" style="display:flex;align-items:center;gap:12px" aria-label="Call Bradley">
+            <span>📞</span>
+            <span class="muted">(843) 516-1213</span>
+          </a>
+        </div>
+
+        <p style="margin-top:12px">
+          <a class="btn primary" href="mailto:alford@sc.edu?subject=Website%20Project%20Inquiry">Get a Custom Quote</a>
+          <a class="btn" href="#" onclick="alert('Add your Calendly link here when ready.');return false;">Book a Call (optional)</a>
+        </p>
+      </div>
     </section>
 
     <footer>© <span id="y"></span> Bradley Alford. Built in Columbia, SC.</footer>
