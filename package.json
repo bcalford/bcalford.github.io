@@ -1,0 +1,9 @@
+{
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "export": "next export",
+      "pages": "next build && next export && touch out/.nojekyll"
+    }
+  }
+  
