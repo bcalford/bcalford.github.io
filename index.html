@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,196 +7,267 @@
   <meta name="description" content="Student web designer & developer helping Columbia small businesses get online." />
   <link rel="icon" href="favicon.ico" />
   <style>
+    /* =========================
+       THEME + TOKENS
+    ========================= */
     :root{
-      --garnet:#73000a; --garnet-600:#5a0008; --garnet-700:#3f0006;
-      --bg:#f9f8f6; --text:#222; --muted:#5a5a5a;
-      --card:#ffffff; --soft:#ece7e7; --ring:#d9c9c9;
-      --max: 1000px;
+      --garnet:#73000a; --garnet-500:#8f1014; --garnet-600:#5a0008; --garnet-700:#3f0006;
+      --bg:#f9f8f6; --surface:#ffffff; --text:#1e1e1e; --muted:#666; --ring:#e7e1e1; --soft:#efe8e8;
+      --shadow-md:0 6px 16px rgba(0,0,0,.08); --shadow-lg:0 18px 40px rgba(0,0,0,.12);
+      --max:1180px; --radius:16px; --radius-lg:22px;
     }
+    [data-theme="dark"]{
+      --bg:#0f0f10; --surface:#171718; --text:#ececec; --muted:#b3b3b3; --ring:#262627; --soft:#202022;
+      --shadow-md:0 6px 16px rgba(0,0,0,.35); --shadow-lg:0 18px 40px rgba(0,0,0,.45);
+    }
+
+    /* Base */
     *,*::before,*::after{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
     img{max-width:100%;display:block;height:auto}
     a{color:inherit}
-    .container{max-width:var(--max);margin-inline:auto;padding:24px 16px}
-    .section{padding:48px 0}
-    h1,h2,h3{line-height:1.2;margin:0 0 10px}
-    h1{font-size:2.5rem;color:var(--garnet-700)}
-    h2{font-size:1.6rem;color:var(--garnet-700)}
-    p{line-height:1.7;margin:0 0 12px}
 
-    .nav{position:sticky;top:0;z-index:10;background:rgba(249,248,246,.8);backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid #eee}
+    /* Decorative background (subtle) */
+    .bg-grid{position:fixed;inset:-20vh -10vw -10vh -10vw;pointer-events:none;z-index:-1;opacity:.45;
+      background:
+        radial-gradient(90rem 60rem at -20% -10%, #ffffff33 0%, #0000 60%),
+        radial-gradient(70rem 40rem at 120% -20%, #ffffff22 0%, #0000 60%),
+        linear-gradient(#0000 0 23px, var(--ring) 24px 24px),
+        linear-gradient(90deg, #0000 0 23px, var(--ring) 24px 24px);
+      background-size:100% 100%,100% 100%,24px 24px,24px 24px}
+
+    .container{max-width:var(--max);margin-inline:auto;padding:28px 16px}
+    .section{padding:64px 0}
+    h1,h2,h3{line-height:1.12;margin:0 0 10px;letter-spacing:-.01em}
+    h1{font-size:clamp(2rem, 1.2rem + 2.6vw, 3.2rem);color:var(--garnet-700)}
+    h2{font-size:1.65rem;color:var(--garnet-700);position:relative;display:inline-block}
+    h2 .underline{position:absolute;left:0;bottom:-8px;height:10px;width:100%;border-radius:999px;
+      background:linear-gradient(90deg,var(--garnet) 0%, #f3eaea 50%, transparent 90%)}
+    p{line-height:1.8;margin:0 0 12px;color:var(--text)}
+
+    /* Sticky nav */
+    .nav{position:sticky;top:0;z-index:25;background:color-mix(in oklab, var(--bg), transparent 15%);
+      -webkit-backdrop-filter:saturate(160%) blur(10px);backdrop-filter:saturate(160%) blur(10px);
+      border-bottom:1px solid var(--ring)}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--garnet-700)}
-    .brand .dot{width:10px;height:10px;border-radius:999px;background:var(--garnet)}
-    .nav-actions{display:flex;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--garnet-700);letter-spacing:.2px}
+    .brand .logo{width:28px;height:28px;border-radius:8px;background:
+      conic-gradient(from 210deg,var(--garnet),#b96a6a,var(--garnet));
+      box-shadow:inset 0 0 0 2px #ffffff55}
+    .nav-actions{display:flex;gap:10px;align-items:center}
+    .toggle{cursor:pointer;border:none;background:transparent;padding:8px;border-radius:10px}
 
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--garnet);background:transparent;color:var(--garnet);text-decoration:none;font-weight:600}
-    .btn:hover{background:#f3eaea}
-    .btn.primary{background:var(--garnet);color:#fff;border-color:var(--garnet)}
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--garnet);
+      background:transparent;color:var(--garnet);text-decoration:none;font-weight:700;transition:transform .14s ease, background .14s ease, box-shadow .14s ease}
+    .btn:hover{background:#f3eaea;transform:translateY(-1px)}
+    .btn.primary{background:var(--garnet);color:#fff;border-color:var(--garnet);box-shadow:0 6px 16px rgba(115,0,10,.25)}
     .btn.primary:hover{background:var(--garnet-600)}
 
-    .grid{display:grid;gap:20px}
+    /* Card with gradient border */
+    .card{position:relative;border-radius:var(--radius);padding:1px;background:
+      linear-gradient(180deg,#ffffff,#ffffff),
+      linear-gradient(180deg,rgba(115,0,10,.25),rgba(0,0,0,.08));
+      background-clip:padding-box,border-box;box-shadow:var(--shadow-md)}
+    .card>.inner{background:var(--surface);border-radius:calc(var(--radius) - 1px);padding:18px}
+
+    .grid{display:grid;gap:24px}
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-2{grid-template-columns:repeat(2,1fr)}
 
-    .card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:transform .16s ease, box-shadow .16s ease}
-    .card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.08)}
-
+    /* Hero */
     .center{text-align:center}
-    .hero-eyebrow{display:inline-block;padding:4px 10px;border-radius:999px;background:#f3eaea;color:var(--garnet);font-weight:600;margin-bottom:10px}
-    .lede{color:var(--muted)}
+    .hero-eyebrow{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:999px;background:#f3eaea;color:var(--garnet);
+      font-weight:800;margin-bottom:14px;box-shadow:inset 0 0 0 1px var(--ring)}
+    .spark{width:8px;height:8px;border-radius:999px;background:radial-gradient(circle at 30% 30%, #fff, var(--garnet))}
+    .lede{color:var(--muted);max-width:72ch;margin-inline:auto}
 
-    .rule{height:1px;background:linear-gradient(90deg,transparent, #e7e1e1, transparent);margin:36px 0}
+    /* About image frame */
+    .headshot-frame{border-radius:var(--radius-lg);padding:8px;background:
+      linear-gradient(180deg,#fff,#fff),
+      linear-gradient(180deg,#e3d7d7,#ffffff00);
+      background-clip:padding-box,border-box;box-shadow:var(--shadow-lg)}
+    .headshot-wrap{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fbf9f9,#f1ecec);border-radius:calc(var(--radius-lg) - 6px);overflow:hidden}
+    .headshot{width:auto;max-width:100%;height:auto;max-height:560px;border-radius:12px;object-fit:contain}
 
-    .headshot-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #f3f3f3;
-}
+    /* Services */
+    .svc{display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:start}
+    .svc svg{width:28px;height:28px}
+    .svc-title{font-weight:900;margin-bottom:6px}
+    .svc:hover{transform:translateY(-2px)}
+    .svc{transition:transform .14s ease}
 
-.headshot {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: 600px;
-  border-radius: 14px;
-  object-fit: contain;
-}
+    /* Portfolio with hover preview */
+    .portfolio a.card{overflow:hidden}
+    .thumb{height:160px;border-radius:12px;position:relative;background:linear-gradient(135deg,#e6dede,#ffffff)}
+    .thumb::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 60% at 0% 0%, rgba(115,0,10,.12), transparent 60%)}
+    .thumb .bars{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;padding:10px;opacity:.9}
+    .bars span{border-radius:8px;background:linear-gradient(180deg,#fff,#f2e7e7);box-shadow:inset 0 0 0 1px var(--ring)}
+    .card:hover .bars span:nth-child(1){transform:translateY(-2px)}
+    .card:hover .bars span:nth-child(2){transform:translateY(2px)}
+    .card:hover .bars span:nth-child(3){transform:translateY(-1px)}
+    .tag{display:inline-block;margin-top:10px;padding:4px 10px;border-radius:999px;background:#f3eaea;color:var(--garnet);font-weight:800;font-size:.82rem}
 
+    /* Logos / tech strip */
+    .stack{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+    .chip{padding:6px 10px;border-radius:999px;background:color-mix(in srgb, var(--garnet) 8%, #fff);border:1px solid var(--ring);font-weight:700;color:var(--garnet-700)}
 
-    .cta{background:#f3eaea;border:1px solid var(--ring);border-radius:14px;padding:16px;text-align:center;font-weight:600;color:var(--garnet-700)}
+    .rule{height:1px;background:linear-gradient(90deg,transparent, var(--ring), transparent);margin:48px 0}
 
-    footer{margin-top:56px;color:#888;text-align:center;font-size:.95rem;padding-bottom:24px}
+    footer{margin-top:56px;color:var(--muted);text-align:center;font-size:.95rem;padding-bottom:24px}
 
-    @media (max-width: 900px){ .grid-3{grid-template-columns:1fr} }
-    @media (max-width: 900px){ .grid-3{grid-template-columns:1fr} }
-    @media (max-width: 720px){ .grid-2{grid-template-columns:1fr} h1{font-size:2rem} .headshot-container{max-height:420px;} } h1{font-size:2rem} .headshot-container{aspect-ratio:auto;max-height:none;} }
+    @media (max-width: 980px){.grid-3{grid-template-columns:1fr}}
+    @media (max-width: 760px){.grid-2{grid-template-columns:1fr} h1{font-size:2rem} .headshot{max-height:420px}}
+
+    /* reduced motion */
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .btn,.svc,.card{transition:none}}
   </style>
 </head>
 <body>
-  <header class="nav">
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <header class="nav" role="navigation" aria-label="Primary">
     <div class="container nav-inner">
-      <a class="brand" href="#top">
-        <span class="dot"></span>
+      <a class="brand" href="#top" aria-label="Bradley Alford home">
+        <span class="logo" aria-hidden="true"></span>
         <span>Bradley Alford</span>
       </a>
-      <div class="nav-actions">
+      <div class="nav-actions" role="group" aria-label="Quick contact">
         <a class="btn" href="#work">See Work</a>
-        <a class="btn" href="mailto:alford@sc.edu">Email</a>
-        <a class="btn primary" href="tel:+18435161213">Call</a>
+        <a class="btn" href="mailto:alford@sc.edu" aria-label="Email Bradley">Email</a>
+        <a class="btn primary" href="tel:+18435161213" aria-label="Call Bradley">Call</a>
+        <button class="toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
       </div>
     </div>
   </header>
 
   <main id="top">
+    <!-- Hero -->
     <section class="section center">
       <div class="container">
-        <span class="hero-eyebrow">Columbia, South Carolina</span>
+        <span class="hero-eyebrow"><span class="spark"></span> Columbia, South Carolina</span>
         <h1>Websites for local businesses — fast, clean, and effective</h1>
-        <p class="lede">I'm Bradley, a junior Computer Science major at USC and a freelance web designer & developer. I help small businesses look professional online and get more calls.</p>
-        <p style="margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <p class="lede">I design and build modern, mobile‑first sites for small businesses in the Midlands. Thoughtful UI, speedy performance, and zero fluff.
+        </p>
+        <div class="stack" style="justify-content:center">
+          <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span><span class="chip">Accessibility</span><span class="chip">Performance</span>
+        </div>
+        <p style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
           <a class="btn primary" href="tel:+18435161213">Call (843) 516-1213</a>
           <a class="btn" href="mailto:alford@sc.edu">Email alford@sc.edu</a>
-          <a class="btn" href="#contact">Get a Quote</a>
+          <a class="btn" href="#work">View Work</a>
         </p>
       </div>
     </section>
 
-    <div class="rule"></div>
+    <div class="rule" aria-hidden="true"></div>
 
+    <!-- About -->
     <section class="section">
       <div class="container">
-        <h2>About Me</h2>
+        <h2>About Me <span class="underline" aria-hidden="true"></span></h2>
         <div class="grid grid-2" style="align-items:start">
-          <div class="headshot-container">
-            <img src="profile.jpg" alt="Bradley Alford headshot" class="headshot" loading="lazy" />
+          <div class="headshot-frame">
+            <div class="headshot-wrap">
+              <img src="profile.jpg" alt="Bradley Alford headshot" class="headshot" loading="lazy" />
+            </div>
           </div>
           <div>
             <p>I'm Bradley, a junior <strong>Computer Science</strong> major at the University of South Carolina and a freelance web designer based in Columbia, SC. I love creating websites that are useful, clear, and simple.</p>
-            <p>My goal is to use what I’m learning in school to serve my community and gain real-world experience by helping small local businesses improve their online presence. My style is clean and focused — no fluff, just what works.</p>
-            <p class="cta">Interested? Contact me for a custom quote — I’ll make it easy, affordable, and personal.</p>
+            <p>My goal is to use what I’m learning in school to serve my community and gain real‑world experience by helping small local businesses improve their online presence. My style is clean and focused — no fluff, just what works.</p>
+            <p class="card"><span class="inner">Interested? Contact me for a custom quote — I’ll make it easy, affordable, and personal.</span></p>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="rule"></div>
+    <div class="rule" aria-hidden="true"></div>
 
+    <!-- Services (stronger visual language) -->
     <section class="section">
       <div class="container">
-        <h2>Services</h2>
+        <h2>Services <span class="underline" aria-hidden="true"></span></h2>
         <div class="grid grid-3">
-          <div class="card"><h3>Website Design</h3><p class="muted">Simple, mobile-friendly layouts made for small businesses.</p></div>
-          <div class="card"><h3>Website Development</h3><p class="muted">Clean code, quick load times, easy to manage.</p></div>
-          <div class="card"><h3>Ongoing Maintenance</h3><p class="muted">Monthly support for edits, updates, and performance.</p></div>
+          <div class="card"><div class="inner svc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M4 7h16M7 3h10M4 11h16M4 15h16M7 21h10"/></svg>
+            <div><div class="svc-title">Website Design</div><p class="muted">Simple, mobile‑friendly layouts focused on clarity and conversions.</p></div>
+          </div></div>
+
+          <div class="card"><div class="inner svc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M4 7l8-4 8 4-8 4-8-4zm0 6l8 4 8-4"/></svg>
+            <div><div class="svc-title">Website Development</div><p class="muted">Accessible, performant front‑end with clean, maintainable code.</p></div>
+          </div></div>
+
+          <div class="card"><div class="inner svc">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M6 6h12v12H6z"/><path d="M10 10h4v4h-4z"/></svg>
+            <div><div class="svc-title">Ongoing Maintenance</div><p class="muted">Updates, uptime checks, content edits, and basic SEO tuning.</p></div>
+          </div></div>
         </div>
       </div>
     </section>
 
-    <div class="rule"></div>
+    <div class="rule" aria-hidden="true"></div>
 
+    <!-- Process -->
     <section class="section">
       <div class="container">
-        <h2>How It Works</h2>
+        <h2>How It Works <span class="underline" aria-hidden="true"></span></h2>
         <div class="grid grid-3">
-          <div class="card"><strong>1. Quick chat</strong><p class="muted">Tell me your goals. I’ll suggest a simple plan and quote.</p></div>
-          <div class="card"><strong>2. Draft & feedback</strong><p class="muted">I share a first version; you give feedback. Fast iterations.</p></div>
-          <div class="card"><strong>3. Launch & support</strong><p class="muted">I handle launch, basic SEO, and updates if you need them.</p></div>
+          <div class="card"><div class="inner"><strong>1. Quick chat</strong><p class="muted">Tell me your goals. I’ll suggest a simple plan and quote.</p></div></div>
+          <div class="card"><div class="inner"><strong>2. Draft & feedback</strong><p class="muted">I share a first version; you give feedback. Fast iterations.</p></div></div>
+          <div class="card"><div class="inner"><strong>3. Launch & support</strong><p class="muted">I handle launch, basic SEO, and updates if you need them.</p></div></div>
         </div>
       </div>
     </section>
 
-    <div class="rule"></div>
+    <div class="rule" aria-hidden="true"></div>
 
-    <section id="work" class="section">
+    <!-- Portfolio -->
+    <section id="work" class="section portfolio">
       <div class="container">
-        <h2>Portfolio</h2>
-        <p class="muted">Projects will be added soon. Here’s a preview of the style and layout I build for clients.</p>
+        <h2>Portfolio <span class="underline" aria-hidden="true"></span></h2>
+        <p class="muted">Recent style samples. Full projects coming soon.</p>
         <div class="grid grid-3" style="margin-top:12px">
-            <!-- #1 External site -->
-            <a class="card" href="https://thetatauzd.org/index.html" target="_blank" rel="noopener">
-              <div class="ph" style="margin-bottom:12px"></div>
-              <p><strong>Theta Tau Zeta Delta — Site</strong></p>
-              <p class="muted">Fraternity chapter website.</p>
-            </a>
-          
-            <!-- #2 Hosted in this repo -->
-            <a class="card" href="projects/palmetto-plumbing.html">
-              <div class="ph" style="margin-bottom:12px"></div>
-              <p><strong>Palmetto Plumbing & Drain</strong></p>
-              <p class="muted">Local trades business — services & estimates.</p>
-            </a>
-          
-            <!-- #3 Hosted in this repo -->
-            <a class="card" href="projects/soda-city-flowers.html"> 
-              <div class="ph" style="margin-bottom:12px"></div>
-              <p><strong>Soda City Flowers</strong></p>
-              <p class="muted">Retail florist — shop, weddings, delivery.</p>
-            </a>
-          </div>          
+          <a class="card" href="https://thetatauzd.org/index.html" target="_blank" rel="noopener">
+            <div class="inner">
+              <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
+              <p style="margin-top:10px"><strong>Theta Tau Zeta Delta — Site</strong></p>
+              <span class="tag">External</span>
+            </div>
+          </a>
+          <a class="card" href="projects/palmetto-plumbing.html">
+            <div class="inner">
+              <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
+              <p style="margin-top:10px"><strong>Palmetto Plumbing & Drain</strong></p>
+              <span class="tag">In‑repo sample</span>
+            </div>
+          </a>
+          <a class="card" href="projects/soda-city-flowers.html">
+            <div class="inner">
+              <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
+              <p style="margin-top:10px"><strong>Soda City Flowers</strong></p>
+              <span class="tag">In‑repo sample</span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <div class="rule"></div>
+    <div class="rule" aria-hidden="true"></div>
 
+    <!-- Contact (content unchanged) -->
     <section id="contact" class="section">
       <div class="container">
-        <h2>Let’s Work Together</h2>
+        <h2>Let’s Work Together <span class="underline" aria-hidden="true"></span></h2>
         <p>Reach out and let’s talk about your website goals. No pressure, just a conversation.</p>
         <div class="grid grid-2" style="margin-top:12px">
-          <a class="card" href="mailto:alford@sc.edu" style="display:flex;align-items:center;gap:12px">
-            <span>📧</span>
-            <span class="muted">alford@sc.edu</span>
+          <a class="card" href="mailto:alford@sc.edu" style="text-decoration:none">
+            <div class="inner" style="display:flex;align-items:center;gap:12px"><span>📧</span><span class="muted">alford@sc.edu</span></div>
           </a>
-          <a class="card" href="tel:+18435161213" style="display:flex;align-items:center;gap:12px">
-            <span>📞</span>
-            <span class="muted">(843) 516-1213</span>
+          <a class="card" href="tel:+18435161213" style="text-decoration:none">
+            <div class="inner" style="display:flex;align-items:center;gap:12px"><span>📞</span><span class="muted">(843) 516-1213</span></div>
           </a>
         </div>
         <p style="margin-top:12px">
@@ -208,8 +279,14 @@
 
     <footer>© <span id="y"></span> Bradley Alford. Built in Columbia, SC.</footer>
   </main>
+
   <script>
+    // current year
     document.getElementById('y').textContent = new Date().getFullYear();
+    // theme toggle (persists to localStorage)
+    const t=document.documentElement; const btn=document.getElementById('themeToggle');
+    try{ const saved=localStorage.getItem('ba-theme'); if(saved){ t.setAttribute('data-theme', saved); btn.textContent=saved==='dark'?'☀️':'🌙'; } }catch(e){}
+    btn?.addEventListener('click',()=>{ const next=t.getAttribute('data-theme')==='dark'?'light':'dark'; t.setAttribute('data-theme',next); btn.textContent= next==='dark'?'☀️':'🌙'; try{localStorage.setItem('ba-theme',next)}catch(e){} });
   </script>
 </body>
 </html>
