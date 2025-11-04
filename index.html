@@ -27,15 +27,23 @@
     body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
     img{max-width:100%;display:block;height:auto}
     a{color:inherit}
+    :focus-visible{outline:3px solid color-mix(in srgb, var(--garnet) 60%, #fff);outline-offset:2px;border-radius:8px}
 
-    /* Decorative background (subtle) */
-    .bg-grid{position:fixed;inset:-20vh -10vw -10vh -10vw;pointer-events:none;z-index:-1;opacity:.45;
+    /* Decorative background */
+    .bg-grid{position:fixed;inset:-20vh -10vw -10vh -10vw;pointer-events:none;z-index:-2;opacity:.35;
       background:
         radial-gradient(90rem 60rem at -20% -10%, #ffffff33 0%, #0000 60%),
         radial-gradient(70rem 40rem at 120% -20%, #ffffff22 0%, #0000 60%),
         linear-gradient(#0000 0 23px, var(--ring) 24px 24px),
         linear-gradient(90deg, #0000 0 23px, var(--ring) 24px 24px);
       background-size:100% 100%,100% 100%,24px 24px,24px 24px}
+    /* Hero aurora */
+    .aurora{position:absolute;inset:-30% -10% auto -10%;height:60vh;z-index:-1;filter:blur(40px);opacity:.5;background:
+      radial-gradient(60% 80% at 20% 30%, #b96a6a44, transparent 60%),
+      radial-gradient(60% 60% at 70% 20%, #73000a33, transparent 60%),
+      radial-gradient(40% 60% at 50% 70%, #ffffff33, transparent 60%);
+      animation: drift 18s infinite cubic-bezier(.4,.0,.2,1)}
+    @keyframes drift{0%{transform:translateY(0)}50%{transform:translateY(-6%)}100%{transform:translateY(0)}}
 
     .container{max-width:var(--max);margin-inline:auto;padding:28px 16px}
     .section{padding:64px 0}
@@ -76,6 +84,11 @@
     .grid-3{grid-template-columns:repeat(3,1fr)}
     .grid-2{grid-template-columns:repeat(2,1fr)}
 
+    /* Reveal on scroll */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+    @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+
     /* Hero */
     .center{text-align:center}
     .hero-eyebrow{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:999px;background:#f3eaea;color:var(--garnet);
@@ -98,8 +111,9 @@
     .svc:hover{transform:translateY(-2px)}
     .svc{transition:transform .14s ease}
 
-    /* Portfolio with hover preview */
-    .portfolio a.card{overflow:hidden}
+    /* Portfolio */
+    .portfolio a.card{overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease}
+    .portfolio a.card:hover{transform:translateY(-4px) rotateX(1deg)}
     .thumb{height:160px;border-radius:12px;position:relative;background:linear-gradient(135deg,#e6dede,#ffffff)}
     .thumb::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 60% at 0% 0%, rgba(115,0,10,.12), transparent 60%)}
     .thumb .bars{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;padding:10px;opacity:.9}
@@ -145,12 +159,12 @@
 
   <main id="top">
     <!-- Hero -->
-    <section class="section center">
-      <div class="container">
+    <section class="section center" style="position:relative;overflow:hidden">
+      <div class="aurora" aria-hidden="true"></div>
+      <div class="container reveal">
         <span class="hero-eyebrow"><span class="spark"></span> Columbia, South Carolina</span>
         <h1>Websites for local businesses — fast, clean, and effective</h1>
-        <p class="lede">I design and build modern, mobile‑first sites for small businesses in the Midlands. Thoughtful UI, speedy performance, and zero fluff.
-        </p>
+        <p class="lede">I design and build modern, mobile‑first sites for small businesses in the Midlands. Thoughtful UI, speedy performance, and zero fluff.</p>
         <div class="stack" style="justify-content:center">
           <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span><span class="chip">Accessibility</span><span class="chip">Performance</span>
         </div>
@@ -169,15 +183,16 @@
       <div class="container">
         <h2>About Me <span class="underline" aria-hidden="true"></span></h2>
         <div class="grid grid-2" style="align-items:start">
-          <div class="headshot-frame">
+          <div class="headshot-frame reveal">
             <div class="headshot-wrap">
               <img src="profile.jpg" alt="Bradley Alford headshot" class="headshot" loading="lazy" />
             </div>
           </div>
-          <div>
+          <div class="reveal">
             <p>I'm Bradley, a junior <strong>Computer Science</strong> major at the University of South Carolina and a freelance web designer based in Columbia, SC. I love creating websites that are useful, clear, and simple.</p>
             <p>My goal is to use what I’m learning in school to serve my community and gain real‑world experience by helping small local businesses improve their online presence. My style is clean and focused — no fluff, just what works.</p>
-            <p class="card"><span class="inner">Interested? Contact me for a custom quote — I’ll make it easy, affordable, and personal.</span></p>
+            <!-- Proper block element for the CTA card to avoid layout glitches -->
+            <div class="card cta-card"><div class="inner">Interested? Contact me for a custom quote — I’ll make it easy, affordable, and personal.</div></div>
           </div>
         </div>
       </div>
@@ -185,22 +200,22 @@
 
     <div class="rule" aria-hidden="true"></div>
 
-    <!-- Services (stronger visual language) -->
+    <!-- Services -->
     <section class="section">
       <div class="container">
         <h2>Services <span class="underline" aria-hidden="true"></span></h2>
         <div class="grid grid-3">
-          <div class="card"><div class="inner svc">
+          <div class="card reveal"><div class="inner svc">
             <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M4 7h16M7 3h10M4 11h16M4 15h16M7 21h10"/></svg>
             <div><div class="svc-title">Website Design</div><p class="muted">Simple, mobile‑friendly layouts focused on clarity and conversions.</p></div>
           </div></div>
 
-          <div class="card"><div class="inner svc">
+          <div class="card reveal"><div class="inner svc">
             <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M4 7l8-4 8 4-8 4-8-4zm0 6l8 4 8-4"/></svg>
             <div><div class="svc-title">Website Development</div><p class="muted">Accessible, performant front‑end with clean, maintainable code.</p></div>
           </div></div>
 
-          <div class="card"><div class="inner svc">
+          <div class="card reveal"><div class="inner svc">
             <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M6 6h12v12H6z"/><path d="M10 10h4v4h-4z"/></svg>
             <div><div class="svc-title">Ongoing Maintenance</div><p class="muted">Updates, uptime checks, content edits, and basic SEO tuning.</p></div>
           </div></div>
@@ -215,9 +230,9 @@
       <div class="container">
         <h2>How It Works <span class="underline" aria-hidden="true"></span></h2>
         <div class="grid grid-3">
-          <div class="card"><div class="inner"><strong>1. Quick chat</strong><p class="muted">Tell me your goals. I’ll suggest a simple plan and quote.</p></div></div>
-          <div class="card"><div class="inner"><strong>2. Draft & feedback</strong><p class="muted">I share a first version; you give feedback. Fast iterations.</p></div></div>
-          <div class="card"><div class="inner"><strong>3. Launch & support</strong><p class="muted">I handle launch, basic SEO, and updates if you need them.</p></div></div>
+          <div class="card reveal"><div class="inner"><strong>1. Quick chat</strong><p class="muted">Tell me your goals. I’ll suggest a simple plan and quote.</p></div></div>
+          <div class="card reveal"><div class="inner"><strong>2. Draft & feedback</strong><p class="muted">I share a first version; you give feedback. Fast iterations.</p></div></div>
+          <div class="card reveal"><div class="inner"><strong>3. Launch & support</strong><p class="muted">I handle launch, basic SEO, and updates if you need them.</p></div></div>
         </div>
       </div>
     </section>
@@ -230,21 +245,21 @@
         <h2>Portfolio <span class="underline" aria-hidden="true"></span></h2>
         <p class="muted">Recent style samples. Full projects coming soon.</p>
         <div class="grid grid-3" style="margin-top:12px">
-          <a class="card" href="https://thetatauzd.org/index.html" target="_blank" rel="noopener">
+          <a class="card reveal" href="https://thetatauzd.org/index.html" target="_blank" rel="noopener">
             <div class="inner">
               <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
               <p style="margin-top:10px"><strong>Theta Tau Zeta Delta — Site</strong></p>
               <span class="tag">External</span>
             </div>
           </a>
-          <a class="card" href="projects/palmetto-plumbing.html">
+          <a class="card reveal" href="projects/palmetto-plumbing.html">
             <div class="inner">
               <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
               <p style="margin-top:10px"><strong>Palmetto Plumbing & Drain</strong></p>
               <span class="tag">In‑repo sample</span>
             </div>
           </a>
-          <a class="card" href="projects/soda-city-flowers.html">
+          <a class="card reveal" href="projects/soda-city-flowers.html">
             <div class="inner">
               <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
               <p style="margin-top:10px"><strong>Soda City Flowers</strong></p>
@@ -257,7 +272,7 @@
 
     <div class="rule" aria-hidden="true"></div>
 
-    <!-- Contact (content unchanged) -->
+    <!-- Contact -->
     <section id="contact" class="section">
       <div class="container">
         <h2>Let’s Work Together <span class="underline" aria-hidden="true"></span></h2>
@@ -281,12 +296,81 @@
   </main>
 
   <script>
-    // current year
-    document.getElementById('y').textContent = new Date().getFullYear();
-    // theme toggle (persists to localStorage)
-    const t=document.documentElement; const btn=document.getElementById('themeToggle');
-    try{ const saved=localStorage.getItem('ba-theme'); if(saved){ t.setAttribute('data-theme', saved); btn.textContent=saved==='dark'?'☀️':'🌙'; } }catch(e){}
-    btn?.addEventListener('click',()=>{ const next=t.getAttribute('data-theme')==='dark'?'light':'dark'; t.setAttribute('data-theme',next); btn.textContent= next==='dark'?'☀️':'🌙'; try{localStorage.setItem('ba-theme',next)}catch(e){} });
+    // current year — guard against missing node
+    document.addEventListener('DOMContentLoaded', () => {
+      const y = document.getElementById('y');
+      if (y) {
+        y.textContent = new Date().getFullYear();
+      } else {
+        console.warn('[init] Footer year span #y not found; skipping');
+      }
+
+      // theme toggle (persists to localStorage)
+      const t = document.documentElement; const btn = document.getElementById('themeToggle');
+      try { const saved = localStorage.getItem('ba-theme'); if (saved) { t.setAttribute('data-theme', saved); if(btn) btn.textContent = saved==='dark'?'☀️':'🌙'; } } catch(e) {}
+      btn?.addEventListener('click', () => { const next = t.getAttribute('data-theme')==='dark'?'light':'dark'; t.setAttribute('data-theme', next); if(btn) btn.textContent = next==='dark'?'☀️':'🌙'; try{localStorage.setItem('ba-theme', next)}catch(e){} });
+
+      // Scroll reveal
+      const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+      },{threshold:.15}) : null;
+      document.querySelectorAll('.reveal').forEach(el=>{ if(io){ io.observe(el);} else { el.classList.add('in'); } });
+
+      // Scroll progress bar
+      const progress = document.createElement('div');
+      progress.id = 'scroll-progress';
+      progress.style.cssText = 'position:fixed;inset:0 auto auto 0;height:3px;background:linear-gradient(90deg,#73000a,#b96a6a);transform-origin:0 50%;transform:scaleX(0);z-index:9999;box-shadow:0 0 0 1px #ffffff30;';
+      document.body.appendChild(progress);
+      const updateProgress = ()=>{
+        const scrolled = window.scrollY; const h = document.documentElement;
+        const max = (h.scrollHeight - h.clientHeight) || 1; const ratio = Math.min(1, Math.max(0, scrolled / max));
+        progress.style.transform = `scaleX(${ratio})`;
+      };
+      addEventListener('scroll', updateProgress, {passive:true});
+      addEventListener('resize', updateProgress);
+      updateProgress();
+
+      // Parallax hero
+      const hero = document.querySelector('.aurora');
+      const heroScope = document.querySelector('section.section.center');
+      let rafId=null; let mx=0,my=0,tx=0,ty=0;
+      const onMove = (e)=>{
+        const r = heroScope.getBoundingClientRect();
+        const cx = r.left + r.width/2; const cy = r.top + r.height/2;
+        mx = ((e.clientX||cx) - cx)/r.width; my = ((e.clientY||cy) - cy)/r.height;
+        if(!rafId){ rafId = requestAnimationFrame(tick); }
+      };
+      const tick = ()=>{ tx += (mx - tx)*0.08; ty += (my - ty)*0.08; if(hero) hero.style.transform = `translate(${tx*20}px, ${ty*20}px)`; rafId=null; };
+      heroScope?.addEventListener('mousemove', onMove);
+
+      // Scrollspy for nav
+      const sections = ['top','work','contact'];
+      const map = new Map(sections.map(id=>[id, document.querySelector(`#${id === 'top' ? 'top' : id}`)]));
+      const links = Array.from(document.querySelectorAll('.nav a.btn[href^="#"]'));
+      const spy = 'IntersectionObserver' in window ? new IntersectionObserver((entries)=>{
+        entries.forEach(en=>{
+          if(en.isIntersecting){
+            const id = en.target.id || 'top';
+            links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+          }
+        })
+      },{threshold:0.4}) : null;
+      map.forEach((el)=>{ if(el && spy) spy.observe(el); });
+
+      // Active style
+      const style = document.createElement('style');
+      style.textContent = `.nav .btn.active{background:#f3eaea}`;
+      document.head.appendChild(style);
+
+      // =========================
+      // Lightweight runtime tests (sanity checks)
+      // =========================
+      console.assert(document.title.includes('Bradley Alford'), 'Title should include your name');
+      console.assert(document.getElementById('themeToggle'), 'Theme toggle button exists');
+      console.assert(document.querySelector('#work'), '#work section should exist');
+      console.assert(document.querySelector('img[alt*="headshot" i]'), 'Headshot image element present');
+      console.assert(document.querySelector('footer'), 'Footer exists');
+    });
   </script>
 </body>
 </html>
