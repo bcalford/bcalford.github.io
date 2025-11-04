@@ -1,0 +1,90 @@
+<!-- FILE: projects/soda-city-flowers.html -->
+.card{background:var(--card);border:1px solid var(--ring);border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.badge{display:inline-block;background:var(--accent);color:var(--brand);font-weight:800;padding:6px 10px;border-radius:999px;margin-bottom:12px}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ph{background:#f7e4ea;height:140px;border-radius:10px}
+footer{margin:48px 0 24px;text-align:center;color:#9ca3af}
+@media(max-width:900px){.grid-3{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.grid-2{grid-template-columns:1fr} h1{font-size:2rem}.gallery{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="nav">
+<div class="container nav-inner">
+<strong>Soda City Flowers</strong>
+<div style="display:flex;gap:10px">
+<a class="btn alt" href="#weddings">Weddings</a>
+<a class="btn alt" href="#shop">Shop</a>
+<a class="btn" href="tel:+18035559876">Call (803) 555‑9876</a>
+</div>
+</div>
+</header>
+
+
+<main>
+<section class="section">
+<div class="container">
+<span class="badge">Five Points • Same‑Day Delivery</span>
+<h1>Fresh, Local Arrangements — Made With Care</h1>
+<p class="muted">Bouquets for birthdays, anniversaries, sympathy, and just‑because moments. We source from Midlands growers whenever possible.</p>
+<p style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+<a class="btn" href="#shop">View Best‑Sellers</a>
+<a class="btn alt" href="mailto:orders@sodacityflowers.example?subject=Custom%20Arrangement">Custom Order</a>
+</p>
+</div>
+</section>
+
+
+<section id="shop" class="section">
+<div class="container">
+<h2>Best‑Sellers</h2>
+<div class="grid grid-3" style="margin-top:12px">
+<div class="card"><div class="ph"></div><h3>Carolina Sunshine</h3><p>Sunflowers, mums, ruscus.</p><p><strong>$59</strong></p></div>
+<div class="card"><div class="ph"></div><h3>Garnet & White</h3><p>Roses, lilies, stock.</p><p><strong>$69</strong></p></div>
+<div class="card"><div class="ph"></div><h3>Riverwalk Garden</h3><p>Mixed seasonal stems.</p><p><strong>$79</strong></p></div>
+</div>
+</div>
+</section>
+
+
+<section id="weddings" class="section">
+<div class="container grid grid-2">
+<div>
+<h2>Weddings & Events</h2>
+<p>Full‑service florals: bouquets, centerpieces, installations, and on‑site setup. Complimentary consultation and mockup.</p>
+<ul>
+<li>Venue‑ready delivery and setup</li>
+<li>Color palette and style guidance</li>
+<li>Sample centerpiece preview</li>
+</ul>
+</div>
+<div class="gallery">
+<div class="ph"></div><div class="ph"></div><div class="ph"></div>
+<div class="ph"></div><div class="ph"></div><div class="ph"></div>
+</div>
+</div>
+</section>
+
+
+<section class="section">
+<div class="container">
+<h2>Visit Us</h2>
+<div class="card" style="display:flex;gap:16px;flex-wrap:wrap">
+<div>
+<p><strong>Address:</strong> 728 Harden St, Columbia, SC</p>
+<p><strong>Hours:</strong> Mon–Sat 9–6, Sun 10–3</p>
+</div>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+<a class="btn" href="tel:+18035559876">Call</a>
+<a class="btn alt" href="mailto:orders@sodacityflowers.example">Email</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+
+<footer>© <span id="y"></span> Soda City Flowers. Fresh daily.</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
