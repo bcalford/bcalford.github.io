@@ -6,10 +6,6 @@
   <title>Bradley Alford — Web Design & Development</title>
   <meta name="description" content="Student web designer & developer helping Columbia small businesses get online." />
   <link rel="icon" href="favicon.ico" />
-  <meta property="og:title" content="Bradley Alford — Web Design & Development" />
-  <meta property="og:description" content="Student web designer & developer helping Columbia small businesses get online." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://bcalford.github.io/" />
   <style>
     :root{
       --garnet:#73000a; --garnet-600:#5a0008; --garnet-700:#3f0006;
@@ -20,7 +16,7 @@
     *,*::before,*::after{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    img{max-width:100%;display:block}
+    img{max-width:100%;display:block;height:auto}
     a{color:inherit}
     .container{max-width:var(--max);margin-inline:auto;padding:24px 16px}
     .section{padding:48px 0}
@@ -53,29 +49,28 @@
 
     .rule{height:1px;background:linear-gradient(90deg,transparent, #e7e1e1, transparent);margin:36px 0}
 
-    .ph{background:var(--soft);height:240px;border-radius:14px}
-    .headshot{width:100%;height:240px;object-fit:cover;border-radius:14px}
+    .headshot-container{position:relative;width:100%;overflow:hidden;border-radius:14px;aspect-ratio:3/4;max-height:600px;}
+    .headshot{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:14px;}
 
     .cta{background:#f3eaea;border:1px solid var(--ring);border-radius:14px;padding:16px;text-align:center;font-weight:600;color:var(--garnet-700)}
 
     footer{margin-top:56px;color:#888;text-align:center;font-size:.95rem;padding-bottom:24px}
 
     @media (max-width: 900px){ .grid-3{grid-template-columns:1fr} }
-    @media (max-width: 720px){ .grid-2{grid-template-columns:1fr} h1{font-size:2rem} }
-    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .card{transition:none}}
+    @media (max-width: 720px){ .grid-2{grid-template-columns:1fr} h1{font-size:2rem} .headshot-container{aspect-ratio:auto;max-height:none;} }
   </style>
 </head>
 <body>
-  <header class="nav" role="navigation" aria-label="Primary">
+  <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Bradley Alford home">
-        <span class="dot" aria-hidden="true"></span>
+      <a class="brand" href="#top">
+        <span class="dot"></span>
         <span>Bradley Alford</span>
       </a>
-      <div class="nav-actions" role="group" aria-label="Quick contact">
+      <div class="nav-actions">
         <a class="btn" href="#work">See Work</a>
-        <a class="btn" href="mailto:alford@sc.edu" aria-label="Email Bradley">Email</a>
-        <a class="btn primary" href="tel:+18435161213" aria-label="Call Bradley">Call</a>
+        <a class="btn" href="mailto:alford@sc.edu">Email</a>
+        <a class="btn primary" href="tel:+18435161213">Call</a>
       </div>
     </div>
   </header>
@@ -94,13 +89,13 @@
       </div>
     </section>
 
-    <div class="rule" aria-hidden="true"></div>
+    <div class="rule"></div>
 
     <section class="section">
       <div class="container">
         <h2>About Me</h2>
         <div class="grid grid-2" style="align-items:start">
-          <div>
+          <div class="headshot-container">
             <img src="profile.jpg" alt="Bradley Alford headshot" class="headshot" loading="lazy" />
           </div>
           <div>
@@ -112,7 +107,7 @@
       </div>
     </section>
 
-    <div class="rule" aria-hidden="true"></div>
+    <div class="rule"></div>
 
     <section class="section">
       <div class="container">
@@ -125,7 +120,7 @@
       </div>
     </section>
 
-    <div class="rule" aria-hidden="true"></div>
+    <div class="rule"></div>
 
     <section class="section">
       <div class="container">
@@ -138,7 +133,7 @@
       </div>
     </section>
 
-    <div class="rule" aria-hidden="true"></div>
+    <div class="rule"></div>
 
     <section id="work" class="section">
       <div class="container">
@@ -164,24 +159,22 @@
       </div>
     </section>
 
-    <div class="rule" aria-hidden="true"></div>
+    <div class="rule"></div>
 
     <section id="contact" class="section">
       <div class="container">
         <h2>Let’s Work Together</h2>
         <p>Reach out and let’s talk about your website goals. No pressure, just a conversation.</p>
-
         <div class="grid grid-2" style="margin-top:12px">
-          <a class="card" href="mailto:alford@sc.edu" style="display:flex;align-items:center;gap:12px" aria-label="Email Bradley">
+          <a class="card" href="mailto:alford@sc.edu" style="display:flex;align-items:center;gap:12px">
             <span>📧</span>
             <span class="muted">alford@sc.edu</span>
           </a>
-          <a class="card" href="tel:+18435161213" style="display:flex;align-items:center;gap:12px" aria-label="Call Bradley">
+          <a class="card" href="tel:+18435161213" style="display:flex;align-items:center;gap:12px">
             <span>📞</span>
             <span class="muted">(843) 516-1213</span>
           </a>
         </div>
-
         <p style="margin-top:12px">
           <a class="btn primary" href="mailto:alford@sc.edu?subject=Website%20Project%20Inquiry">Get a Custom Quote</a>
           <a class="btn" href="#" onclick="alert('Add your Calendly link here when ready.');return false;">Book a Call (optional)</a>
