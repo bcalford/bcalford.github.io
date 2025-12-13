@@ -3,373 +3,237 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bradley Alford — Web Design & Development</title>
-  <meta name="description" content="Student web designer & developer helping Columbia small businesses get online." />
+  <title>Jordan Carter — Product Engineer</title>
+  <meta name="description" content="Portfolio site for Jordan Carter, a product-focused engineer crafting resilient experiences across web and mobile." />
   <link rel="icon" href="favicon.ico" />
   <style>
-    /* =========================
-       THEME + TOKENS
-    ========================= */
-    :root{
-      --garnet:#73000a; --garnet-500:#8f1014; --garnet-600:#5a0008; --garnet-700:#3f0006;
-      --bg:#f9f8f6; --surface:#ffffff; --text:#1e1e1e; --muted:#666; --ring:#e7e1e1; --soft:#efe8e8;
-      --shadow-md:0 6px 16px rgba(0,0,0,.08); --shadow-lg:0 18px 40px rgba(0,0,0,.12);
-      --max:1180px; --radius:16px; --radius-lg:22px;
+    :root {
+      --ink:#0f172a; --muted:#64748b; --paper:#f8fafc; --surface:#ffffff;
+      --accent:#6366f1; --accent-2:#22c55e; --radius:16px; --ring:#e2e8f0;
+      --shadow-md:0 10px 30px rgba(0,0,0,.08); --shadow-lg:0 24px 50px rgba(0,0,0,.12);
+      --max:1080px;
     }
-    [data-theme="dark"]{
-      --bg:#0f0f10; --surface:#171718; --text:#ececec; --muted:#b3b3b3; --ring:#262627; --soft:#202022;
-      --shadow-md:0 6px 16px rgba(0,0,0,.35); --shadow-lg:0 18px 40px rgba(0,0,0,.45);
+    [data-theme="dark"] {
+      --ink:#e2e8f0; --muted:#94a3b8; --paper:#0b1221; --surface:#0f172a;
+      --ring:#1e293b; --shadow-md:0 10px 30px rgba(0,0,0,.35); --shadow-lg:0 24px 60px rgba(0,0,0,.45);
     }
-
-    /* Base */
-    *,*::before,*::after{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    img{max-width:100%;display:block;height:auto}
-    a{color:inherit}
-    :focus-visible{outline:3px solid color-mix(in srgb, var(--garnet) 60%, #fff);outline-offset:2px;border-radius:8px}
-
-    /* Decorative background */
-    .bg-grid{position:fixed;inset:-20vh -10vw -10vh -10vw;pointer-events:none;z-index:-2;opacity:.35;
-      background:
-        radial-gradient(90rem 60rem at -20% -10%, #ffffff33 0%, #0000 60%),
-        radial-gradient(70rem 40rem at 120% -20%, #ffffff22 0%, #0000 60%),
-        linear-gradient(#0000 0 23px, var(--ring) 24px 24px),
-        linear-gradient(90deg, #0000 0 23px, var(--ring) 24px 24px);
-      background-size:100% 100%,100% 100%,24px 24px,24px 24px}
-    /* Hero aurora */
-    .aurora{position:absolute;inset:-30% -10% auto -10%;height:60vh;z-index:-1;filter:blur(40px);opacity:.5;background:
-      radial-gradient(60% 80% at 20% 30%, #b96a6a44, transparent 60%),
-      radial-gradient(60% 60% at 70% 20%, #73000a33, transparent 60%),
-      radial-gradient(40% 60% at 50% 70%, #ffffff33, transparent 60%);
-      animation: drift 18s infinite cubic-bezier(.4,.0,.2,1)}
-    @keyframes drift{0%{transform:translateY(0)}50%{transform:translateY(-6%)}100%{transform:translateY(0)}}
-
-    .container{max-width:var(--max);margin-inline:auto;padding:28px 16px}
-    .section{padding:64px 0}
-    h1,h2,h3{line-height:1.12;margin:0 0 10px;letter-spacing:-.01em}
-    h1{font-size:clamp(2rem, 1.2rem + 2.6vw, 3.2rem);color:var(--garnet-700)}
-    h2{font-size:1.65rem;color:var(--garnet-700);position:relative;display:inline-block}
-    h2 .underline{position:absolute;left:0;bottom:-8px;height:10px;width:100%;border-radius:999px;
-      background:linear-gradient(90deg,var(--garnet) 0%, #f3eaea 50%, transparent 90%)}
-    p{line-height:1.8;margin:0 0 12px;color:var(--text)}
-
-    /* Sticky nav */
-    .nav{position:sticky;top:0;z-index:25;background:color-mix(in oklab, var(--bg), transparent 15%);
-      -webkit-backdrop-filter:saturate(160%) blur(10px);backdrop-filter:saturate(160%) blur(10px);
-      border-bottom:1px solid var(--ring)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--garnet-700);letter-spacing:.2px}
-    .brand .logo{width:28px;height:28px;border-radius:8px;background:
-      conic-gradient(from 210deg,var(--garnet),#b96a6a,var(--garnet));
-      box-shadow:inset 0 0 0 2px #ffffff55}
-    .nav-actions{display:flex;gap:10px;align-items:center}
-    .toggle{cursor:pointer;border:none;background:transparent;padding:8px;border-radius:10px}
-
-    /* Buttons */
-    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid var(--garnet);
-      background:transparent;color:var(--garnet);text-decoration:none;font-weight:700;transition:transform .14s ease, background .14s ease, box-shadow .14s ease}
-    .btn:hover{background:#f3eaea;transform:translateY(-1px)}
-    .btn.primary{background:var(--garnet);color:#fff;border-color:var(--garnet);box-shadow:0 6px 16px rgba(115,0,10,.25)}
-    .btn.primary:hover{background:var(--garnet-600)}
-
-    /* Card with gradient border */
-    .card{position:relative;border-radius:var(--radius);padding:1px;background:
-      linear-gradient(180deg,#ffffff,#ffffff),
-      linear-gradient(180deg,rgba(115,0,10,.25),rgba(0,0,0,.08));
-      background-clip:padding-box,border-box;box-shadow:var(--shadow-md)}
-    .card>.inner{background:var(--surface);border-radius:calc(var(--radius) - 1px);padding:18px}
-
-    .grid{display:grid;gap:24px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
-
-    /* Reveal on scroll */
-    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
-    .reveal.in{opacity:1;transform:none}
-    @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
-
-    /* Hero */
-    .center{text-align:center}
-    .hero-eyebrow{display:inline-flex;gap:8px;align-items:center;padding:6px 12px;border-radius:999px;background:#f3eaea;color:var(--garnet);
-      font-weight:800;margin-bottom:14px;box-shadow:inset 0 0 0 1px var(--ring)}
-    .spark{width:8px;height:8px;border-radius:999px;background:radial-gradient(circle at 30% 30%, #fff, var(--garnet))}
-    .lede{color:var(--muted);max-width:72ch;margin-inline:auto}
-
-    /* About image frame */
-    .headshot-frame{border-radius:var(--radius-lg);padding:8px;background:
-      linear-gradient(180deg,#fff,#fff),
-      linear-gradient(180deg,#e3d7d7,#ffffff00);
-      background-clip:padding-box,border-box;box-shadow:var(--shadow-lg)}
-    .headshot-wrap{display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fbf9f9,#f1ecec);border-radius:calc(var(--radius-lg) - 6px);overflow:hidden}
-    .headshot{width:auto;max-width:100%;height:auto;max-height:560px;border-radius:12px;object-fit:contain}
-
-    /* Services */
-    .svc{display:grid;grid-template-columns:48px 1fr;gap:12px;align-items:start}
-    .svc svg{width:28px;height:28px}
-    .svc-title{font-weight:900;margin-bottom:6px}
-    .svc:hover{transform:translateY(-2px)}
-    .svc{transition:transform .14s ease}
-
-    /* Portfolio */
-    .portfolio a.card{overflow:hidden;transform-style:preserve-3d;transition:transform .25s ease}
-    .portfolio a.card:hover{transform:translateY(-4px) rotateX(1deg)}
-    .thumb{height:160px;border-radius:12px;position:relative;background:linear-gradient(135deg,#e6dede,#ffffff)}
-    .thumb::before{content:"";position:absolute;inset:0;background:radial-gradient(120% 60% at 0% 0%, rgba(115,0,10,.12), transparent 60%)}
-    .thumb .bars{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;padding:10px;opacity:.9}
-    .bars span{border-radius:8px;background:linear-gradient(180deg,#fff,#f2e7e7);box-shadow:inset 0 0 0 1px var(--ring)}
-    .card:hover .bars span:nth-child(1){transform:translateY(-2px)}
-    .card:hover .bars span:nth-child(2){transform:translateY(2px)}
-    .card:hover .bars span:nth-child(3){transform:translateY(-1px)}
-    .tag{display:inline-block;margin-top:10px;padding:4px 10px;border-radius:999px;background:#f3eaea;color:var(--garnet);font-weight:800;font-size:.82rem}
-
-    /* Logos / tech strip */
-    .stack{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
-    .chip{padding:6px 10px;border-radius:999px;background:color-mix(in srgb, var(--garnet) 8%, #fff);border:1px solid var(--ring);font-weight:700;color:var(--garnet-700)}
-
-    .rule{height:1px;background:linear-gradient(90deg,transparent, var(--ring), transparent);margin:48px 0}
-
-    footer{margin-top:56px;color:var(--muted);text-align:center;font-size:.95rem;padding-bottom:24px}
-
-    @media (max-width: 980px){.grid-3{grid-template-columns:1fr}}
-    @media (max-width: 760px){.grid-2{grid-template-columns:1fr} h1{font-size:2rem} .headshot{max-height:420px}}
-
-    /* reduced motion */
-    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} .btn,.svc,.card{transition:none}}
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--paper); color:var(--ink); }
+    a { color:inherit; }
+    img { max-width:100%; display:block; }
+    h1,h2,h3 { margin:0 0 10px; line-height:1.12; letter-spacing:-.01em; }
+    h1 { font-size:clamp(2.4rem, 1.8rem + 2vw, 3.4rem); }
+    h2 { font-size:1.75rem; }
+    h3 { font-size:1.1rem; }
+    p { margin:0 0 12px; line-height:1.75; color:var(--muted); }
+    .container { max-width:var(--max); margin-inline:auto; padding:28px 16px; }
+    .section { padding:64px 0; }
+    .pill { display:inline-flex; gap:8px; align-items:center; padding:8px 14px; border-radius:999px; font-weight:700; background:color-mix(in srgb, var(--accent) 20%, transparent); color:var(--accent); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--accent) 50%, #fff); }
+    .grid { display:grid; gap:22px; }
+    .grid-2 { grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .grid-3 { grid-template-columns:repeat(3, minmax(0,1fr)); }
+    .card { background:var(--surface); border-radius:var(--radius); padding:18px; border:1px solid var(--ring); box-shadow:var(--shadow-md); }
+    .ghost { background:transparent; border:1px solid var(--ring); box-shadow:none; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--accent); background:var(--accent); color:#fff; text-decoration:none; font-weight:800; letter-spacing:.01em; transition:transform .14s ease, box-shadow .14s ease, background .14s ease; }
+    .btn:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(99,102,241,.3); }
+    .btn.alt { background:transparent; color:var(--ink); }
+    .tag { display:inline-flex; align-items:center; gap:6px; padding:8px 10px; border-radius:12px; background:color-mix(in srgb, var(--ring) 70%, transparent); color:var(--ink); font-weight:700; }
+    .muted { color:var(--muted); }
+    nav { position:sticky; top:0; z-index:25; background:color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter:saturate(150%) blur(10px); border-bottom:1px solid var(--ring); }
+    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.2px; }
+    .brand .dot { width:12px; height:12px; border-radius:999px; background:radial-gradient(circle at 30% 30%, #fff, var(--accent)); box-shadow:0 0 0 8px color-mix(in srgb, var(--accent) 18%, transparent); }
+    .nav-actions { display:flex; gap:10px; flex-wrap:wrap; }
+    .hero { position:relative; overflow:hidden; border-radius:24px; padding:32px; background:radial-gradient(120% 140% at 20% 20%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 55%), radial-gradient(120% 140% at 90% 20%, color-mix(in srgb, var(--accent-2) 35%, transparent), transparent 55%), var(--surface); box-shadow:var(--shadow-lg); border:1px solid var(--ring); }
+    .hero::after { content:""; position:absolute; inset:-30% 40% auto auto; width:360px; height:360px; background:radial-gradient(circle, color-mix(in srgb, var(--accent) 25%, transparent), transparent 60%); filter:blur(40px); opacity:.45; pointer-events:none; }
+    .hero-grid { display:grid; grid-template-columns:2fr 1.1fr; gap:28px; align-items:start; }
+    .stat { display:grid; gap:4px; }
+    .timeline { border-left:2px solid var(--ring); padding-left:18px; display:grid; gap:18px; }
+    .timeline-item { position:relative; padding-left:2px; }
+    .timeline-item::before { content:""; position:absolute; left:-27px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 5px color-mix(in srgb, var(--accent) 20%, transparent); }
+    .chips { display:flex; gap:10px; flex-wrap:wrap; }
+    .project-card { display:flex; flex-direction:column; gap:10px; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease; }
+    .project-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+    .project-thumb { border-radius:14px; height:170px; background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, #fff), color-mix(in srgb, var(--accent-2) 10%, #fff)); border:1px solid var(--ring); position:relative; overflow:hidden; }
+    .project-thumb::after { content:""; position:absolute; inset:18px; border-radius:12px; border:1px dashed color-mix(in srgb, var(--accent) 40%, #fff); }
+    footer { padding:40px 16px 28px; text-align:center; color:var(--muted); }
+    .toggle { border:none; background:transparent; cursor:pointer; padding:10px; border-radius:10px; }
+    .bar { width:100%; height:1px; background:var(--ring); }
+    @media(max-width:940px){ .hero-grid, .grid-2 { grid-template-columns:1fr; } }
+    @media(max-width:720px){ h1{font-size:2rem;} .nav-actions{justify-content:flex-start;} }
   </style>
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
-
-  <!-- Nav -->
-  <header class="nav" role="navigation" aria-label="Primary">
+  <nav>
     <div class="container nav-inner">
-      <a class="brand" href="#top" aria-label="Bradley Alford home">
-        <span class="logo" aria-hidden="true"></span>
-        <span>Bradley Alford</span>
-      </a>
-      <div class="nav-actions" role="group" aria-label="Quick contact">
-        <a class="btn" href="#work">See Work</a>
-        <a class="btn" href="mailto:alford@sc.edu" aria-label="Email Bradley">Email</a>
-        <a class="btn primary" href="tel:+18435161213" aria-label="Call Bradley">Call</a>
-        <button class="toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Jordan Carter</span>
+      </div>
+      <div class="nav-actions">
+        <a class="tag" href="#projects">Work</a>
+        <a class="tag" href="#experience">Experience</a>
+        <a class="tag" href="#contact">Contact</a>
+        <button id="themeToggle" class="tag toggle" aria-label="Toggle theme">🌙</button>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <main id="top">
-    <!-- Hero -->
-    <section class="section center" style="position:relative;overflow:hidden">
-      <div class="aurora" aria-hidden="true"></div>
-      <div class="container reveal">
-        <span class="hero-eyebrow"><span class="spark"></span> Columbia, South Carolina</span>
-        <h1>Websites for local businesses — fast, clean, and effective</h1>
-        <p class="lede">I design and build modern, mobile‑first sites for small businesses in the Midlands. Thoughtful UI, speedy performance, and zero fluff.</p>
-        <div class="stack" style="justify-content:center">
-          <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span><span class="chip">Accessibility</span><span class="chip">Performance</span>
-        </div>
-        <p style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <a class="btn primary" href="tel:+18435161213">Call (843) 516-1213</a>
-          <a class="btn" href="mailto:alford@sc.edu">Email alford@sc.edu</a>
-          <a class="btn" href="#work">View Work</a>
-        </p>
-      </div>
-    </section>
-
-    <div class="rule" aria-hidden="true"></div>
-
-    <!-- About -->
+  <main class="container" id="top">
     <section class="section">
-      <div class="container">
-        <h2>About Me <span class="underline" aria-hidden="true"></span></h2>
-        <div class="grid grid-2" style="align-items:start">
-          <div class="headshot-frame reveal">
-            <div class="headshot-wrap">
-              <img src="profile.jpg" alt="Bradley Alford headshot" class="headshot" loading="lazy" />
+      <div class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="pill">Product engineer • Currently at Northwind Labs</div>
+            <h1>Human friendly software built with reliable engineering.</h1>
+            <p>I design, build, and ship digital products that balance usability with technical rigor. From Figma concepts to production-ready services, I push features across the finish line with craftsmanship and care.</p>
+            <div class="chips" style="margin:16px 0 8px">
+              <span class="tag">Design systems</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">React / Next.js</span>
+              <span class="tag">Rust curious</span>
             </div>
+            <p style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px">
+              <a class="btn" href="mailto:hello@jordancarter.dev?subject=Project%20Inquiry">Start a conversation</a>
+              <a class="btn alt" href="#projects">View my work ↓</a>
+            </p>
           </div>
-          <div class="reveal">
-            <p>I'm Bradley, a junior <strong>Computer Science</strong> major at the University of South Carolina and a freelance web designer based in Columbia, SC. I love creating websites that are useful, clear, and simple.</p>
-            <p>My goal is to use what I’m learning in school to serve my community and gain real‑world experience by helping small local businesses improve their online presence. My style is clean and focused — no fluff, just what works.</p>
-            <!-- Proper block element for the CTA card to avoid layout glitches -->
-            <div class="card cta-card"><div class="inner">Interested? Contact me for a custom quote — I’ll make it easy, affordable, and personal.</div></div>
+          <div class="card ghost">
+            <h3>Quick profile</h3>
+            <div class="stat"><strong>10+ years</strong><span class="muted">building for web & mobile</span></div>
+            <div class="stat"><strong>Ex‑agency</strong><span class="muted">shipped 40+ client launches</span></div>
+            <div class="stat"><strong>Community</strong><span class="muted">organizer at Indie Dev CLT</span></div>
+            <div class="stat"><strong>Current focus</strong><span class="muted">collaboration tools & AI-assisted workflows</span></div>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="rule" aria-hidden="true"></div>
+    <div class="bar" aria-hidden="true"></div>
 
-    <!-- Services -->
+    <section id="about" class="section">
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>About</h2>
+          <p>I ship products end-to-end — leading discovery workshops, translating insights into prototypes, then hardening the implementation with robust tests and observability. I love working with small, senior teams where design and engineering pair closely.</p>
+          <p>Outside of work you’ll find me sketching cityscapes, teaching front-end fundamentals to bootcamp grads, or iterating on my keyboard firmware.</p>
+        </div>
+        <div class="card">
+          <h2>Capabilities</h2>
+          <div class="chips">
+            <span class="tag">Product strategy</span>
+            <span class="tag">Design systems</span>
+            <span class="tag">Full-stack builds</span>
+            <span class="tag">API design</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">Prototyping</span>
+            <span class="tag">Observability</span>
+          </div>
+          <p style="margin-top:10px">I thrive in ambiguous spaces where we need to find the signal, ship quickly, and measure the impact.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Experience</h2>
+      <div class="timeline" style="margin-top:12px">
+        <div class="timeline-item">
+          <h3>Senior Product Engineer — Northwind Labs</h3>
+          <p>2022 — Present • Leading the rebuild of a collaborative canvas tool used by remote teams worldwide. I own the design system, accessibility, and front-end architecture powering 60k weekly sessions.</p>
+          <div class="chips"><span class="tag">Next.js</span><span class="tag">Storybook</span><span class="tag">Playwright</span></div>
+        </div>
+        <div class="timeline-item">
+          <h3>Founding Engineer — Signal &amp; Form</h3>
+          <p>2019 — 2022 • Embedded with early-stage startups to ship V1s: billing dashboards, inventory tools, and marketing sites. Built deployment pipelines, analytics, and customer success tooling.</p>
+          <div class="chips"><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Vercel</span></div>
+        </div>
+        <div class="timeline-item">
+          <h3>Design Technologist — Glider Agency</h3>
+          <p>2014 — 2019 • Crafted interactive campaigns and B2B experiences for retail and nonprofit clients. Partnered with creative directors to prototype motion and microcopy that converted.</p>
+          <div class="chips"><span class="tag">Vue</span><span class="tag">Sass</span><span class="tag">Client workshops</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Selected Work</h2>
+      <div class="grid grid-3" style="margin-top:16px">
+        <a class="card project-card" href="projects/palmetto-plumbing.html">
+          <div class="project-thumb"></div>
+          <div>
+            <h3>Northwind Canvas</h3>
+            <p>Rebuilt the whiteboarding experience with multiplayer presence, structured components, and themeable UI kit.</p>
+            <span class="tag">Product leadership</span>
+          </div>
+        </a>
+        <a class="card project-card" href="projects/soda-city-flowers.html">
+          <div class="project-thumb"></div>
+          <div>
+            <h3>Parcel Scope</h3>
+            <p>Carrier-agnostic tracking portal for ops teams. Built event ingestion pipeline and responsive dashboard.</p>
+            <span class="tag">Full-stack</span>
+          </div>
+        </a>
+        <a class="card project-card" href="mailto:hello@jordancarter.dev?subject=Project%20Inquiry">
+          <div class="project-thumb"></div>
+          <div>
+            <h3>Client collaborations</h3>
+            <p>More work available privately — fintech prototypes, design system audits, and creative coding studies.</p>
+            <span class="tag">Let’s talk</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
     <section class="section">
-      <div class="container">
-        <h2>Services <span class="underline" aria-hidden="true"></span></h2>
-        <div class="grid grid-3">
-          <div class="card reveal"><div class="inner svc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M4 7h16M7 3h10M4 11h16M4 15h16M7 21h10"/></svg>
-            <div><div class="svc-title">Website Design</div><p class="muted">Simple, mobile‑friendly layouts focused on clarity and conversions.</p></div>
-          </div></div>
-
-          <div class="card reveal"><div class="inner svc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M4 7l8-4 8 4-8 4-8-4zm0 6l8 4 8-4"/></svg>
-            <div><div class="svc-title">Website Development</div><p class="muted">Accessible, performant front‑end with clean, maintainable code.</p></div>
-          </div></div>
-
-          <div class="card reveal"><div class="inner svc">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#73000a" stroke-width="1.8"><path d="M6 6h12v12H6z"/><path d="M10 10h4v4h-4z"/></svg>
-            <div><div class="svc-title">Ongoing Maintenance</div><p class="muted">Updates, uptime checks, content edits, and basic SEO tuning.</p></div>
-          </div></div>
+      <div class="grid grid-2">
+        <div class="card">
+          <h2>Toolbox</h2>
+          <p>TypeScript • React/Next.js • Node • PostgreSQL • Tailwind • Figma • Framer • Playwright • Sentry • Docker • Cloudflare Workers</p>
+        </div>
+        <div class="card">
+          <h2>Speaking &amp; teaching</h2>
+          <p>Regularly mentor bootcamp cohorts, run workshops on inclusive components, and speak about building design systems that teams can actually maintain.</p>
         </div>
       </div>
     </section>
 
-    <div class="rule" aria-hidden="true"></div>
-
-    <!-- Process -->
-    <section class="section">
-      <div class="container">
-        <h2>How It Works <span class="underline" aria-hidden="true"></span></h2>
-        <div class="grid grid-3">
-          <div class="card reveal"><div class="inner"><strong>1. Quick chat</strong><p class="muted">Tell me your goals. I’ll suggest a simple plan and quote.</p></div></div>
-          <div class="card reveal"><div class="inner"><strong>2. Draft & feedback</strong><p class="muted">I share a first version; you give feedback. Fast iterations.</p></div></div>
-          <div class="card reveal"><div class="inner"><strong>3. Launch & support</strong><p class="muted">I handle launch, basic SEO, and updates if you need them.</p></div></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="rule" aria-hidden="true"></div>
-
-    <!-- Portfolio -->
-    <section id="work" class="section portfolio">
-      <div class="container">
-        <h2>Portfolio <span class="underline" aria-hidden="true"></span></h2>
-        <p class="muted">Recent style samples. Full projects coming soon.</p>
-        <div class="grid grid-3" style="margin-top:12px">
-          <a class="card reveal" href="https://thetatauzd.org/index.html" target="_blank" rel="noopener">
-            <div class="inner">
-              <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
-              <p style="margin-top:10px"><strong>Theta Tau Zeta Delta — Site</strong></p>
-              <span class="tag">External</span>
-            </div>
-          </a>
-          <a class="card reveal" href="projects/palmetto-plumbing.html">
-            <div class="inner">
-              <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
-              <p style="margin-top:10px"><strong>Palmetto Plumbing & Drain</strong></p>
-              <span class="tag">In‑repo sample</span>
-            </div>
-          </a>
-          <a class="card reveal" href="projects/soda-city-flowers.html">
-            <div class="inner">
-              <div class="thumb"><div class="bars"><span></span><span></span><span></span></div></div>
-              <p style="margin-top:10px"><strong>Soda City Flowers</strong></p>
-              <span class="tag">In‑repo sample</span>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <div class="rule" aria-hidden="true"></div>
-
-    <!-- Contact -->
     <section id="contact" class="section">
-      <div class="container">
-        <h2>Let’s Work Together <span class="underline" aria-hidden="true"></span></h2>
-        <p>Reach out and let’s talk about your website goals. No pressure, just a conversation.</p>
-        <div class="grid grid-2" style="margin-top:12px">
-          <a class="card" href="mailto:alford@sc.edu" style="text-decoration:none">
-            <div class="inner" style="display:flex;align-items:center;gap:12px"><span>📧</span><span class="muted">alford@sc.edu</span></div>
-          </a>
-          <a class="card" href="tel:+18435161213" style="text-decoration:none">
-            <div class="inner" style="display:flex;align-items:center;gap:12px"><span>📞</span><span class="muted">(843) 516-1213</span></div>
-          </a>
-        </div>
-        <p style="margin-top:12px">
-          <a class="btn primary" href="mailto:alford@sc.edu?subject=Website%20Project%20Inquiry">Get a Custom Quote</a>
-          <a class="btn" href="#" onclick="alert('Add your Calendly link here when ready.');return false;">Book a Call (optional)</a>
+      <div class="card" style="text-align:center">
+        <h2>Let’s build something new</h2>
+        <p>Available for product collaborations, audits, and design system engagements starting next month.</p>
+        <p style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px">
+          <a class="btn" href="mailto:hello@jordancarter.dev?subject=Project%20Inquiry">Email me</a>
+          <a class="btn alt" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn alt" href="#top">Back to top ↑</a>
         </p>
       </div>
     </section>
-
-    <footer>© <span id="y"></span> Bradley Alford. Built in Columbia, SC.</footer>
   </main>
 
+  <footer>© <span id="y"></span> Jordan Carter. Crafted with intention.</footer>
+
   <script>
-    // current year — guard against missing node
     document.addEventListener('DOMContentLoaded', () => {
-      const y = document.getElementById('y');
-      if (y) {
-        y.textContent = new Date().getFullYear();
-      } else {
-        console.warn('[init] Footer year span #y not found; skipping');
-      }
+      const year = document.getElementById('y');
+      if (year) year.textContent = new Date().getFullYear();
 
-      // theme toggle (persists to localStorage)
-      const t = document.documentElement; const btn = document.getElementById('themeToggle');
-      try { const saved = localStorage.getItem('ba-theme'); if (saved) { t.setAttribute('data-theme', saved); if(btn) btn.textContent = saved==='dark'?'☀️':'🌙'; } } catch(e) {}
-      btn?.addEventListener('click', () => { const next = t.getAttribute('data-theme')==='dark'?'light':'dark'; t.setAttribute('data-theme', next); if(btn) btn.textContent = next==='dark'?'☀️':'🌙'; try{localStorage.setItem('ba-theme', next)}catch(e){} });
-
-      // Scroll reveal
-      const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-      },{threshold:.15}) : null;
-      document.querySelectorAll('.reveal').forEach(el=>{ if(io){ io.observe(el);} else { el.classList.add('in'); } });
-
-      // Scroll progress bar
-      const progress = document.createElement('div');
-      progress.id = 'scroll-progress';
-      progress.style.cssText = 'position:fixed;inset:0 auto auto 0;height:3px;background:linear-gradient(90deg,#73000a,#b96a6a);transform-origin:0 50%;transform:scaleX(0);z-index:9999;box-shadow:0 0 0 1px #ffffff30;';
-      document.body.appendChild(progress);
-      const updateProgress = ()=>{
-        const scrolled = window.scrollY; const h = document.documentElement;
-        const max = (h.scrollHeight - h.clientHeight) || 1; const ratio = Math.min(1, Math.max(0, scrolled / max));
-        progress.style.transform = `scaleX(${ratio})`;
-      };
-      addEventListener('scroll', updateProgress, {passive:true});
-      addEventListener('resize', updateProgress);
-      updateProgress();
-
-      // Parallax hero
-      const hero = document.querySelector('.aurora');
-      const heroScope = document.querySelector('section.section.center');
-      let rafId=null; let mx=0,my=0,tx=0,ty=0;
-      const onMove = (e)=>{
-        const r = heroScope.getBoundingClientRect();
-        const cx = r.left + r.width/2; const cy = r.top + r.height/2;
-        mx = ((e.clientX||cx) - cx)/r.width; my = ((e.clientY||cy) - cy)/r.height;
-        if(!rafId){ rafId = requestAnimationFrame(tick); }
-      };
-      const tick = ()=>{ tx += (mx - tx)*0.08; ty += (my - ty)*0.08; if(hero) hero.style.transform = `translate(${tx*20}px, ${ty*20}px)`; rafId=null; };
-      heroScope?.addEventListener('mousemove', onMove);
-
-      // Scrollspy for nav
-      const sections = ['top','work','contact'];
-      const map = new Map(sections.map(id=>[id, document.querySelector(`#${id === 'top' ? 'top' : id}`)]));
-      const links = Array.from(document.querySelectorAll('.nav a.btn[href^="#"]'));
-      const spy = 'IntersectionObserver' in window ? new IntersectionObserver((entries)=>{
-        entries.forEach(en=>{
-          if(en.isIntersecting){
-            const id = en.target.id || 'top';
-            links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
-          }
-        })
-      },{threshold:0.4}) : null;
-      map.forEach((el)=>{ if(el && spy) spy.observe(el); });
-
-      // Active style
-      const style = document.createElement('style');
-      style.textContent = `.nav .btn.active{background:#f3eaea}`;
-      document.head.appendChild(style);
-
-      // =========================
-      // Lightweight runtime tests (sanity checks)
-      // =========================
-      console.assert(document.title.includes('Bradley Alford'), 'Title should include your name');
-      console.assert(document.getElementById('themeToggle'), 'Theme toggle button exists');
-      console.assert(document.querySelector('#work'), '#work section should exist');
-      console.assert(document.querySelector('img[alt*="headshot" i]'), 'Headshot image element present');
-      console.assert(document.querySelector('footer'), 'Footer exists');
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      try {
+        const saved = localStorage.getItem('jc-theme');
+        if (saved) {
+          root.setAttribute('data-theme', saved);
+          if (btn) btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+        }
+      } catch (e) { console.warn(e); }
+      btn?.addEventListener('click', () => {
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        if (btn) btn.textContent = next === 'dark' ? '☀️' : '🌙';
+        try { localStorage.setItem('jc-theme', next); } catch (e) { console.warn(e); }
+      });
     });
   </script>
 </body>
