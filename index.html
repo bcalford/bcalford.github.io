@@ -1,240 +1,211 @@
-<!doctype html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jordan Carter — Product Engineer</title>
-  <meta name="description" content="Portfolio site for Jordan Carter, a product-focused engineer crafting resilient experiences across web and mobile." />
-  <link rel="icon" href="favicon.ico" />
-  <style>
-    :root {
-      --ink:#0f172a; --muted:#64748b; --paper:#f8fafc; --surface:#ffffff;
-      --accent:#6366f1; --accent-2:#22c55e; --radius:16px; --ring:#e2e8f0;
-      --shadow-md:0 10px 30px rgba(0,0,0,.08); --shadow-lg:0 24px 50px rgba(0,0,0,.12);
-      --max:1080px;
-    }
-    [data-theme="dark"] {
-      --ink:#e2e8f0; --muted:#94a3b8; --paper:#0b1221; --surface:#0f172a;
-      --ring:#1e293b; --shadow-md:0 10px 30px rgba(0,0,0,.35); --shadow-lg:0 24px 60px rgba(0,0,0,.45);
-    }
-    * { box-sizing: border-box; }
-    body { margin:0; font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background:var(--paper); color:var(--ink); }
-    a { color:inherit; }
-    img { max-width:100%; display:block; }
-    h1,h2,h3 { margin:0 0 10px; line-height:1.12; letter-spacing:-.01em; }
-    h1 { font-size:clamp(2.4rem, 1.8rem + 2vw, 3.4rem); }
-    h2 { font-size:1.75rem; }
-    h3 { font-size:1.1rem; }
-    p { margin:0 0 12px; line-height:1.75; color:var(--muted); }
-    .container { max-width:var(--max); margin-inline:auto; padding:28px 16px; }
-    .section { padding:64px 0; }
-    .pill { display:inline-flex; gap:8px; align-items:center; padding:8px 14px; border-radius:999px; font-weight:700; background:color-mix(in srgb, var(--accent) 20%, transparent); color:var(--accent); box-shadow:inset 0 0 0 1px color-mix(in srgb, var(--accent) 50%, #fff); }
-    .grid { display:grid; gap:22px; }
-    .grid-2 { grid-template-columns:repeat(2, minmax(0,1fr)); }
-    .grid-3 { grid-template-columns:repeat(3, minmax(0,1fr)); }
-    .card { background:var(--surface); border-radius:var(--radius); padding:18px; border:1px solid var(--ring); box-shadow:var(--shadow-md); }
-    .ghost { background:transparent; border:1px solid var(--ring); box-shadow:none; }
-    .btn { display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--accent); background:var(--accent); color:#fff; text-decoration:none; font-weight:800; letter-spacing:.01em; transition:transform .14s ease, box-shadow .14s ease, background .14s ease; }
-    .btn:hover { transform:translateY(-2px); box-shadow:0 12px 30px rgba(99,102,241,.3); }
-    .btn.alt { background:transparent; color:var(--ink); }
-    .tag { display:inline-flex; align-items:center; gap:6px; padding:8px 10px; border-radius:12px; background:color-mix(in srgb, var(--ring) 70%, transparent); color:var(--ink); font-weight:700; }
-    .muted { color:var(--muted); }
-    nav { position:sticky; top:0; z-index:25; background:color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter:saturate(150%) blur(10px); border-bottom:1px solid var(--ring); }
-    .nav-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; }
-    .brand { display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.2px; }
-    .brand .dot { width:12px; height:12px; border-radius:999px; background:radial-gradient(circle at 30% 30%, #fff, var(--accent)); box-shadow:0 0 0 8px color-mix(in srgb, var(--accent) 18%, transparent); }
-    .nav-actions { display:flex; gap:10px; flex-wrap:wrap; }
-    .hero { position:relative; overflow:hidden; border-radius:24px; padding:32px; background:radial-gradient(120% 140% at 20% 20%, color-mix(in srgb, var(--accent) 35%, transparent), transparent 55%), radial-gradient(120% 140% at 90% 20%, color-mix(in srgb, var(--accent-2) 35%, transparent), transparent 55%), var(--surface); box-shadow:var(--shadow-lg); border:1px solid var(--ring); }
-    .hero::after { content:""; position:absolute; inset:-30% 40% auto auto; width:360px; height:360px; background:radial-gradient(circle, color-mix(in srgb, var(--accent) 25%, transparent), transparent 60%); filter:blur(40px); opacity:.45; pointer-events:none; }
-    .hero-grid { display:grid; grid-template-columns:2fr 1.1fr; gap:28px; align-items:start; }
-    .stat { display:grid; gap:4px; }
-    .timeline { border-left:2px solid var(--ring); padding-left:18px; display:grid; gap:18px; }
-    .timeline-item { position:relative; padding-left:2px; }
-    .timeline-item::before { content:""; position:absolute; left:-27px; top:6px; width:12px; height:12px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 5px color-mix(in srgb, var(--accent) 20%, transparent); }
-    .chips { display:flex; gap:10px; flex-wrap:wrap; }
-    .project-card { display:flex; flex-direction:column; gap:10px; text-decoration:none; transition:transform .18s ease, box-shadow .18s ease; }
-    .project-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
-    .project-thumb { border-radius:14px; height:170px; background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 10%, #fff), color-mix(in srgb, var(--accent-2) 10%, #fff)); border:1px solid var(--ring); position:relative; overflow:hidden; }
-    .project-thumb::after { content:""; position:absolute; inset:18px; border-radius:12px; border:1px dashed color-mix(in srgb, var(--accent) 40%, #fff); }
-    footer { padding:40px 16px 28px; text-align:center; color:var(--muted); }
-    .toggle { border:none; background:transparent; cursor:pointer; padding:10px; border-radius:10px; }
-    .bar { width:100%; height:1px; background:var(--ring); }
-    @media(max-width:940px){ .hero-grid, .grid-2 { grid-template-columns:1fr; } }
-    @media(max-width:720px){ h1{font-size:2rem;} .nav-actions{justify-content:flex-start;} }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Personal website for Seyhun Akyürek — founder, engineer, and writer building thoughtful products." />
+  <title>Seyhun Akyürek</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <nav>
-    <div class="container nav-inner">
+  <div class="page">
+    <header class="site-header">
       <div class="brand">
-        <span class="dot"></span>
-        <span>Jordan Carter</span>
+        <div class="brand-mark">SA</div>
+        <span class="brand-name">Seyhun Akyürek</span>
       </div>
-      <div class="nav-actions">
-        <a class="tag" href="#projects">Work</a>
-        <a class="tag" href="#experience">Experience</a>
-        <a class="tag" href="#contact">Contact</a>
-        <button id="themeToggle" class="tag toggle" aria-label="Toggle theme">🌙</button>
-      </div>
-    </div>
-  </nav>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#build">Building</a>
+        <a href="#writing">Writing</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta" href="mailto:seyhun@akyurek.co">Get in touch</a>
+    </header>
 
-  <main class="container" id="top">
-    <section class="section">
-      <div class="hero">
-        <div class="hero-grid">
-          <div>
-            <div class="pill">Product engineer • Currently at Northwind Labs</div>
-            <h1>Human friendly software built with reliable engineering.</h1>
-            <p>I design, build, and ship digital products that balance usability with technical rigor. From Figma concepts to production-ready services, I push features across the finish line with craftsmanship and care.</p>
-            <div class="chips" style="margin:16px 0 8px">
-              <span class="tag">Design systems</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">React / Next.js</span>
-              <span class="tag">Rust curious</span>
+    <main>
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Founder • Engineer • Writer</p>
+          <h1>Hi, I'm Seyhun — building digital experiences that feel effortless.</h1>
+          <p class="lede">I design, prototype, and build thoughtful products from zero to one. Currently focused on storytelling tools, education platforms, and products that help people work better together.</p>
+          <div class="hero-actions">
+            <a class="primary" href="#build">See what I'm building</a>
+            <a class="ghost" href="#contact">Book a conversation</a>
+          </div>
+          <div class="hero-meta">
+            <span>Based in Toronto</span>
+            <span>Ex-Shopify &amp; independent founder</span>
+            <span>Writing about design, AI, and product craft</span>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <div class="portrait-card">
+            <img src="profile.jpg" alt="Portrait of Seyhun Akyürek" />
+            <div class="portrait-bio">
+              <p>Curious about how technology shapes the way we learn and create. I pair strong systems thinking with hands-on craft.</p>
             </div>
-            <p style="display:flex; gap:12px; flex-wrap:wrap; margin-top:10px">
-              <a class="btn" href="mailto:hello@jordancarter.dev?subject=Project%20Inquiry">Start a conversation</a>
-              <a class="btn alt" href="#projects">View my work ↓</a>
-            </p>
-          </div>
-          <div class="card ghost">
-            <h3>Quick profile</h3>
-            <div class="stat"><strong>10+ years</strong><span class="muted">building for web & mobile</span></div>
-            <div class="stat"><strong>Ex‑agency</strong><span class="muted">shipped 40+ client launches</span></div>
-            <div class="stat"><strong>Community</strong><span class="muted">organizer at Indie Dev CLT</span></div>
-            <div class="stat"><strong>Current focus</strong><span class="muted">collaboration tools & AI-assisted workflows</span></div>
+            <div class="badge">Available for select collaborations</div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="bar" aria-hidden="true"></div>
-
-    <section id="about" class="section">
-      <div class="grid grid-2">
-        <div class="card">
-          <h2>About</h2>
-          <p>I ship products end-to-end — leading discovery workshops, translating insights into prototypes, then hardening the implementation with robust tests and observability. I love working with small, senior teams where design and engineering pair closely.</p>
-          <p>Outside of work you’ll find me sketching cityscapes, teaching front-end fundamentals to bootcamp grads, or iterating on my keyboard firmware.</p>
+      <section class="panel" id="about">
+        <div class="panel-header">
+          <p class="eyebrow">About</p>
+          <h2>A product leader with a builder's toolkit</h2>
+          <p class="lede narrow">I’ve spent the past decade designing and shipping products across commerce, education, and creative tooling. I enjoy translating ambitious ideas into experiences people actually love to use.</p>
         </div>
-        <div class="card">
-          <h2>Capabilities</h2>
-          <div class="chips">
-            <span class="tag">Product strategy</span>
-            <span class="tag">Design systems</span>
-            <span class="tag">Full-stack builds</span>
-            <span class="tag">API design</span>
-            <span class="tag">Accessibility</span>
-            <span class="tag">Prototyping</span>
-            <span class="tag">Observability</span>
+        <div class="about-grid">
+          <div class="about-card">
+            <h3>Systems thinking</h3>
+            <p>From research to roadmap, I connect strategy to execution and make complex problems feel simple.</p>
           </div>
-          <p style="margin-top:10px">I thrive in ambiguous spaces where we need to find the signal, ship quickly, and measure the impact.</p>
+          <div class="about-card">
+            <h3>Hands-on craft</h3>
+            <p>I prototype quickly in code and design tools, iterating with real users to find the sharpest version of an idea.</p>
+          </div>
+          <div class="about-card">
+            <h3>Calm leadership</h3>
+            <p>I build inclusive, curious teams where engineers, designers, and operators ship work they’re proud of.</p>
+          </div>
+          <div class="about-card">
+            <h3>Storytelling</h3>
+            <p>I love communicating the "why" behind the work—through documentation, writing, and thoughtful demos.</p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="experience" class="section">
-      <h2>Experience</h2>
-      <div class="timeline" style="margin-top:12px">
-        <div class="timeline-item">
-          <h3>Senior Product Engineer — Northwind Labs</h3>
-          <p>2022 — Present • Leading the rebuild of a collaborative canvas tool used by remote teams worldwide. I own the design system, accessibility, and front-end architecture powering 60k weekly sessions.</p>
-          <div class="chips"><span class="tag">Next.js</span><span class="tag">Storybook</span><span class="tag">Playwright</span></div>
+      <section class="panel" id="build">
+        <div class="panel-header">
+          <p class="eyebrow">Building</p>
+          <h2>Recent work</h2>
+          <p class="lede narrow">A glimpse into some of the products, experiments, and collaborations I’ve led recently.</p>
         </div>
-        <div class="timeline-item">
-          <h3>Founding Engineer — Signal &amp; Form</h3>
-          <p>2019 — 2022 • Embedded with early-stage startups to ship V1s: billing dashboards, inventory tools, and marketing sites. Built deployment pipelines, analytics, and customer success tooling.</p>
-          <div class="chips"><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Vercel</span></div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="pill">Current</div>
+            <h3>Atlas Notes</h3>
+            <p>An AI-first research notebook that connects messy thoughts into publishable insight. Designed the core editor and shipped the onboarding funnel that doubled activation.</p>
+            <div class="meta">Founder &amp; Product • 2024</div>
+          </article>
+          <article class="project-card">
+            <div class="pill">SaaS</div>
+            <h3>Northwind Classroom</h3>
+            <p>Built a cohort-based learning platform for operators shifting into product roles. Led curriculum design, built the LMS, and grew the program to hundreds of alumni.</p>
+            <div class="meta">Product &amp; Engineering • 2023</div>
+          </article>
+          <article class="project-card">
+            <div class="pill">Exploration</div>
+            <h3>Paperless Studio</h3>
+            <p>Lightweight design handoff tool bridging Figma components with developer-ready code snippets. Reduced implementation time by 30% for partner teams.</p>
+            <div class="meta">Prototyped with Web &amp; iOS • 2022</div>
+          </article>
+          <article class="project-card">
+            <div class="pill">Commerce</div>
+            <h3>Mercury Market</h3>
+            <p>Led the relaunch of a multi-merchant marketplace. Introduced a modular design system, checkout flows, and merchant analytics dashboards.</p>
+            <div class="meta">Design Lead • Shopify • 2021</div>
+          </article>
         </div>
-        <div class="timeline-item">
-          <h3>Design Technologist — Glider Agency</h3>
-          <p>2014 — 2019 • Crafted interactive campaigns and B2B experiences for retail and nonprofit clients. Partnered with creative directors to prototype motion and microcopy that converted.</p>
-          <div class="chips"><span class="tag">Vue</span><span class="tag">Sass</span><span class="tag">Client workshops</span></div>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="projects" class="section">
-      <h2>Selected Work</h2>
-      <div class="grid grid-3" style="margin-top:16px">
-        <a class="card project-card" href="projects/palmetto-plumbing.html">
-          <div class="project-thumb"></div>
+      <section class="panel" id="writing">
+        <div class="panel-header">
+          <p class="eyebrow">Writing</p>
+          <h2>Essays, notes, and talks</h2>
+          <p class="lede narrow">Thoughts on building humane products, collaborating with AI, and the craft of thoughtful interfaces.</p>
+        </div>
+        <div class="writing-list">
+          <article class="writing-card">
+            <h3>Interfaces that teach us back</h3>
+            <p>Why tools should act like coaches—reflecting our behavior and nudging us toward better habits.</p>
+            <span class="meta">May 2024 • 7 min read</span>
+          </article>
+          <article class="writing-card">
+            <h3>Designing with AI without losing taste</h3>
+            <p>Principles for pairing machine speed with human judgment, learned from building generative features.</p>
+            <span class="meta">March 2024 • Talk at ProductTO</span>
+          </article>
+          <article class="writing-card">
+            <h3>The case for calm teams</h3>
+            <p>How to build resilient teams that ship great work without burning out.</p>
+            <span class="meta">January 2024 • 5 min read</span>
+          </article>
+          <article class="writing-card">
+            <h3>Composing products like playlists</h3>
+            <p>Using taste, sequencing, and pacing to craft cohesive product experiences.</p>
+            <span class="meta">September 2023 • 6 min read</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="experience">
+        <div class="panel-header">
+          <p class="eyebrow">Experience</p>
+          <h2>Where I’ve been</h2>
+          <p class="lede narrow">From early-stage startups to global platforms, I help teams move from idea to impact.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Founder &amp; Product Builder</h3>
+              <p>Leading independent experiments across AI-native tooling, education, and creative software.</p>
+              <span class="meta">2023 — Present</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Product Lead, Shopify</h3>
+              <p>Led a multidisciplinary team modernizing the marketplace experience for millions of buyers.</p>
+              <span class="meta">2019 — 2023</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>Design Engineer, Freelance</h3>
+              <p>Partnered with startups to prototype, validate, and ship their first flagship features.</p>
+              <span class="meta">2015 — 2019</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel contact" id="contact">
+        <div class="contact-card">
           <div>
-            <h3>Northwind Canvas</h3>
-            <p>Rebuilt the whiteboarding experience with multiplayer presence, structured components, and themeable UI kit.</p>
-            <span class="tag">Product leadership</span>
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s build something together</h2>
+            <p class="lede">Advising, prototyping, or leading a project? I’d love to hear about it.</p>
+            <div class="contact-actions">
+              <a class="primary" href="mailto:seyhun@akyurek.co">Email me</a>
+              <a class="ghost" href="https://www.linkedin.com/in/seyhun-akyurek/">LinkedIn</a>
+            </div>
           </div>
-        </a>
-        <a class="card project-card" href="projects/soda-city-flowers.html">
-          <div class="project-thumb"></div>
-          <div>
-            <h3>Parcel Scope</h3>
-            <p>Carrier-agnostic tracking portal for ops teams. Built event ingestion pipeline and responsive dashboard.</p>
-            <span class="tag">Full-stack</span>
+          <div class="contact-links">
+            <a href="#writing">Read my writing</a>
+            <a href="https://twitter.com/seyhun">Follow on Twitter</a>
+            <a href="mailto:seyhun@akyurek.co">Book a call</a>
           </div>
-        </a>
-        <a class="card project-card" href="mailto:hello@jordancarter.dev?subject=Project%20Inquiry">
-          <div class="project-thumb"></div>
-          <div>
-            <h3>Client collaborations</h3>
-            <p>More work available privately — fintech prototypes, design system audits, and creative coding studies.</p>
-            <span class="tag">Let’s talk</span>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="grid grid-2">
-        <div class="card">
-          <h2>Toolbox</h2>
-          <p>TypeScript • React/Next.js • Node • PostgreSQL • Tailwind • Figma • Framer • Playwright • Sentry • Docker • Cloudflare Workers</p>
         </div>
-        <div class="card">
-          <h2>Speaking &amp; teaching</h2>
-          <p>Regularly mentor bootcamp cohorts, run workshops on inclusive components, and speak about building design systems that teams can actually maintain.</p>
-        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© 2024 Seyhun Akyürek. Built with care.</span>
+      <div class="footer-links">
+        <a href="mailto:seyhun@akyurek.co">Email</a>
+        <a href="https://twitter.com/seyhun">Twitter</a>
+        <a href="https://www.linkedin.com/in/seyhun-akyurek/">LinkedIn</a>
       </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="card" style="text-align:center">
-        <h2>Let’s build something new</h2>
-        <p>Available for product collaborations, audits, and design system engagements starting next month.</p>
-        <p style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:14px">
-          <a class="btn" href="mailto:hello@jordancarter.dev?subject=Project%20Inquiry">Email me</a>
-          <a class="btn alt" href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn alt" href="#top">Back to top ↑</a>
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer>© <span id="y"></span> Jordan Carter. Crafted with intention.</footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const year = document.getElementById('y');
-      if (year) year.textContent = new Date().getFullYear();
-
-      const root = document.documentElement;
-      const btn = document.getElementById('themeToggle');
-      try {
-        const saved = localStorage.getItem('jc-theme');
-        if (saved) {
-          root.setAttribute('data-theme', saved);
-          if (btn) btn.textContent = saved === 'dark' ? '☀️' : '🌙';
-        }
-      } catch (e) { console.warn(e); }
-      btn?.addEventListener('click', () => {
-        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        if (btn) btn.textContent = next === 'dark' ? '☀️' : '🌙';
-        try { localStorage.setItem('jc-theme', next); } catch (e) { console.warn(e); }
-      });
-    });
-  </script>
+    </footer>
+  </div>
 </body>
 </html>
