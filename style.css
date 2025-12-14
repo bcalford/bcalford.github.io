@@ -6,10 +6,23 @@
   --accent: #7cf3c6;
   --accent-2: #9bb8ff;
   --border: rgba(255, 255, 255, 0.08);
+  --header-glass: rgba(17, 23, 32, 0.7);
   --shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
   --radius: 16px;
   --radius-lg: 24px;
   --max-width: 1180px;
+}
+
+:root.light {
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #4d5a6a;
+  --text: #0f1724;
+  --accent: #007a5f;
+  --accent-2: #345de8;
+  --border: rgba(15, 23, 36, 0.1);
+  --header-glass: rgba(255, 255, 255, 0.75);
+  --shadow: 0 20px 60px rgba(12, 15, 20, 0.12);
 }
 
 * {
@@ -29,6 +42,11 @@ body {
   letter-spacing: 0.01em;
 }
 
+:root.light body {
+  background: radial-gradient(circle at 20% 20%, rgba(0, 122, 95, 0.08), transparent 32%),
+    radial-gradient(circle at 80% 0%, rgba(52, 93, 232, 0.08), transparent 38%), var(--bg);
+}
+
 .page {
   max-width: var(--max-width);
   margin: 0 auto 60px;
@@ -46,12 +64,18 @@ a {
   padding: 16px 24px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background: rgba(17, 23, 32, 0.7);
+  background: var(--header-glass);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 16px;
   z-index: 20;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .brand {
@@ -89,6 +113,41 @@ a {
 .nav a:hover {
   color: var(--text);
   background: rgba(255, 255, 255, 0.04);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+:root.light .theme-toggle {
+  background: rgba(15, 23, 36, 0.04);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-1px);
+}
+
+.light .theme-toggle:hover {
+  background: rgba(15, 23, 36, 0.06);
+}
+
+.theme-toggle:active {
+  transform: translateY(0);
+}
+
+.theme-icon {
+  font-size: 1rem;
 }
 
 .nav-cta {

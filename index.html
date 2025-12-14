@@ -26,7 +26,13 @@
         <a href="#contributions">Contributions</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="nav-cta" href="mailto:bradleyalford1@icloud.com">Get in touch</a>
+      <div class="header-actions">
+        <button class="theme-toggle" type="button" aria-label="Toggle color theme">
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+          <span class="theme-label">Dark</span>
+        </button>
+        <a class="nav-cta" href="mailto:bradleyalford1@icloud.com">Get in touch</a>
+      </div>
     </header>
 
     <main>
@@ -220,6 +226,31 @@
         <a href="https://www.linkedin.com/in/seyhun-akyurek/">LinkedIn</a>
       </div>
     </footer>
+    <script>
+      const root = document.documentElement;
+      const themeToggle = document.querySelector('.theme-toggle');
+      const themeLabel = document.querySelector('.theme-label');
+      const themeIcon = document.querySelector('.theme-icon');
+
+      const storedTheme = localStorage.getItem('theme');
+      const defaultTheme = 'dark';
+      const initialTheme = storedTheme || defaultTheme;
+
+      function applyTheme(theme) {
+        const isLight = theme === 'light';
+        root.classList.toggle('light', isLight);
+        themeLabel.textContent = isLight ? 'Light' : 'Dark';
+        themeIcon.textContent = isLight ? '☀️' : '🌙';
+        localStorage.setItem('theme', theme);
+      }
+
+      applyTheme(initialTheme);
+
+      themeToggle.addEventListener('click', () => {
+        const nextTheme = root.classList.contains('light') ? 'dark' : 'light';
+        applyTheme(nextTheme);
+      });
+    </script>
   </div>
 </body>
 </html>
