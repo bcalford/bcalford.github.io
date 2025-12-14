@@ -309,6 +309,12 @@ h3 {
   gap: 18px;
 }
 
+.bubble-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
 .about-card,
 .project-card,
 .writing-card {
@@ -364,6 +370,70 @@ h3 {
 
 .writing-card:hover::after {
   opacity: 1;
+}
+
+.bubble-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 20% 20%, rgba(124, 243, 198, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 80%, rgba(155, 184, 255, 0.18), transparent 45%),
+    rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.25);
+  min-height: 220px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.bubble-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(124, 243, 198, 0.4);
+  box-shadow: 0 22px 46px rgba(0, 0, 0, 0.35);
+}
+
+.bubble-card h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.bubble-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.bubble-pill {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: rgba(124, 243, 198, 0.16);
+  color: var(--accent);
+  font-weight: 700;
+  border: 1px solid rgba(124, 243, 198, 0.35);
+}
+
+.meta-link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
+.meta-link::after {
+  content: '↗';
+  font-size: 0.9rem;
+}
+
+:root.light .bubble-card {
+  background: radial-gradient(circle at 20% 20%, rgba(0, 122, 95, 0.12), transparent 42%),
+    radial-gradient(circle at 80% 80%, rgba(52, 93, 232, 0.12), transparent 42%),
+    rgba(15, 23, 36, 0.02);
 }
 
 .contribution-card {
