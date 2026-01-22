@@ -1,0 +1,38 @@
+body {
+  font-family: Verdana, Arial;
+  background-color: #f3f6fb;
+  color: #1f2a44;
+  margin: 0;
+  padding: 0;
+}
+
+#page {
+  width: 80%;
+  max-width: 800px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 20px;
+  border: 2px solid #c9d6ee;
+  border-radius: 10px;
+}
+
+#title {
+  color: #1c3f7a;
+}
+
+#name {
+  color: #4b5875;
+}
+
+#assignmentsTitle {
+  color: #1c3f7a;
+}
+
+.assignmentLink {
+  text-decoration: none;
+  color: #b04a2f;
+}
+
+.assignmentLink:hover {
+  color: #7a2e1c;
+}
