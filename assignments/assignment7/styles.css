@@ -1,1 +1,77 @@
-* {margin: 0}
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --background-color: #f4f4f4;
+    --text-color: #333333;
+}
+body {
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    max-width: 1000px;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 25px;
+    color: var(--secondary-color);
+}
+
+#columns {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 260px;
+    min-height: 210px;
+    background-color: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+}
+
+h3 {
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+#field {
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+label {
+    color: var(--text-color);
+}
+
+input {
+    width: 150px;
+    padding: 8px;
+    border: 2px solider var(--secondary-color);
+    border-radius: 6px;
+    background: white;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+#sunImage {
+    display: grid;
+    place-items: center;
+    height: 140px;
+}
+
+#signature {
+    margin-top: 18px;
+    color: var(--text-color);
+    font-size: 20px;
+}
