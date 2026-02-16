@@ -1,0 +1,143 @@
+:root {
+    --primary: #EF233C;
+    --secondary1: #2B2D42;
+    --secondary2: #D90429;
+    --background1: #8D99AE;
+    --background2: #EDF2F4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+body {
+    background-color: var(--background1);
+}
+
+#title {
+    color: var(--primary);
+    margin: 10px;
+}
+
+#subtitle {
+    color: var(--secondary1);
+    margin: 10px;
+}
+
+#menu {
+    color: var(--secondary2);
+    margin: 10px;
+}
+
+#mainDiv {
+    background-color: var(--background2);
+    margin: 10px auto 10px auto;
+    padding: 15px;
+    color: var(--secondary2);
+    width: 80%;
+    border: 2px solid var(--secondary1);
+}
+
+#exercise1 {
+
+}
+
+#minutesTitle {
+
+}
+
+#minutesRange {
+
+}
+
+#minutesCount {
+
+}
+
+#minutesComment {
+
+}
+
+#exercise2 {
+    display: none;
+}
+
+#footer {
+    color: var(--secondary2);
+    margin: 10px;
+}
+
+#menuBar {
+    text-align:center;
+    margin-bottom:15px;
+}
+
+#menuButton {
+    display:none;
+    background:none;
+    border:none;
+    font-size:20px;
+    cursor:pointer;
+}
+
+#menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu li {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#menu li:not(:last-child)::after {
+    content: "|";
+    margin: 0 12px;
+}
+
+
+@media (max-width: 600px) {
+    #menuBar {
+        text-align: left;
+    }
+
+    #menuButton {
+        display: inline-block;
+        margin-left: 10%;
+    }
+
+    #menu {
+        display: none;
+        margin-left: 10%;
+        padding: 0;
+        text-align: left;
+    }
+
+    #menu.open {
+        display: block;
+    }
+
+    #menu li {
+        display: block;
+        margin: 0;
+        text-align: left;
+    }
+
+    #menu li::after {
+        content: "";
+    }
+
+    #menu li:not(:last-child)::after {
+        content: "";  
+    }
+}
+
