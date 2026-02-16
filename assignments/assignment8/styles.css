@@ -42,26 +42,6 @@ body {
     border: 2px solid var(--secondary1);
 }
 
-#exercise1 {
-
-}
-
-#minutesTitle {
-
-}
-
-#minutesRange {
-
-}
-
-#minutesCount {
-
-}
-
-#minutesComment {
-
-}
-
 #exercise2 {
     display: none;
 }
