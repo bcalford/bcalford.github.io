@@ -26,7 +26,7 @@ function create(db) {
 	                 new winston.transports.File({
 	                     level: 'info',
 	                     filename: logDirectory + '/all-logs.log',
-	                     handleExceptions: true,
+	                     handleExceptions: false,
 	                     json: true,
 	                     maxsize: 5242880, //5MB
 	                     maxFiles: 5,
@@ -34,7 +34,7 @@ function create(db) {
 	                 }),
 	                 new winston.transports.Console({
 	                     level: 'debug',
-	                     handleExceptions: true,
+	                     handleExceptions: false,
 	                     json: false,
 	                     colorize: true
 	                 })
@@ -134,6 +134,10 @@ function create(db) {
     var recentGranularity = 10; // 10 seconds (absorbs bursts of requests from a single page)
     var robotsGranularity = 3600; // 1 hour (remembers crawlers that read robots.txt)
     app.use(function(req, res, next) {
+        if (!config.server.trackVisits) {
+            return next();
+        }
+
         // Get ip
         var ips = req.headers["X-Forwarded-For"]
                                     || req.headers["x-forwarded-for"]

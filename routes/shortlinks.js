@@ -5,6 +5,13 @@ var router = express.Router();
 
 module.exports = function(db, logger){
 
+	function redirectLocation(location) {
+		if (/^https?:\/\//.test(location)) {
+			return location;
+		}
+		return path.join('/', location);
+	}
+
 	router.get('/s', function(req, res, next) {
 		res.redirect('/schedule');
 	});
@@ -14,19 +21,19 @@ module.exports = function(db, logger){
 	});
 
 	router.get('/thesis', function(req, res, next) {
-		res.redirect(path.join('/', config.server.thesis));
+		res.redirect(redirectLocation(config.server.thesis));
 	});
 
 	router.get('/p/1', function(req, res, next) {
-		res.redirect(path.join('/', config.server.p1));
+		res.redirect(redirectLocation(config.server.p1));
 	});
 
 	router.get('/p/2', function(req, res, next) {
-		res.redirect(path.join('/', config.server.p2));
+		res.redirect(redirectLocation(config.server.p2));
 	});
 
 	router.get('/p/3', function(req, res, next) {
-		res.redirect(path.join('/', config.server.p3));
+		res.redirect(redirectLocation(config.server.p3));
 	});
 
 	router.get('/d', function(req, res, next) {
