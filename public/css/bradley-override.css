@@ -1,0 +1,221 @@
+:root {
+  --bradley-navy: #10243a;
+  --bradley-navy-dark: #0b1827;
+  --bradley-gold: #b98c3b;
+  --bradley-gold-light: #d1a452;
+  --bradley-sage: #5d756b;
+  --bradley-paper: #f8faf7;
+  --bradley-muted: #5c6975;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+a {
+  color: var(--bradley-gold);
+}
+
+a:hover {
+  color: var(--bradley-gold-light);
+}
+
+::selection {
+  background: var(--bradley-gold);
+}
+
+#mainNav {
+  background-color: var(--bradley-navy-dark);
+}
+
+#mainNav .navbar-toggler {
+  color: var(--bradley-navy);
+  background-color: var(--bradley-gold);
+}
+
+#mainNav .navbar-brand,
+#mainNav .navbar-nav .nav-item .nav-link.active,
+#mainNav .navbar-nav .nav-item .nav-link:hover {
+  color: var(--bradley-gold);
+}
+
+#mainNav .navbar-brand.active,
+#mainNav .navbar-brand:active,
+#mainNav .navbar-brand:focus,
+#mainNav .navbar-brand:hover {
+  color: var(--bradley-gold-light);
+}
+
+@media (min-width: 992px) {
+  #mainNav {
+    background-color: transparent;
+  }
+
+  #mainNav.navbar-shrink {
+    background-color: var(--bradley-navy-dark);
+  }
+}
+
+header.masthead {
+  background:
+    linear-gradient(rgba(11, 24, 39, 0.9), rgba(11, 24, 39, 0.34)),
+    url("/img/bradley-dc-skyline.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+}
+
+section[id] {
+  scroll-margin-top: 85px;
+}
+
+.hero-profile,
+.intro-profile {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.hero-profile {
+  width: 250px;
+  height: 250px;
+}
+
+.intro-profile {
+  width: 350px !important;
+  height: 350px !important;
+}
+
+.bg-primary {
+  background-color: var(--bradley-navy) !important;
+}
+
+.text-secondary {
+  color: var(--bradley-gold) !important;
+}
+
+.btn-primary {
+  color: var(--bradley-navy);
+  background-color: var(--bradley-gold) !important;
+  border-color: var(--bradley-gold) !important;
+}
+
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+  color: var(--bradley-navy) !important;
+  background-color: var(--bradley-gold-light) !important;
+  border-color: var(--bradley-gold-light) !important;
+}
+
+.btn-dark {
+  background-color: var(--bradley-navy);
+  border-color: var(--bradley-navy);
+}
+
+.btn-dark:active,
+.btn-dark:focus,
+.btn-dark:hover {
+  background-color: var(--bradley-sage) !important;
+  border-color: var(--bradley-sage) !important;
+}
+
+.service-icon {
+  background-color: var(--bradley-paper);
+}
+
+.portfolio-item .caption {
+  background-color: rgba(16, 36, 58, 0.86);
+}
+
+.portfolio-img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.client-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 116px;
+  min-height: 58px;
+  margin: 10px 15px;
+  text-decoration: none;
+}
+
+.client-wordmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 116px;
+  height: 58px;
+  color: var(--bradley-navy);
+  background: var(--bradley-paper);
+  border: 1px solid rgba(16, 36, 58, 0.14);
+  border-radius: 4px;
+  box-shadow: 0 10px 24px rgba(16, 36, 58, 0.08);
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+.client-link:hover .client-wordmark,
+.client-link:focus .client-wordmark {
+  color: white;
+  background: var(--bradley-navy);
+}
+
+.timeline-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background: var(--bradley-navy);
+  border-radius: 50%;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.timeline > li .timeline-image {
+  background-color: var(--bradley-navy);
+  border-color: var(--bradley-paper);
+}
+
+.cert-note {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+#contact {
+  background:
+    linear-gradient(rgba(11, 24, 39, 0.94), rgba(11, 24, 39, 0.92)),
+    url("/img/map-image.png");
+  background-color: var(--bradley-navy-dark);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+footer.footer {
+  background-color: var(--bradley-paper);
+}
+
+footer.footer .social-link {
+  background-color: var(--bradley-navy);
+}
+
+footer.footer .social-link:hover {
+  background-color: var(--bradley-sage);
+}
+
+.portfolio-modal .modal-content h2 {
+  color: var(--bradley-navy);
+}
+
+.portfolio-modal .modal-content img {
+  max-height: 460px;
+  object-fit: cover;
+}

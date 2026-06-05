@@ -10,16 +10,16 @@ $(function() {
       // get values from FORM
       var name = $("input#name").val();
       var email = $("input#email").val();
-      var phone = $("input#phone").val();
+      var contactSubject = $("input#subject").val() || "Portfolio inquiry";
       var message = $("textarea#message").val();
       var firstName = name; // For Success/Failure Message
       // Check for white space in name for Success/Fail message
       if (firstName.indexOf(' ') >= 0) {
         firstName = name.split(' ').slice(0, -1).join(' ');
       }
-      var subject = encodeURIComponent("Contact Form - ericwadkins.com");
-      var body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\nPhone: " + phone + "\n\n" + message);
-      window.location.href = "mailto:ewadkins@mit.edu,ewadkins83@gmail.com?subject=" + subject + "&body=" + body;
+      var subject = encodeURIComponent(contactSubject);
+      var body = encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message);
+      window.location.href = "mailto:bradleyalford1@icloud.com?subject=" + subject + "&body=" + body;
 
       $('#success').html("<div class='alert alert-success'>");
       $('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
