@@ -1,20 +1,15 @@
-# Eric Wadkins Portfolio Mirror
+# Bradley C. Alford Portfolio
 
-This is an Express-based mirror of `http://www.ericwadkins.com`.
+This repository powers the static portfolio at `bcalford.com`.
 
-## Run Locally
+## Local Preview
 
 ```sh
-npm install
-npm start
+python3 -m http.server 4000
 ```
 
-The app serves at `http://127.0.0.1:3000` by default.
+Open `http://127.0.0.1:4000`.
 
-## Runtime Options
+## Deployment
 
-- `PORT`: local port, default `3000`
-- `HOST`: bind host, default `127.0.0.1`
-- `DB_CONNECT=true`: opt in to the original MongoDB connection
-- `TRACK_VISITS=true`: opt in to the original visit tracker/mail side effects
-- `MAILGUN_KEY` and `FORM_ID`: required for the original contact/tracking integrations
+GitHub Pages serves this site from the repository root on the `main` branch.
