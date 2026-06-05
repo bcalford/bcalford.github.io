@@ -323,7 +323,7 @@ textarea {
   width: 320px;
   height: 320px;
   object-fit: cover;
-  object-position: center 32%;
+  object-position: center center;
   border: 8px solid rgba(255, 255, 255, 0.92);
   border-radius: 50%;
   box-shadow: 0 20px 70px rgba(0, 0, 0, 0.28);
