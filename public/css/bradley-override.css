@@ -83,9 +83,26 @@ section[id] {
   height: 250px;
 }
 
+.intro-profile-frame {
+  width: 350px;
+  height: 350px;
+  margin: auto;
+  overflow: hidden;
+  border: 8px solid white;
+  border-radius: 50%;
+  background: white;
+}
+
 .intro-profile {
-  width: 350px !important;
-  height: 350px !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none;
+  display: block;
+  border: 0 !important;
+  border-radius: 0;
+  object-position: center 37%;
+  transform: scale(1.12);
+  transform-origin: center 37%;
 }
 
 .bg-primary {
