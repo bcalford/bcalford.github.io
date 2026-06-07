@@ -100,9 +100,9 @@ section[id] {
   display: block;
   border: 0 !important;
   border-radius: 0;
-  object-position: center 37%;
-  transform: scale(1.12);
-  transform-origin: center 37%;
+  object-position: center center;
+  transform: none;
+  transform-origin: center center;
 }
 
 .bg-primary {
