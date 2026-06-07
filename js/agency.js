@@ -1,87 +1,118 @@
 (function($) {
-  "use strict"; // Start of use strict
+  "use strict";
 
-  // Smooth scrolling using jQuery easing
-  $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      if (target.length) {
-        $('html, body').animate({
-          scrollTop: (target.offset().top - 53)
-        }, 1000, "easeInOutExpo");
-        return false;
-      }
+  var sectionHashes = [];
+
+  function getPageScrollTop() {
+    return Math.max(
+      window.pageYOffset || 0,
+      document.documentElement.scrollTop || 0,
+      document.body.scrollTop || 0
+    );
+  }
+
+  function setPageScroll(top) {
+    window.scrollTo({ top: top, left: 0, behavior: "auto" });
+    document.documentElement.scrollTop = top;
+    document.body.scrollTop = top;
+  }
+
+  function scrollToHash(hash) {
+    if (!hash || hash === "#") {
+      return;
     }
-  });
-    
-  $('html, body').on('mousewheel', function() {
-    $('html, body').stop(); // Stops autoscrolling upon manual scrolling
-  });
 
-  // Closes responsive menu when a scroll trigger link is clicked
-  $('.js-scroll-trigger').click(function() {
-    $('.navbar-collapse').collapse('hide');
-  });
+    if (hash === "#page-top") {
+      setPageScroll(0);
+    } else {
+      var target = document.getElementById(hash.slice(1));
+      if (!target) {
+        return;
+      }
+      target.scrollIntoView({ block: "start", inline: "nearest", behavior: "auto" });
+    }
 
-  // Activate scrollspy to add active class to navbar items on scroll
-  $('body').scrollspy({
-    target: '#mainNav',
-    offset: 56
-  });
+    if (window.history && window.history.pushState) {
+      window.history.pushState(null, "", hash);
+    } else {
+      window.location.hash = hash;
+    }
 
-  // Collapse Navbar
-  var navbarCollapse = function() {
-    if ($("#mainNav").offset().top > 100) {
+    updateActiveNav();
+    navbarCollapse();
+    toggleScrollTop();
+  }
+
+  function updateActiveNav() {
+    var currentHash = null;
+    var scrollTop = getPageScrollTop() + ($("#mainNav").outerHeight() || 0) + 60;
+
+    sectionHashes.forEach(function(hash) {
+      var section = document.getElementById(hash.slice(1));
+      if (section && section.offsetTop <= scrollTop) {
+        currentHash = hash;
+      }
+    });
+
+    var navLinks = $("#mainNav .nav-link");
+    navLinks.removeClass("active");
+
+    if (currentHash) {
+      navLinks.filter(function() {
+        return this.getAttribute("href") === currentHash;
+      }).addClass("active");
+    }
+  }
+
+  function navbarCollapse() {
+    if (getPageScrollTop() > 100) {
       $("#mainNav").addClass("navbar-shrink");
     } else {
       $("#mainNav").removeClass("navbar-shrink");
     }
-  };
-  // Collapse now if page is not at top
-  navbarCollapse();
-  // Collapse the navbar when page is scrolled
-  $(window).scroll(navbarCollapse);
+  }
 
-  // Hide navbar when modals trigger
-  /*$('.portfolio-modal').on('show.bs.modal', function(e) {
-    $(".navbar").addClass("d-none");
-  })
-  $('.portfolio-modal').on('hidden.bs.modal', function(e) {
-    $(".navbar").removeClass("d-none");
-  })*/
-    
-
-  // Scroll to top button appear
-  $(document).scroll(function() {
-    var scrollDistance = $(this).scrollTop();
-    if (scrollDistance > 100) {
-      $('.scroll-to-top').fadeIn();
+  function toggleScrollTop() {
+    if (getPageScrollTop() > 100) {
+      $(".scroll-to-top").fadeIn();
     } else {
-      $('.scroll-to-top').fadeOut();
+      $(".scroll-to-top").fadeOut();
+    }
+  }
+
+  function handleScroll() {
+    navbarCollapse();
+    updateActiveNav();
+    toggleScrollTop();
+  }
+
+  $("#mainNav a.js-scroll-trigger[href^='#']").each(function() {
+    var hash = this.getAttribute("href");
+    if (hash !== "#page-top" && document.getElementById(hash.slice(1))) {
+      sectionHashes.push(hash);
     }
   });
 
-    
-  var triggeredFunction = function() {
-    var s = document.createElement("script");
-    s.setAttribute("src", "https://nthitz.github.io/turndownforwhatjs/tdfw.js");
-    document.body.appendChild(s);
-  };
-  var clickCount = 0;
-  var triggered = false;
-  var timestamp = 0;
-  $('#profile_pic').click(function() {
-    if (new Date().getTime() - timestamp < 500) {
-        clickCount++;
-    } else {
-        clickCount = 1;
+  $("a.js-scroll-trigger[href^='#']").on("click", function(event) {
+    var hash = this.getAttribute("href");
+    var hasTarget = hash === "#page-top" || !!document.getElementById(hash.slice(1));
+
+    if (!hasTarget) {
+      return;
     }
-    timestamp = new Date().getTime();
-    if (clickCount >= 5 && !triggered) {
-      triggered = true;
-      triggeredFunction();
-    }
+
+    event.preventDefault();
+
+    var menuIsOpen = $(".navbar-collapse").hasClass("show");
+    $(".navbar-collapse").collapse("hide");
+
+    window.setTimeout(function() {
+      scrollToHash(hash);
+    }, menuIsOpen ? 180 : 0);
   });
 
-})(jQuery); // End of use strict
+  handleScroll();
+  $(window).on("scroll", handleScroll);
+  $("body").on("scroll", handleScroll);
+  $(document).on("scroll", handleScroll);
+})(jQuery);
